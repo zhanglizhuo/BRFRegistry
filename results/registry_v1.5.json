@@ -347,6 +347,35 @@
     },
     "brf_error": null
   },
+  "student_depression_prof": {
+    "key": "student_depression_prof",
+    "name": "Student Depression Survey (by profession)",
+    "n": 27884,
+    "n_features": 21,
+    "target_type": "binary (depression yes/no)",
+    "n_groups": 3,
+    "source_url": "https://www.openml.org/search?type=data&id=46753",
+    "dataset_root": "",
+    "reference": "Student Depression Dataset; OpenML ID 46753",
+    "license": "Public Domain (OpenML)",
+    "notes": "Same data as student_depression, grouped by Profession (3 groups) instead of City (30). Near-Fragile: E=0.52.",
+    "brf_result": {
+      "B": 0.5191,
+      "I": 0.0171,
+      "N": 1.0,
+      "M": 0.0021,
+      "S": 0.9829,
+      "E": 0.5212,
+      "class": "Reliable",
+      "n_splits": 30,
+      "n_permutations": 200,
+      "model": "Ridge(alpha=1.0)",
+      "seed": 42,
+      "scale": true,
+      "elapsed_seconds": 28.0
+    },
+    "brf_error": null
+  },
   "student_dropout": {
     "key": "student_dropout",
     "name": "Student Dropout",
