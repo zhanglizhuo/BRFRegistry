@@ -1,0 +1,32 @@
+# BRF Benchmark Registry Manifest
+# https://github.com/zhanglizhuo/BRFRegistry
+
+version: "1.5"
+release_date: "2026-06-30"
+total_datasets: 12
+
+description: >
+  Curated collection of group-aware educational benchmark datasets
+  with standardized metadata, reproducibility scripts, and BRF
+  (Benchmark Reliability Framework) audit results.
+
+datasets:
+  - oulad
+  - student_dropout
+  - xapi_edu
+  - entrance_exam
+  - uci_student
+  - higher_ed
+  - mm_tba
+  - tae
+  - turkiye
+  - assistments
+  - mathe
+  - colleges_aaup
+
+brf_results:
+  reliable: 8
+  void: 4
+  fragile: 0
+
+schema_version: "2.0.0"

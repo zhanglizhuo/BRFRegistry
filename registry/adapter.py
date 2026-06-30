@@ -93,6 +93,100 @@ class TurkiyeAdapter:
         return _bundle(X, y, group_ids, data_card)
 
 
+class CollegesAAUPAdapter:
+    """AAUP College Faculty Salary (OpenML ID 488).
+
+    Institutional-level dataset: 1161 US colleges.
+    Target: average faculty salary (all ranks).
+    Group: State (52 groups).
+    Features: institution type (one-hot) + faculty counts.
+    """
+
+    name = "colleges_aaup"
+
+    def load(self, dataset_root: Optional[str] = None) -> object:
+        import pandas as pd
+
+        data_path = _BRF_DATA_DIR / "colleges_aaup.csv"
+        if not data_path.exists():
+            return _error_bundle(f"Missing file: {data_path}")
+
+        df = pd.read_csv(str(data_path))
+
+        target_col = "Average_salary-all_ranks"
+        y = df[target_col].values.astype(float)
+
+        type_d = pd.get_dummies(df["Type"], prefix="type", dtype=float)
+        faculty_cols = [c for c in df.columns if c.startswith("Number_of")]
+        feat_df = pd.concat([type_d, df[faculty_cols].astype(float)], axis=1)
+        X = feat_df.values.astype(float)
+
+        group_ids = df["State"].astype(str).tolist()
+
+        data_card = {
+            "n_samples": len(y),
+            "n_features": X.shape[1],
+            "n_groups": df["State"].nunique(),
+            "source": "OpenML ID 488 (AAUP)",
+            "features": list(feat_df.columns),
+        }
+        return _bundle(X, y, group_ids, data_card)
+
+
+class MathEAdapter:
+    """MathE: Assessing Mathematics Learning in Higher Education (UCI ID 1031).
+
+    Transaction-level student answers aggregated to question difficulty.
+    Target: question difficulty (proportion correct).
+    Group: Math Topic (14 groups).
+    Features: subtopic one-hots, level, n_attempts.
+    """
+
+    name = "mathe"
+
+    def load(self, dataset_root: Optional[str] = None) -> object:
+        import pandas as pd
+
+        data_path = _BRF_DATA_DIR / "MathE dataset (4).csv"
+        if not data_path.exists():
+            return _error_bundle(f"Missing file: {data_path}")
+
+        df = pd.read_csv(str(data_path), sep=";", encoding="latin-1", engine="python")
+
+        q_agg = (
+            df.groupby("Question ID")
+            .agg(
+                difficulty=("Type of Answer", "mean"),
+                n_attempts=("Student ID", "nunique"),
+                topic=("Topic", "first"),
+                subtopic=("Subtopic", "first"),
+                level=("Question Level", "first"),
+            )
+            .reset_index()
+        )
+        q_agg["level_int"] = (q_agg["level"] == "Advanced").astype(float)
+
+        subtopic_d = pd.get_dummies(q_agg["subtopic"], prefix="sub", dtype=float)
+
+        feat_arr = [q_agg[["n_attempts", "level_int"]].values.astype(float)]
+        if subtopic_d.shape[1] > 0:
+            feat_arr.append(subtopic_d.values.astype(float))
+        X = np.hstack(feat_arr)
+
+        y = q_agg["difficulty"].values
+        group_ids = q_agg["topic"].astype(str).tolist()
+
+        data_card = {
+            "n_samples": len(y),
+            "n_features": X.shape[1],
+            "n_groups": q_agg["topic"].nunique(),
+            "n_subtopics": q_agg["subtopic"].nunique(),
+            "source": "UCI ID 1031",
+            "features": ["n_attempts", "level_int"] + [f"subtopic_{i}" for i in range(subtopic_d.shape[1])],
+        }
+        return _bundle(X, y, group_ids, data_card)
+
+
 class ASSISTmentsAdapter:
     """ASSISTments 2009-2010 Skill Builder (corrected).
 
@@ -181,6 +275,8 @@ _ADAPTERS = {
     "tae": TAEAdapter(),
     "turkiye": TurkiyeAdapter(),
     "assistments": ASSISTmentsAdapter(),
+    "mathe": MathEAdapter(),
+    "colleges_aaup": CollegesAAUPAdapter(),
 }
 
 

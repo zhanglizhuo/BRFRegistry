@@ -169,3 +169,31 @@ register_dataset(
     license_info="TBD (public research data)",
     notes="Skill builder corrected. Student-level aggregates of 401K transactions. Teacher as group.",
 )
+
+register_dataset(
+    key="mathe",
+    name="MathE",
+    n=833,
+    n_features=26,
+    target_type="continuous (question difficulty)",
+    n_groups=14,
+    source_url="https://archive.ics.uci.edu/dataset/1031/dataset+for+assessing+mathematics+learning+in+higher+education",
+    dataset_root="",
+    reference="Azevedo, Pacheco, Fernandes & Pereira (2024); UCI ID 1031",
+    license_info="CC BY 4.0",
+    notes="Question-level aggregation of 9546 student answers. Topic as group.",
+)
+
+register_dataset(
+    key="colleges_aaup",
+    name="Colleges AAUP",
+    n=1161,
+    n_features=9,
+    target_type="continuous (avg faculty salary)",
+    n_groups=52,
+    source_url="https://www.openml.org/search?type=data&id=488",
+    dataset_root="",
+    reference="AAUP Faculty Salary Survey (OpenML ID 488)",
+    license_info="Public Domain (OpenML)",
+    notes="1161 US colleges, 52 state groups. Institutional-level. Target: average salary all ranks.",
+)

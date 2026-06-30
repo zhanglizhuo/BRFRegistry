@@ -28,6 +28,35 @@
     },
     "brf_error": null
   },
+  "mathe": {
+    "key": "mathe",
+    "name": "MathE",
+    "n": 833,
+    "n_features": 26,
+    "target_type": "continuous (question difficulty)",
+    "n_groups": 14,
+    "source_url": "https://archive.ics.uci.edu/dataset/1031/dataset+for+assessing+mathematics+learning+in+higher+education",
+    "dataset_root": "",
+    "reference": "Azevedo, Pacheco, Fernandes & Pereira (2024); UCI ID 1031",
+    "license": "CC BY 4.0",
+    "notes": "Question-level aggregation of 9546 student answers. Topic as group. Cross-topic transfer fails.",
+    "brf_result": {
+      "B": 0.0334,
+      "I": 2.4691,
+      "N": 0.8333,
+      "M": 0.5987,
+      "S": -1.6358,
+      "E": 0.6320,
+      "class": "Void",
+      "n_splits": 30,
+      "n_permutations": 200,
+      "model": "Ridge(alpha=1.0)",
+      "seed": 42,
+      "scale": true,
+      "elapsed_seconds": 1.0
+    },
+    "brf_error": null
+  },
   "entrance_exam": {
     "key": "entrance_exam",
     "name": "Entrance Exam",
