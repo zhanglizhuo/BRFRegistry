@@ -1,55 +1,139 @@
 # BRF Benchmark Registry
 
-Versioned, DOI-tracked collection of benchmark datasets audited under the
-Benchmark Reliability Framework (BRF).
+Versioned, DOI-tracked collection of group-aware educational benchmark datasets
+audited under the Benchmark Reliability Framework (BRF).
+
+Dataset-as-Code architecture: each dataset is a Python module with
+download -> verify -> prepare pipeline for full reproducibility.
+
+## Quick Start
+
+```bash
+# Install BRF
+pip install benchmark-reliability
+
+# List all datasets
+python -m registry.cli list
+
+# Download and verify a dataset
+python -m registry.cli download tae
+python -m registry.cli verify tae
+
+# Sync all (download + verify all datasets)
+python -m registry.cli sync
+
+# Show metadata
+python -m registry.cli info oulad
+
+# Run BRF on all registered datasets
+python run_registry.py
+```
 
 ## Structure
 
 ```
 BRFRegistry/
-|-- registry/            # Python package: dataset metadata + adapters
-|-- results/             # BRF audit results (JSON)
-|-- data/                # (optional) processed dataset snapshots
-|-- run_registry.py      # Run BRF on all registered datasets
+|-- registry/
+|   |-- sources/          # One .py per dataset (DatasetSource subclass)
+|   |-- cache/            # Downloaded data (gitignored)
+|   |-- manifest.yaml     # Registry version + dataset index
+|   |-- cli.py            # CLI: list, download, verify, sync, info
+|   |-- verify.py         # SHA-256 verification
+|   `-- known_datasets.py # Legacy metadata registry
+|-- results/              # BRF audit results (JSON)
+|-- run_registry.py       # Run BRF on all registered datasets
+`-- ROADMAP.md            # Project roadmap & paper definitions
 ```
 
-## Usage
+## Adding a Dataset
 
-```bash
-pip install benchmark-reliability
-python run_registry.py
+Drop a `.py` file in `registry/sources/` implementing a `DatasetSource` subclass
+decorated with `@register_source`. Auto-discovered on next import.
+
+```python
+from registry.sources import DatasetSource, register_source
+
+@register_source
+class MyDataset(DatasetSource):
+    name = "my_dataset"
+    display_name = "My Dataset"
+    source_url = "https://..."
+    license_info = "CC BY 4.0"
+    task = "regression"
+    n_samples = 1000
+    n_features = 10
+    n_groups = 20
+    grouping_description = "School (20 schools)"
+
+    def download(self):
+        # Download from source_url, cache locally
+        ...
+
+    def prepare(self):
+        # Return (X, y, groups, metadata_card)
+        ...
 ```
 
 ## Registry Contents
 
-| Version | Date | Datasets | Reliable | Fragile | Void |
-|---------|------|----------|----------|---------|------|
-| v1.0 | 2026-06-28 | 7 | 4 | 0 | 3 |
-| v1.5 | 2026-06-30 | 9 | 6 | 0 | 3 |
+| Version | Date | Datasets | Reliable | Void | Fragile |
+|---------|------|----------|----------|------|---------|
+| v1.0 | 2026-06-28 | 7 | 4 | 3 | 0 |
+| v1.5 | 2026-07-01 | 25 | 20 | 5 | 0 |
 
-### v1.5 (current) -- 9 datasets
+### v1.5 (current) -- 25 datasets
 
-| Dataset | N | Features | Groups | Target | B | I | N | M | S | E | Class |
-|---------|---|---|---------|--------|---|---|---|---|---|---|---|
-| OULAD | 32593 | 44 | 22 | binary | 0.468 | 0.020 | 1.000 | 0.768 | 0.980 | 1.236 | Reliable |
-| Student Dropout | 3630 | 36 | 17 | binary | 0.656 | 0.029 | 1.000 | 0.646 | 0.971 | 1.302 | Reliable |
-| xAPI-Edu-Data | 480 | 72 | 12 | ordinal 3 | 0.655 | 0.110 | 1.000 | 0.689 | 0.890 | 1.344 | Reliable |
-| Entrance Exam | 666 | 49 | 3 | ordinal 4 | 0.456 | 0.116 | 1.000 | 0.510 | 0.884 | 0.966 | Reliable |
-| UCI Student | 649 | 56 | 2 | continuous | 0.243 | 0.377 | 1.000 | 0.815 | 0.623 | 1.058 | Reliable |
-| Turkiye Student Eval | 5820 | 28 | 13 | ordinal 5 | 0.021 | 0.445 | 1.000 | 0.678 | 0.556 | 0.699 | Reliable |
-| Higher Ed | 145 | 31 | 9 | continuous | 0.169 | 2.000 | 0.967 | 0.392 | -1.034 | 0.561 | Void |
-| Teaching Assistant Eval | 151 | 4 | 25 | ordinal 3 | 0.117 | 1.356 | 0.933 | 0.629 | -0.423 | 0.746 | Void |
-| MM-TBA | 186 | 13 | 0 | continuous | -0.034 | 1.436 | 0.667 | 0.000 | -0.769 | -0.034 | Void |
+| # | Dataset | N | p | G | B | I | N | M | S | E | Class |
+|---|---------|---|---|---|---|---|---|---|---|---|---|-------|
+| 1 | OULAD | 33K | 44 | 22 | 0.47 | 0.02 | 1.00 | 0.77 | 0.98 | 1.24 | Reliable |
+| 2 | Student Dropout | 3.6K | 36 | 17 | 0.66 | 0.03 | 1.00 | 0.65 | 0.97 | 1.30 | Reliable |
+| 3 | xAPI-Edu | 480 | 72 | 12 | 0.66 | 0.11 | 1.00 | 0.69 | 0.89 | 1.34 | Reliable |
+| 4 | Entrance Exam | 666 | 49 | 3 | 0.46 | 0.12 | 1.00 | 0.51 | 0.88 | 0.97 | Reliable |
+| 5 | UCI Student | 649 | 56 | 2 | 0.24 | 0.38 | 1.00 | 0.81 | 0.62 | 1.06 | Reliable |
+| 6 | Turkiye | 5.8K | 28 | 13 | 0.02 | 0.44 | 1.00 | 0.68 | 0.56 | 0.70 | Reliable |
+| 7 | ASSISTments (teacher) | 3.7K | 5 | 124 | 0.51 | 0.05 | 1.00 | 0.44 | 0.95 | 0.95 | Reliable |
+| 8 | ASSISTments (school) | 3.7K | 5 | 58 | 0.51 | 0.05 | 1.00 | 0.39 | 0.95 | 0.90 | Reliable |
+| 9 | Colleges AAUP (state) | 1.2K | 9 | 52 | 0.48 | 0.10 | 1.00 | 0.54 | 0.90 | 1.03 | Reliable |
+| 10 | Colleges AAUP (type) | 1.2K | 9 | 4 | 0.48 | 0.10 | 1.00 | 0.47 | 0.90 | 0.95 | Reliable |
+| 11 | US News (state) | 1.2K | 31 | 51 | 0.50 | 0.12 | 1.00 | 0.54 | 0.88 | 1.04 | Reliable |
+| 12 | Scorecard (state) | 2.2K | 30 | 55 | 0.24 | 0.18 | 1.00 | 0.45 | 0.82 | 0.69 | Reliable |
+| 13 | Scorecard (region) | 2.2K | 27 | 9 | 0.24 | 0.18 | 1.00 | 0.63 | 0.82 | 0.87 | Reliable |
+| 14 | Scorecard (Carnegie) | 1.9K | 27 | 22 | 0.30 | 0.19 | 1.00 | 0.42 | 0.81 | 0.71 | Reliable |
+| 15 | Scorecard (ownership) | 2.2K | 27 | 3 | 0.24 | 0.18 | 1.00 | 0.74 | 0.82 | 0.98 | Reliable |
+| 16 | OLI Statics | 195K | 2 | 19 | 0.04 | 0.04 | 1.00 | 0.67 | 0.96 | 0.71 | Reliable |
+| 17 | Student Depression (city) | 28K | 21 | 30 | 0.52 | 0.02 | 1.00 | 0.85 | 0.98 | 1.37 | Reliable |
+| 18 | Student Depression (prof) | 28K | 21 | 3 | 0.52 | 0.02 | 1.00 | 0.00 | 0.98 | 0.52 | Reliable |
+| 19 | Student Depression (deg) | 28K | 21 | 28 | 0.52 | 0.02 | 1.00 | 0.45 | 0.98 | 0.97 | Reliable |
+| 20 | Law School | 21K | 10 | 6 | 0.18 | 0.04 | 1.00 | 0.55 | 0.96 | 0.73 | Reliable |
+| 21 | Higher Ed | 145 | 31 | 9 | 0.17 | 2.00 | 0.97 | 0.39 | -1.03 | 0.56 | Void |
+| 22 | TAE | 151 | 4 | 25 | 0.12 | 1.36 | 0.93 | 0.63 | -0.42 | 0.75 | Void |
+| 23 | MM-TBA | 186 | 13 | 0 | -0.03 | 1.44 | 0.67 | 0.00 | -0.77 | -0.03 | Void |
+| 24 | MathE | 833 | 26 | 14 | 0.03 | 2.47 | 0.83 | 0.60 | -1.64 | 0.63 | Void |
+| 25 | PISA 2015 Science | 519K | 2 | 73 | 0.00 | 0.13 | 0.03 | 0.66 | -0.10 | 0.66 | Void |
 
-See `results/registry_v1.5.json` for full BRF audit results (v1.0 in `results/registry_v1.json`).
+### BRF Metric Definitions
 
-## Adding a Dataset
+| Metric | Formula | Meaning |
+|--------|---------|---------|
+| B | mean(Delta(R^2) vs mean baseline) | Predictive signal strength |
+| I | std(R^2) / max(|mean(R^2)|, 1e-4) + 1e-8 | Intrinsic instability |
+| N | fraction of folds where R^2_real > median(R^2_perm) | Null separation |
+| M | 0.5 * norm_group_entropy + 0.5 * group_balance | Metadata adequacy |
+| S | N - I | Stability (signal - noise) |
+| E | B + M | Evidence (predictive + structural) |
 
-1. Add the adapter class in `registry/adapter.py` (see `TAEAdapter` or `TurkiyeAdapter` for examples)
-2. Register metadata in `registry/known_datasets.py`
-3. Run `python run_registry.py` to regenerate results
+Classification: Void if S <= 0, Fragile if S > 0 and E <= 0.5, Reliable otherwise.
+
+## Key Findings (v1.5, N=25)
+
+- **Fragile regime unobserved**: The condition S>0 and E<=0.5 has not appeared
+  in any dataset. The closest case is Student Depression by Profession (E=0.52).
+- **Grouping sensitivity**: Identical data with different grouping levels yields
+  vastly different M and E values while S stays constant.
+- **Void causes are diverse**: small N (Higher Ed), low feature density (TAE),
+  no grouping metadata (MM-TBA), cross-domain transfer failure (MathE),
+  zero predictive signal (PISA).
 
 ## License
 
-The code in this repository is MIT. Individual datasets have their own
-licenses (see registry metadata).
+Code: MIT. Individual datasets have their own licenses (see registry metadata).
