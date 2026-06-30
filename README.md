@@ -1,10 +1,13 @@
 # BRF Benchmark Registry
 
-Versioned, DOI-tracked collection of group-aware educational benchmark datasets
-audited under the Benchmark Reliability Framework (BRF).
+The **BRF Benchmark Registry** is a versioned, DOI-tracked collection of
+group-aware educational prediction benchmarks audited under the
+**Benchmark Reliability Framework (BRF)**.
 
-Dataset-as-Code architecture: each dataset is a Python module with
-download -> verify -> prepare pipeline for full reproducibility.
+> Registry v1.5 : 25 datasets | 20 Reliable | 5 Void | 0 Fragile
+
+**Architecture**: Dataset-as-Code — each dataset is a Python module with
+`download → verify → prepare` pipeline. Adding a new dataset = one `.py` file.
 
 ## Quick Start
 
@@ -126,13 +129,19 @@ Classification: Void if S <= 0, Fragile if S > 0 and E <= 0.5, Reliable otherwis
 
 ## Key Findings (v1.5, N=25)
 
-- **Fragile regime unobserved**: The condition S>0 and E<=0.5 has not appeared
-  in any dataset. The closest case is Student Depression by Profession (E=0.52).
-- **Grouping sensitivity**: Identical data with different grouping levels yields
-  vastly different M and E values while S stays constant.
-- **Void causes are diverse**: small N (Higher Ed), low feature density (TAE),
-  no grouping metadata (MM-TBA), cross-domain transfer failure (MathE),
-  zero predictive signal (PISA).
+- **Fragile absent at scale**: Across 25 datasets spanning 6 domains, the
+  Fragile regime (S>0, E<=0.5) was never observed. Bootstrap 95% CI:
+  [0%, 0%]; rule-of-three upper bound ~12%.
+- **Bimodal distribution**: Datasets cluster into Reliable (S>>0, E>0.5,
+  N~1.0) or Void (S<0). No intermediate regime detected.
+- **Grouping sensitivity is large**: The same data with different grouping
+  yields E varying by 0.35-0.85 (e.g., Student Depression: City E=1.37,
+  Profession E=0.52 — near-Fragile).
+- **Void causes are diverse**: small N (Higher Ed), low feature density
+  (TAE), no grouping metadata (MM-TBA), cross-domain transfer failure
+  (MathE), zero predictive signal (PISA).
+
+Full S-vs-E scatter data available in `results/registry_v1.5.json`.
 
 ## License
 
