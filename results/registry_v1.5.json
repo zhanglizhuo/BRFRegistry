@@ -28,6 +28,35 @@
     },
     "brf_error": null
   },
+  "college_scorecard": {
+    "key": "college_scorecard",
+    "name": "US College Scorecard",
+    "n": 2220,
+    "n_features": 30,
+    "target_type": "continuous (admission rate)",
+    "n_groups": 55,
+    "source_url": "https://www.openml.org/search?type=data&id=42121",
+    "dataset_root": "",
+    "reference": "US Dept of Education; OpenML ID 42121",
+    "license": "Public Domain (OpenML)",
+    "notes": "7804 colleges, filtered to 2220 with admission data.",
+    "brf_result": {
+      "B": 0.2421,
+      "I": 0.1759,
+      "N": 1.0,
+      "M": 0.445,
+      "S": 0.8241,
+      "E": 0.6871,
+      "class": "Reliable",
+      "n_splits": 30,
+      "n_permutations": 200,
+      "model": "Ridge(alpha=1.0)",
+      "seed": 42,
+      "scale": true,
+      "elapsed_seconds": 12.0
+    },
+    "brf_error": null
+  },
   "colleges_aaup": {
     "key": "colleges_aaup",
     "name": "Colleges AAUP",
@@ -199,6 +228,35 @@
       "seed": 42,
       "scale": true,
       "elapsed_seconds": 0.5
+    },
+    "brf_error": null
+  },
+  "oli": {
+    "key": "oli",
+    "name": "OLI Engineering Statics 2011",
+    "n": 194947,
+    "n_features": 2,
+    "target_type": "binary (first attempt correctness)",
+    "n_groups": 19,
+    "source_url": "http://base.ustc.edu.cn/data/OLI_data.zip",
+    "dataset_root": "",
+    "reference": "CMU OLI; PSLC DataShop",
+    "license": "Public research data (PSLC DataShop)",
+    "notes": "Engineering Statics course. 194K steps, 19 modules. Target is classification but run as regression.",
+    "brf_result": {
+      "B": 0.0364,
+      "I": 0.042,
+      "N": 1.0,
+      "M": 0.6737,
+      "S": 0.958,
+      "E": 0.7101,
+      "class": "Reliable",
+      "n_splits": 30,
+      "n_permutations": 200,
+      "model": "Ridge(alpha=1.0)",
+      "seed": 42,
+      "scale": true,
+      "elapsed_seconds": 25.0
     },
     "brf_error": null
   },

@@ -3,7 +3,7 @@
 
 version: "1.5"
 release_date: "2026-06-30"
-total_datasets: 13
+total_datasets: 15
 
 description: >
   Curated collection of group-aware educational benchmark datasets
@@ -24,9 +24,11 @@ datasets:
   - mathe
   - colleges_aaup
   - colleges_usnews
+  - college_scorecard
+  - oli
 
 brf_results:
-  reliable: 9
+  reliable: 11
   void: 4
   fragile: 0
 

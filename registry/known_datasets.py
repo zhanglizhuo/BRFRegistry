@@ -211,3 +211,31 @@ register_dataset(
     license_info="Public Domain (OpenML)",
     notes="1204 US colleges, 51 state groups. Target: graduation rate.",
 )
+
+register_dataset(
+    key="college_scorecard",
+    name="US College Scorecard",
+    n=2220,
+    n_features=30,
+    target_type="continuous (admission rate)",
+    n_groups=55,
+    source_url="https://www.openml.org/search?type=data&id=42121",
+    dataset_root="",
+    reference="US Dept of Education; OpenML ID 42121",
+    license_info="Public Domain (OpenML)",
+    notes="7804 colleges, filtered to 2220 with admission rate. Target: admission rate.",
+)
+
+register_dataset(
+    key="oli",
+    name="OLI Engineering Statics 2011",
+    n=194947,
+    n_features=2,
+    target_type="binary (first attempt correctness)",
+    n_groups=19,
+    source_url="http://base.ustc.edu.cn/data/OLI_data.zip",
+    dataset_root="",
+    reference="CMU OLI; PSLC DataShop",
+    license_info="Public research data (PSLC DataShop)",
+    notes="194K step-level observations. Target: first attempt correct. Module as group.",
+)
