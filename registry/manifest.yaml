@@ -3,7 +3,7 @@
 
 version: "1.5"
 release_date: "2026-06-30"
-total_datasets: 15
+total_datasets: 17
 
 description: >
   Curated collection of group-aware educational benchmark datasets
@@ -26,9 +26,11 @@ datasets:
   - colleges_usnews
   - college_scorecard
   - oli
+  - student_depression
+  - assistments_school
 
 brf_results:
-  reliable: 11
+  reliable: 13
   void: 4
   fragile: 0
 

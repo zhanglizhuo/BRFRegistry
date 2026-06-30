@@ -239,3 +239,31 @@ register_dataset(
     license_info="Public research data (PSLC DataShop)",
     notes="194K step-level observations. Target: first attempt correct. Module as group.",
 )
+
+register_dataset(
+    key="student_depression",
+    name="Student Depression Survey",
+    n=27875,
+    n_features=21,
+    target_type="binary (depression yes/no)",
+    n_groups=30,
+    source_url="https://www.openml.org/search?type=data&id=46753",
+    dataset_root="",
+    reference="Student Depression Dataset; OpenML ID 46753",
+    license_info="Public Domain (OpenML)",
+    notes="27.9K students. City as group (30 Indian cities). Run as regression.",
+)
+
+register_dataset(
+    key="assistments_school",
+    name="ASSISTments 2009-2010 (by school)",
+    n=3729,
+    n_features=5,
+    target_type="continuous (overall accuracy)",
+    n_groups=58,
+    source_url="http://base.ustc.edu.cn/data/ASSISTment/2009_skill_builder_data_corrected.zip",
+    dataset_root="",
+    reference="Feng, Heffernan & Koedinger (2009)",
+    license_info="Public research data",
+    notes="Same data as assistments, grouped by school (58) instead of teacher (124).",
+)
