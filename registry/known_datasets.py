@@ -197,3 +197,17 @@ register_dataset(
     license_info="Public Domain (OpenML)",
     notes="1161 US colleges, 52 state groups. Institutional-level. Target: average salary all ranks.",
 )
+
+register_dataset(
+    key="colleges_usnews",
+    name="Colleges US News",
+    n=1204,
+    n_features=31,
+    target_type="continuous (graduation rate)",
+    n_groups=51,
+    source_url="https://www.openml.org/search?type=data&id=538",
+    dataset_root="",
+    reference="US News College Rankings (OpenML ID 538)",
+    license_info="Public Domain (OpenML)",
+    notes="1204 US colleges, 51 state groups. Target: graduation rate.",
+)

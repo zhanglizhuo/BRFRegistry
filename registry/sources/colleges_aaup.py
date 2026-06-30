@@ -10,7 +10,7 @@ class CollegesAAUPSource(DatasetSource):
     name = "colleges_aaup"
     display_name = "AAUP College Faculty Salary"
     version = "1.0"
-    source_url = "https://www.openml.org/data/download/22101656/colleges_aaup.arff"
+    source_url = "https://www.openml.org/search?type=data&id=488"
     license_info = "Public Domain (OpenML)"
     reference = "AAUP Faculty Salary Survey (OpenML ID 488)"
     task = "regression"
@@ -21,22 +21,24 @@ class CollegesAAUPSource(DatasetSource):
     notes = "1161 US colleges. Institutional-level prediction."
 
     def download(self):
-        import urllib.request
         dest_dir = self._ensure_cache_dir()
-        arff_path = dest_dir / "colleges_aaup.arff"
-        if not arff_path.exists():
-            urllib.request.urlretrieve(self.source_url, str(arff_path))
-        return arff_path
+        csv_path = dest_dir / "colleges_aaup.csv"
+        if csv_path.exists():
+            return csv_path
+
+        import openml
+        import pandas as pd
+
+        ds = openml.datasets.get_dataset(488)
+        X, y, _, _ = ds.get_data(dataset_format="dataframe")
+        X.to_csv(str(csv_path), index=False)
+        return csv_path
 
     def prepare(self):
-        from scipy.io import arff
         import pandas as pd
 
         path = self.download()
-        data, meta = arff.loadarff(str(path))
-        df = pd.DataFrame(data)
-        for col in df.select_dtypes([object]).columns:
-            df[col] = df[col].str.decode("utf-8") if hasattr(df[col], "str") else df[col]
+        df = pd.read_csv(str(path))
 
         target_col = "Average_salary-all_ranks"
         y = df[target_col].values.astype(float)
