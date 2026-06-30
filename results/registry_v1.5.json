@@ -86,6 +86,35 @@
     },
     "brf_error": null
   },
+  "college_scorecard_carnegie": {
+    "key": "college_scorecard_carnegie",
+    "name": "US College Scorecard (by Carnegie)",
+    "n": 1902,
+    "n_features": 27,
+    "target_type": "continuous (admission rate)",
+    "n_groups": 22,
+    "source_url": "https://www.openml.org/search?type=data&id=42121",
+    "dataset_root": "",
+    "reference": "US Dept of Education; OpenML ID 42121",
+    "license": "Public Domain (OpenML)",
+    "notes": "Grouped by Carnegie classification (22).",
+    "brf_result": {
+      "B": 0.2958,
+      "I": 0.1874,
+      "N": 1.0,
+      "M": 0.4189,
+      "S": 0.8126,
+      "E": 0.7147,
+      "class": "Reliable",
+      "n_splits": 30,
+      "n_permutations": 200,
+      "model": "Ridge(alpha=1.0)",
+      "seed": 42,
+      "scale": true,
+      "elapsed_seconds": 18.0
+    },
+    "brf_error": null
+  },
   "college_scorecard_region": {
     "key": "college_scorecard_region",
     "name": "US College Scorecard (by region)",
@@ -228,6 +257,35 @@
       "seed": 42,
       "scale": true,
       "elapsed_seconds": 0.4
+    },
+    "brf_error": null
+  },
+  "law_school": {
+    "key": "law_school",
+    "name": "Law School Admission",
+    "n": 20800,
+    "n_features": 10,
+    "target_type": "binary (bar exam pass)",
+    "n_groups": 6,
+    "source_url": "https://www.openml.org/search?type=data&id=43889",
+    "dataset_root": "",
+    "reference": "Law School Admissions; OpenML ID 43889",
+    "license": "Public Domain (OpenML)",
+    "notes": "20.8K law school applicants. Group: cluster (6). Target: bar exam pass.",
+    "brf_result": {
+      "B": 0.1805,
+      "I": 0.041,
+      "N": 1.0,
+      "M": 0.5505,
+      "S": 0.959,
+      "E": 0.731,
+      "class": "Reliable",
+      "n_splits": 30,
+      "n_permutations": 200,
+      "model": "Ridge(alpha=1.0)",
+      "seed": 42,
+      "scale": true,
+      "elapsed_seconds": 15.0
     },
     "brf_error": null
   },
