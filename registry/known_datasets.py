@@ -159,10 +159,10 @@ register_dataset(
 register_dataset(
     key="assistments",
     name="ASSISTments 2009-2010",
-    n=4217,
+    n=3729,
     n_features=5,
     target_type="continuous (overall accuracy)",
-    n_groups=153,
+    n_groups=124,
     source_url="http://base.ustc.edu.cn/data/ASSISTment/2009_skill_builder_data_corrected.zip",
     dataset_root="",
     reference="Feng, Heffernan & Koedinger (2009)",
