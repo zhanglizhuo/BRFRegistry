@@ -30,7 +30,9 @@
     "education_level": "K12",
     "country": "US",
     "year": "2009-2010",
-    "domain": "Intelligent Tutoring"
+    "domain": "Intelligent Tutoring",
+    "grouping": "Teacher",
+    "grouping_rationale": "Teacher determines curriculum and instruction quality"
   },
   "assistments_school": {
     "key": "assistments_school",
@@ -63,7 +65,9 @@
     "education_level": "K12",
     "country": "US",
     "year": "2009-2010",
-    "domain": "Intelligent Tutoring"
+    "domain": "Intelligent Tutoring",
+    "grouping": "School",
+    "grouping_rationale": "School determines resources and student demographics"
   },
   "college_scorecard": {
     "key": "college_scorecard",
@@ -96,7 +100,9 @@
     "education_level": "Higher Education",
     "country": "US",
     "year": "2015-2016",
-    "domain": "Institutional Outcomes"
+    "domain": "Institutional Outcomes",
+    "grouping": "State",
+    "grouping_rationale": "State determines funding, policy, and regulatory environment"
   },
   "college_scorecard_carnegie": {
     "key": "college_scorecard_carnegie",
@@ -129,7 +135,9 @@
     "education_level": "Higher Education",
     "country": "US",
     "year": "2015-2016",
-    "domain": "Institutional Outcomes"
+    "domain": "Institutional Outcomes",
+    "grouping": "Carnegie classification",
+    "grouping_rationale": "Classification captures institutional mission and selectivity"
   },
   "college_scorecard_ownership": {
     "key": "college_scorecard_ownership",
@@ -162,7 +170,9 @@
     "education_level": "Higher Education",
     "country": "US",
     "year": "2015-2016",
-    "domain": "Institutional Outcomes"
+    "domain": "Institutional Outcomes",
+    "grouping": "Ownership type",
+    "grouping_rationale": "Ownership type determines funding model"
   },
   "college_scorecard_region": {
     "key": "college_scorecard_region",
@@ -195,7 +205,9 @@
     "education_level": "Higher Education",
     "country": "US",
     "year": "2015-2016",
-    "domain": "Institutional Outcomes"
+    "domain": "Institutional Outcomes",
+    "grouping": "Region",
+    "grouping_rationale": "Geographic region captures economic clusters"
   },
   "colleges_aaup": {
     "key": "colleges_aaup",
@@ -228,7 +240,9 @@
     "education_level": "Higher Education",
     "country": "US",
     "year": "1995",
-    "domain": "Institutional Economics"
+    "domain": "Institutional Economics",
+    "grouping": "State",
+    "grouping_rationale": "State determines cost of living and funding levels"
   },
   "colleges_aaup_type": {
     "key": "colleges_aaup_type",
@@ -261,7 +275,9 @@
     "education_level": "Higher Education",
     "country": "US",
     "year": "1995",
-    "domain": "Institutional Economics"
+    "domain": "Institutional Economics",
+    "grouping": "Institution type",
+    "grouping_rationale": "Type determines mission and budget structure"
   },
   "colleges_usnews": {
     "key": "colleges_usnews",
@@ -294,7 +310,9 @@
     "education_level": "Higher Education",
     "country": "US",
     "year": "1995",
-    "domain": "Institutional Rankings"
+    "domain": "Institutional Rankings",
+    "grouping": "State",
+    "grouping_rationale": "State determines policy, funding, and demographics"
   },
   "entrance_exam": {
     "key": "entrance_exam",
@@ -327,7 +345,9 @@
     "education_level": "Higher Education",
     "country": "India",
     "year": "2021",
-    "domain": "Academic Performance"
+    "domain": "Academic Performance",
+    "grouping": "Qualification type",
+    "grouping_rationale": "Qualification determines prior knowledge and preparation"
   },
   "higher_ed": {
     "key": "higher_ed",
@@ -360,7 +380,9 @@
     "education_level": "Higher Education",
     "country": "Turkey",
     "year": "2020",
-    "domain": "Academic Performance"
+    "domain": "Academic Performance",
+    "grouping": "Course",
+    "grouping_rationale": "Course determines difficulty and grading standards"
   },
   "law_school": {
     "key": "law_school",
@@ -393,7 +415,9 @@
     "education_level": "Higher Education",
     "country": "US",
     "year": "1991",
-    "domain": "Legal Education"
+    "domain": "Legal Education",
+    "grouping": "Cluster",
+    "grouping_rationale": "Cluster captures law school tier and selectivity"
   },
   "mathe": {
     "key": "mathe",
@@ -426,7 +450,9 @@
     "education_level": "Higher Education",
     "country": "International (EU)",
     "year": "2019-2023",
-    "domain": "Math Assessment"
+    "domain": "Math Assessment",
+    "grouping": "Math topic",
+    "grouping_rationale": "Math topic determines question type and difficulty"
   },
   "mm_tba": {
     "key": "mm_tba",
@@ -459,7 +485,9 @@
     "education_level": "Higher Education",
     "country": "International",
     "year": "2025",
-    "domain": "LLM Evaluation"
+    "domain": "LLM Evaluation",
+    "grouping": "None",
+    "grouping_rationale": "No grouping metadata available (LLM-scored benchmark)"
   },
   "oli": {
     "key": "oli",
@@ -492,7 +520,9 @@
     "education_level": "Higher Education",
     "country": "US",
     "year": "2011",
-    "domain": "Engineering Education"
+    "domain": "Engineering Education",
+    "grouping": "Curriculum module",
+    "grouping_rationale": "Module determines content domain and difficulty"
   },
   "oulad": {
     "key": "oulad",
@@ -525,7 +555,9 @@
     "education_level": "Higher Education",
     "country": "UK",
     "year": "2013-2014",
-    "domain": "Learning Analytics"
+    "domain": "Learning Analytics",
+    "grouping": "Course module",
+    "grouping_rationale": "Module determines assessment structure and content"
   },
   "pisa2015": {
     "key": "pisa2015",
@@ -558,7 +590,9 @@
     "education_level": "Secondary (Assessment)",
     "country": "International (73)",
     "year": "2015",
-    "domain": "Large-scale Assessment"
+    "domain": "Large-scale Assessment",
+    "grouping": "Country",
+    "grouping_rationale": "Country determines education system and resources"
   },
   "student_depression": {
     "key": "student_depression",
@@ -591,7 +625,9 @@
     "education_level": "Higher Education",
     "country": "India",
     "year": "2023",
-    "domain": "Mental Health"
+    "domain": "Mental Health",
+    "grouping": "City",
+    "grouping_rationale": "City captures regional socioeconomic and cultural context"
   },
   "student_depression_degree": {
     "key": "student_depression_degree",
@@ -624,7 +660,9 @@
     "education_level": "Higher Education",
     "country": "India",
     "year": "2023",
-    "domain": "Mental Health"
+    "domain": "Mental Health",
+    "grouping": "Degree",
+    "grouping_rationale": "Degree determines academic pressure and career path"
   },
   "student_depression_prof": {
     "key": "student_depression_prof",
@@ -657,7 +695,9 @@
     "education_level": "Mixed",
     "country": "India",
     "year": "2023",
-    "domain": "Mental Health"
+    "domain": "Mental Health",
+    "grouping": "Profession",
+    "grouping_rationale": "Profession determines lifestyle patterns and stress"
   },
   "student_dropout": {
     "key": "student_dropout",
@@ -690,7 +730,9 @@
     "education_level": "Higher Education",
     "country": "Portugal",
     "year": "2022",
-    "domain": "Academic Success"
+    "domain": "Academic Success",
+    "grouping": "Course",
+    "grouping_rationale": "Course determines curriculum difficulty and grading"
   },
   "tae": {
     "key": "tae",
@@ -723,7 +765,9 @@
     "education_level": "Higher Education",
     "country": "US",
     "year": "1997",
-    "domain": "Teaching Evaluation"
+    "domain": "Teaching Evaluation",
+    "grouping": "Instructor",
+    "grouping_rationale": "Instructor determines teaching style and grading"
   },
   "turkiye": {
     "key": "turkiye",
@@ -756,7 +800,9 @@
     "education_level": "Higher Education",
     "country": "Turkey",
     "year": "2013",
-    "domain": "Teaching Evaluation"
+    "domain": "Teaching Evaluation",
+    "grouping": "Course",
+    "grouping_rationale": "Course determines difficulty perception and content"
   },
   "uci_student": {
     "key": "uci_student",
@@ -789,7 +835,9 @@
     "education_level": "Secondary",
     "country": "Portugal",
     "year": "2008",
-    "domain": "Academic Performance"
+    "domain": "Academic Performance",
+    "grouping": "School",
+    "grouping_rationale": "School determines teaching quality and resources"
   },
   "xapi_edu": {
     "key": "xapi_edu",
@@ -822,6 +870,8 @@
     "education_level": "K12",
     "country": "International",
     "year": "2016",
-    "domain": "Learning Management"
+    "domain": "Learning Management",
+    "grouping": "Student cohort",
+    "grouping_rationale": "Student cohort within LMS session"
   }
 }
