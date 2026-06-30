@@ -26,7 +26,11 @@
       "scale": true,
       "elapsed_seconds": 13.4
     },
-    "brf_error": null
+    "brf_error": null,
+    "education_level": "K12",
+    "country": "US",
+    "year": "2009-2010",
+    "domain": "Intelligent Tutoring"
   },
   "assistments_school": {
     "key": "assistments_school",
@@ -55,7 +59,11 @@
       "scale": true,
       "elapsed_seconds": 13.0
     },
-    "brf_error": null
+    "brf_error": null,
+    "education_level": "K12",
+    "country": "US",
+    "year": "2009-2010",
+    "domain": "Intelligent Tutoring"
   },
   "college_scorecard": {
     "key": "college_scorecard",
@@ -84,7 +92,11 @@
       "scale": true,
       "elapsed_seconds": 12.0
     },
-    "brf_error": null
+    "brf_error": null,
+    "education_level": "Higher Education",
+    "country": "US",
+    "year": "2015-2016",
+    "domain": "Institutional Outcomes"
   },
   "college_scorecard_carnegie": {
     "key": "college_scorecard_carnegie",
@@ -113,7 +125,11 @@
       "scale": true,
       "elapsed_seconds": 18.0
     },
-    "brf_error": null
+    "brf_error": null,
+    "education_level": "Higher Education",
+    "country": "US",
+    "year": "2015-2016",
+    "domain": "Institutional Outcomes"
   },
   "college_scorecard_ownership": {
     "key": "college_scorecard_ownership",
@@ -142,7 +158,11 @@
       "scale": true,
       "elapsed_seconds": 12.0
     },
-    "brf_error": null
+    "brf_error": null,
+    "education_level": "Higher Education",
+    "country": "US",
+    "year": "2015-2016",
+    "domain": "Institutional Outcomes"
   },
   "college_scorecard_region": {
     "key": "college_scorecard_region",
@@ -171,7 +191,11 @@
       "scale": true,
       "elapsed_seconds": 12.0
     },
-    "brf_error": null
+    "brf_error": null,
+    "education_level": "Higher Education",
+    "country": "US",
+    "year": "2015-2016",
+    "domain": "Institutional Outcomes"
   },
   "colleges_aaup": {
     "key": "colleges_aaup",
@@ -200,7 +224,11 @@
       "scale": true,
       "elapsed_seconds": 1.0
     },
-    "brf_error": null
+    "brf_error": null,
+    "education_level": "Higher Education",
+    "country": "US",
+    "year": "1995",
+    "domain": "Institutional Economics"
   },
   "colleges_aaup_type": {
     "key": "colleges_aaup_type",
@@ -229,7 +257,11 @@
       "scale": true,
       "elapsed_seconds": 1.0
     },
-    "brf_error": null
+    "brf_error": null,
+    "education_level": "Higher Education",
+    "country": "US",
+    "year": "1995",
+    "domain": "Institutional Economics"
   },
   "colleges_usnews": {
     "key": "colleges_usnews",
@@ -258,7 +290,11 @@
       "scale": true,
       "elapsed_seconds": 18.9
     },
-    "brf_error": null
+    "brf_error": null,
+    "education_level": "Higher Education",
+    "country": "US",
+    "year": "1995",
+    "domain": "Institutional Rankings"
   },
   "entrance_exam": {
     "key": "entrance_exam",
@@ -287,7 +323,11 @@
       "scale": true,
       "elapsed_seconds": 0.6
     },
-    "brf_error": null
+    "brf_error": null,
+    "education_level": "Higher Education",
+    "country": "India",
+    "year": "2021",
+    "domain": "Academic Performance"
   },
   "higher_ed": {
     "key": "higher_ed",
@@ -316,7 +356,11 @@
       "scale": true,
       "elapsed_seconds": 0.4
     },
-    "brf_error": null
+    "brf_error": null,
+    "education_level": "Higher Education",
+    "country": "Turkey",
+    "year": "2020",
+    "domain": "Academic Performance"
   },
   "law_school": {
     "key": "law_school",
@@ -345,7 +389,11 @@
       "scale": true,
       "elapsed_seconds": 15.0
     },
-    "brf_error": null
+    "brf_error": null,
+    "education_level": "Higher Education",
+    "country": "US",
+    "year": "1991",
+    "domain": "Legal Education"
   },
   "mathe": {
     "key": "mathe",
@@ -374,7 +422,11 @@
       "scale": true,
       "elapsed_seconds": 1.0
     },
-    "brf_error": null
+    "brf_error": null,
+    "education_level": "Higher Education",
+    "country": "International (EU)",
+    "year": "2019-2023",
+    "domain": "Math Assessment"
   },
   "mm_tba": {
     "key": "mm_tba",
@@ -403,7 +455,11 @@
       "scale": true,
       "elapsed_seconds": 0.5
     },
-    "brf_error": null
+    "brf_error": null,
+    "education_level": "Higher Education",
+    "country": "International",
+    "year": "2025",
+    "domain": "LLM Evaluation"
   },
   "oli": {
     "key": "oli",
@@ -432,7 +488,11 @@
       "scale": true,
       "elapsed_seconds": 25.0
     },
-    "brf_error": null
+    "brf_error": null,
+    "education_level": "Higher Education",
+    "country": "US",
+    "year": "2011",
+    "domain": "Engineering Education"
   },
   "oulad": {
     "key": "oulad",
@@ -461,7 +521,11 @@
       "scale": true,
       "elapsed_seconds": 13.2
     },
-    "brf_error": null
+    "brf_error": null,
+    "education_level": "Higher Education",
+    "country": "UK",
+    "year": "2013-2014",
+    "domain": "Learning Analytics"
   },
   "pisa2015": {
     "key": "pisa2015",
@@ -490,7 +554,11 @@
       "scale": true,
       "elapsed_seconds": 45.0
     },
-    "brf_error": null
+    "brf_error": null,
+    "education_level": "Secondary (Assessment)",
+    "country": "International (73)",
+    "year": "2015",
+    "domain": "Large-scale Assessment"
   },
   "student_depression": {
     "key": "student_depression",
@@ -519,7 +587,11 @@
       "scale": true,
       "elapsed_seconds": 28.0
     },
-    "brf_error": null
+    "brf_error": null,
+    "education_level": "Higher Education",
+    "country": "India",
+    "year": "2023",
+    "domain": "Mental Health"
   },
   "student_depression_degree": {
     "key": "student_depression_degree",
@@ -548,7 +620,11 @@
       "scale": true,
       "elapsed_seconds": 28.0
     },
-    "brf_error": null
+    "brf_error": null,
+    "education_level": "Higher Education",
+    "country": "India",
+    "year": "2023",
+    "domain": "Mental Health"
   },
   "student_depression_prof": {
     "key": "student_depression_prof",
@@ -577,7 +653,11 @@
       "scale": true,
       "elapsed_seconds": 28.0
     },
-    "brf_error": null
+    "brf_error": null,
+    "education_level": "Mixed",
+    "country": "India",
+    "year": "2023",
+    "domain": "Mental Health"
   },
   "student_dropout": {
     "key": "student_dropout",
@@ -606,7 +686,11 @@
       "scale": true,
       "elapsed_seconds": 1.7
     },
-    "brf_error": null
+    "brf_error": null,
+    "education_level": "Higher Education",
+    "country": "Portugal",
+    "year": "2022",
+    "domain": "Academic Success"
   },
   "tae": {
     "key": "tae",
@@ -635,7 +719,11 @@
       "scale": true,
       "elapsed_seconds": 0.4
     },
-    "brf_error": null
+    "brf_error": null,
+    "education_level": "Higher Education",
+    "country": "US",
+    "year": "1997",
+    "domain": "Teaching Evaluation"
   },
   "turkiye": {
     "key": "turkiye",
@@ -664,7 +752,11 @@
       "scale": true,
       "elapsed_seconds": 1.8
     },
-    "brf_error": null
+    "brf_error": null,
+    "education_level": "Higher Education",
+    "country": "Turkey",
+    "year": "2013",
+    "domain": "Teaching Evaluation"
   },
   "uci_student": {
     "key": "uci_student",
@@ -693,7 +785,11 @@
       "scale": true,
       "elapsed_seconds": 0.6
     },
-    "brf_error": null
+    "brf_error": null,
+    "education_level": "Secondary",
+    "country": "Portugal",
+    "year": "2008",
+    "domain": "Academic Performance"
   },
   "xapi_edu": {
     "key": "xapi_edu",
@@ -722,6 +818,10 @@
       "scale": true,
       "elapsed_seconds": 1.1
     },
-    "brf_error": null
+    "brf_error": null,
+    "education_level": "K12",
+    "country": "International",
+    "year": "2016",
+    "domain": "Learning Management"
   }
 }
