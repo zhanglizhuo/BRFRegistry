@@ -59,7 +59,7 @@ class StudentDepressionSource(DatasetSource):
         city_counts = df["City"].value_counts()
         valid = city_counts[city_counts >= 5].index
         df = df[df["City"].isin(valid)].copy()
-        y = y[df.index.values if hasattr(df.index, "values") else :]
+        y = y[mask]
 
         # Numeric features
         num_cols = ["Age", "Academic Pressure", "CGPA", "Study Satisfaction",

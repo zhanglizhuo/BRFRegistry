@@ -29,14 +29,27 @@
 | 4 | **LLM Scoring Reliability** | Flagship: effects of LLM-as-scorer on benchmark reliability | *C&E* / *BJET* | Depends on Paper 3 |
 | 5 | **Fairness + Explanation Stability** | From statistical reliability to trustworthiness | *TNNLS* / *C&E* | Conditional on demographic data |
 | 6 | **Benchmark Design Guidelines** | Minimum reliability standards for future dataset construction | *Review of Educational Research* | Synthesizes Papers 3-5 |
-| 7 | **JOSS Package Paper** | Software paper with demonstrated multi-paper usage | *JOSS* | After Papers 3-4 cite BRF |
+| 7 | **JOSS Package Paper (benchmark-reliability)** | Software paper: BRF algorithms, CLI, visualization — already demonstrated across Papers 2-4 | *JOSS* | Stable API + Papers 3-4 usage |
 | 8 | **LLM Scoring Mechanism** | Causal evidence linking scorer bias to BRF shift | High-impact ML journal | Evidence-driven |
 
 ### Paper Roles
 
 - **Paper 1** (done): Protocol. "Here is a way to audit benchmarks."
-- **Paper 2** (data-ready): Resource. "Here is a versioned, reproducible registry of group-aware datasets, ready to audit. Paper 2 describes *what* the Registry is and *how* it works — it does NOT analyze BRF results."
+- **Paper 2** (data-ready): Resource. "Here is a versioned, reproducible registry of group-aware datasets, ready to audit." Describes *what* the Registry is and *how* it works — zero BRF analysis.
 - **Paper 3** (data-ready): Discovery. "Using BRF Registry v1.5 (25 datasets), we find..."
+
+### Two Assets, Two Papers
+
+| Asset | Paper | Journal | Content |
+|-------|-------|---------|---------|
+| BRF Registry (25 datasets) | Paper 2 | *Scientific Data* | Data Descriptor: architecture, metadata, versioning, provenance, CLI |
+| benchmark-reliability (PyPI) | Paper 7 | *JOSS* | Software: BRFAnalyzer, audit(), report(), visualization, CLI |
+
+**Key insight**: The Registry integrates into the benchmark-reliability package
+(`pip install benchmark-reliability` includes `brf.registry`), but the two are
+published separately. Paper 2 describes the Registry as infrastructure;
+Paper 7 (JOSS) describes the package as software — after Papers 3-4 have
+demonstrated multi-paper usage.
 
 ---
 
