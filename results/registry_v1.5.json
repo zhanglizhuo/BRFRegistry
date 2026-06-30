@@ -1,4 +1,33 @@
 {
+  "assistments": {
+    "key": "assistments",
+    "name": "ASSISTments 2009-2010",
+    "n": 3729,
+    "n_features": 5,
+    "target_type": "continuous (overall accuracy)",
+    "n_groups": 124,
+    "source_url": "http://base.ustc.edu.cn/data/ASSISTment/2009_skill_builder_data_corrected.zip",
+    "dataset_root": "",
+    "reference": "Feng, Heffernan & Koedinger (2009)",
+    "license": "TBD (public research data)",
+    "notes": "Skill builder corrected. Student-level aggregates of 328K transactions. Teacher as group.",
+    "brf_result": {
+      "B": 0.5079,
+      "I": 0.0467,
+      "N": 1.0,
+      "M": 0.4383,
+      "S": 0.9533,
+      "E": 0.9462,
+      "class": "Reliable",
+      "n_splits": 30,
+      "n_permutations": 200,
+      "model": "Ridge(alpha=1.0)",
+      "seed": 42,
+      "scale": true,
+      "elapsed_seconds": 13.4
+    },
+    "brf_error": null
+  },
   "entrance_exam": {
     "key": "entrance_exam",
     "name": "Entrance Exam",

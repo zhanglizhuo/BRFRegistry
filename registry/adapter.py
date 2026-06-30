@@ -93,6 +93,67 @@ class TurkiyeAdapter:
         return _bundle(X, y, group_ids, data_card)
 
 
+class ASSISTmentsAdapter:
+    """ASSISTments 2009-2010 Skill Builder (corrected).
+
+    Transaction-level student tutoring data. Aggregated to student level.
+    Target: overall accuracy per student.
+    Group: teacher_id (153 teachers).
+    """
+
+    name = "assistments"
+
+    def load(self, dataset_root: Optional[str] = None) -> object:
+        import pandas as pd
+
+        data_path = _BRF_DATA_DIR / "skill_builder_data_corrected.csv"
+        if not data_path.exists():
+            return _error_bundle(f"Missing file: {data_path}")
+
+        df = pd.read_csv(str(data_path), encoding="ISO-8859-15", low_memory=False)
+
+        # Keep only main problems (not scaffolding)
+        df = df[df["original"] == 1].copy()
+
+        # Aggregate to student level
+        agg = df.groupby("user_id").agg(
+            n_problems=("correct", "count"),
+            mean_correct=("correct", "mean"),
+            mean_attempt=("attempt_count", "mean"),
+            mean_hint=("hint_count", "mean"),
+            median_response_ms=("ms_first_response", "median"),
+            n_skills=("skill_id", "nunique"),
+            n_teachers=("teacher_id", "nunique"),
+            n_schools=("school_id", "nunique"),
+            teacher_id=("teacher_id", "first"),
+            school_id=("school_id", "first"),
+        ).reset_index()
+
+        # Filter students with >= 5 problems
+        agg = agg[agg["n_problems"] >= 5].copy()
+
+        # Features
+        feat_cols = ["n_problems", "mean_attempt", "mean_hint", "median_response_ms", "n_skills"]
+        X = agg[feat_cols].values.astype(float)
+        # Log-transform response time
+        X[:, 3] = np.log1p(X[:, 3])
+
+        y = agg["mean_correct"].values  # target: overall accuracy
+
+        group_ids = agg["teacher_id"].astype(str).tolist()
+
+        data_card = {
+            "n_samples": len(y),
+            "n_features": len(feat_cols),
+            "n_groups": agg["teacher_id"].nunique(),
+            "n_schools": agg["school_id"].nunique(),
+            "n_transactions": len(df),
+            "source": "ASSISTments 2009-2010 (corrected)",
+            "features": feat_cols + ["log_response_ms"],
+        }
+        return _bundle(X, y, group_ids, data_card)
+
+
 def _bundle(X, y, group_ids, data_card):
     class _Bundle:
         pass
@@ -119,6 +180,7 @@ _ADAPTERS = {
     "higher_ed": HigherEdAdapter(),
     "tae": TAEAdapter(),
     "turkiye": TurkiyeAdapter(),
+    "assistments": ASSISTmentsAdapter(),
 }
 
 
