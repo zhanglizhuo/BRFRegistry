@@ -27,6 +27,88 @@ from framework.adapters import (
     HigherEdAdapter,
 )
 
+_REGISTRY_DIR = Path(__file__).resolve().parent
+_BRF_DATA_DIR = _REGISTRY_DIR.parent / "data"
+
+
+class TAEAdapter:
+    """Teaching Assistant Evaluation (UCI ID 100).
+
+    Columns: English speaker, Instructor, Course, Semester, Class size, Target.
+    Group by Instructor (25 categories); predict Class (1=Low, 2=Medium, 3=High).
+    """
+
+    name = "tae"
+
+    def load(self, dataset_root: Optional[str] = None) -> object:
+        data_path = _BRF_DATA_DIR / "tae.data"
+        if not data_path.exists():
+            return _error_bundle(f"Missing file: {data_path}")
+
+        raw = np.loadtxt(str(data_path), delimiter=",")
+        # Columns: 0=English speaker, 1=Instructor, 2=Course, 3=Semester, 4=Class size, 5=Target
+        X = raw[:, [0, 2, 3, 4]]  # features: English speaker, Course, Semester, Class size
+        y = raw[:, 5].astype(int)  # target: 1=Low, 2=Medium, 3=High
+        group_ids = raw[:, 1].astype(int).astype(str).tolist()  # Instructor
+
+        data_card = {
+            "n_samples": len(y),
+            "n_features": X.shape[1],
+            "n_groups": len(np.unique(group_ids)),
+            "source": "UCI ID 100",
+            "features": ["english_speaker", "course", "semester", "class_size"],
+        }
+        return _bundle(X, y, group_ids, data_card)
+
+
+class TurkiyeAdapter:
+    """Turkiye Student Evaluation (UCI ID 262).
+
+    Columns: instr (1-3), class (1-13), nb.repeat, attendance, difficulty, Q1-Q28.
+    Group by class (13 course categories); predict difficulty (1-5).
+    """
+
+    name = "turkiye"
+
+    def load(self, dataset_root: Optional[str] = None) -> object:
+        data_path = _BRF_DATA_DIR / "turkiye-student-evaluation_generic.csv"
+        if not data_path.exists():
+            return _error_bundle(f"Missing file: {data_path}")
+
+        import pandas as pd
+        df = pd.read_csv(str(data_path))
+        # Use Q1-Q28 as features
+        q_cols = [f"Q{i}" for i in range(1, 29)]
+        X = df[q_cols].values.astype(float)
+        y = df["difficulty"].values.astype(int)
+        group_ids = df["class"].astype(str).tolist()
+
+        data_card = {
+            "n_samples": len(y),
+            "n_features": X.shape[1],
+            "n_groups": df["class"].nunique(),
+            "source": "UCI ID 262",
+            "features": q_cols,
+        }
+        return _bundle(X, y, group_ids, data_card)
+
+
+def _bundle(X, y, group_ids, data_card):
+    class _Bundle:
+        pass
+    b = _Bundle()
+    b.X = X
+    b.y = y
+    b.group_ids = group_ids
+    b.data_card = data_card
+    return b
+
+
+def _error_bundle(msg):
+    b = _bundle(None, None, None, {"error": msg})
+    return b
+
+
 _ADAPTERS = {
     "mm_tba": MMTBAAdapter(),
     "oulad": OULADAdapter(),
@@ -35,6 +117,8 @@ _ADAPTERS = {
     "student_dropout": StudentDropoutAdapter(),
     "entrance_exam": EntranceExamAdapter(),
     "higher_ed": HigherEdAdapter(),
+    "tae": TAEAdapter(),
+    "turkiye": TurkiyeAdapter(),
 }
 
 

@@ -127,3 +127,31 @@ register_dataset(
     license_info="TBD",
     notes="186 lecture segments. No grouping metadata.",
 )
+
+register_dataset(
+    key="tae",
+    name="Teaching Assistant Evaluation",
+    n=151,
+    n_features=4,
+    target_type="ordinal 3-class (Low/Medium/High)",
+    n_groups=25,
+    source_url="https://archive.ics.uci.edu/dataset/100/teaching+assistant+evaluation",
+    dataset_root="",
+    reference="Loh (1997); UCI ID 100",
+    license_info="CC BY 4.0",
+    notes="TA performance from U Wisconsin-Madison Stats Dept. Instructor as group.",
+)
+
+register_dataset(
+    key="turkiye",
+    name="Turkiye Student Evaluation",
+    n=5820,
+    n_features=28,
+    target_type="ordinal 5-class (difficulty 1-5)",
+    n_groups=13,
+    source_url="https://archive.ics.uci.edu/dataset/262/turkiye+student+evaluation",
+    dataset_root="",
+    reference="Gazi University; UCI ID 262",
+    license_info="CC BY 4.0",
+    notes="Student course evaluations from Gazi University, Turkey. Course as group.",
+)
