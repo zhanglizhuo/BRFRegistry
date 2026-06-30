@@ -3,14 +3,14 @@
 
 version: "1.5"
 release_date: "2026-06-30"
-total_datasets: 18
+total_datasets: 20
 
 description: >
   Curated collection of group-aware educational benchmark datasets
   with standardized metadata, reproducibility scripts, and BRF
   (Benchmark Reliability Framework) audit results.
-  Includes alternative grouping views (teacher/school for ASSISTments,
-  city/profession for Student Depression) for meta-analysis.
+  Includes alternative grouping views for meta-analysis of how
+  grouping choice (coarse vs fine) shapes BRF metrics.
 
 datasets:
   - oulad
@@ -30,10 +30,12 @@ datasets:
   - oli
   - student_depression
   - student_depression_prof
+  - student_depression_degree
   - assistments_school
+  - college_scorecard_region
 
 brf_results:
-  reliable: 14
+  reliable: 16
   void: 4
   fragile: 0
 
