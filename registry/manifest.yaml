@@ -2,15 +2,15 @@
 # https://github.com/zhanglizhuo/BRFRegistry
 
 version: "1.5"
-release_date: "2026-06-30"
-total_datasets: 20
+release_date: "2026-07-01"
+total_datasets: 25
 
 description: >
   Curated collection of group-aware educational benchmark datasets
   with standardized metadata, reproducibility scripts, and BRF
   (Benchmark Reliability Framework) audit results.
-  Includes alternative grouping views for meta-analysis of how
-  grouping choice (coarse vs fine) shapes BRF metrics.
+  Includes multiple grouping views for meta-analysis of how
+  grouping granularity shapes BRF metrics (S, E, B, I, N, M).
 
 datasets:
   - oulad
@@ -33,10 +33,15 @@ datasets:
   - student_depression_degree
   - assistments_school
   - college_scorecard_region
+  - college_scorecard_carnegie
+  - college_scorecard_ownership
+  - pisa2015
+  - law_school
+  - colleges_aaup_type
 
 brf_results:
-  reliable: 16
-  void: 4
+  reliable: 20
+  void: 5
   fragile: 0
 
 schema_version: "2.0.0"
