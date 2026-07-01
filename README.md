@@ -56,7 +56,7 @@ Submit a PR with a `DatasetSource` subclass. See existing sources in
 ### v1.6 (current) -- 27 entries
 
 | Dataset | N | p | G | S | E | Class |
-|---------|---|---|---|---|---|---|-------|
+|---|---|---|---|---|---|---|
 | ASSISTments 2009-2010 | 3.7K | 5 | 124 | 0.95 | 0.95 | Reliable |
 | ASSISTments 2009-2010 (by school) | 3.7K | 5 | 58 | 0.95 | 0.90 | Reliable |
 | US College Scorecard | 2.2K | 30 | 55 | 0.82 | 0.69 | Reliable |
@@ -68,12 +68,12 @@ Submit a PR with a `DatasetSource` subclass. See existing sources in
 | Colleges US News | 1.2K | 31 | 51 | 0.88 | 1.04 | Reliable |
 | Entrance Exam | 666 | 49 | 3 | 0.88 | 0.97 | Reliable |
 | Higher Ed | 145 | 31 | 9 | -1.03 | 0.56 | Void |
-| Law School Admission | 20.8K | 7 | 6 | 0.96 | 0.73 | Reliable |
+| Law School Admission | 20.8K | 10 | 6 | 0.96 | 0.73 | Reliable |
 | MathE | 833 | 26 | 14 | -1.64 | 0.63 | Void |
 | MM-TBA | 186 | 13 | 0 | -0.77 | -0.03 | Void |
-| OLI Engineering Statics 2011 | 195K | 2 | 19 | 0.96 | 0.71 | Reliable |
+| OLI Engineering Statics 2011 | 194.9K | 2 | 19 | 0.96 | 0.71 | Reliable |
 | OULAD | 32.6K | 44 | 22 | 0.98 | 1.24 | Reliable |
-| PISA 2015 Science | 519K | 2 | 73 | -0.10 | 0.66 | Void |
+| PISA 2015 Science | 519.3K | 2 | 73 | -0.10 | 0.66 | Void |
 | Student Depression Survey | 27.9K | 21 | 30 | 0.98 | 1.37 | Reliable |
 | Student Depression Survey (by degree) | 27.9K | 21 | 28 | 0.98 | 0.97 | Reliable |
 | Student Depression Survey (by profession) | 27.9K | 21 | 3 | 0.98 | 0.52 | Reliable |
@@ -82,13 +82,12 @@ Submit a PR with a `DatasetSource` subclass. See existing sources in
 | Teaching Assistant Evaluation | 151 | 4 | 25 | -0.42 | 0.75 | Void |
 | Turkiye Student Evaluation | 5.8K | 28 | 13 | 0.56 | 0.70 | Reliable |
 | UCI Student | 649 | 56 | 2 | 0.62 | 1.06 | Reliable |
-| UCI Student (Math) | 395 | 56 | 2 | -2.67 | 0.43 | Void |
+| UCI Student Performance (Math) | 395 | 56 | 2 | -2.67 | 0.43 | Void |
 | xAPI-Edu-Data | 480 | 72 | 12 | 0.89 | 1.34 | Reliable |
 
 ### BRF Metric Definitions
 
 S = N - I (Stability), E = B + M (Evidence).
-See `results/registry_v1.6.json` for full B, I, N, M values.
 
 ## Key Findings (v1.6, N=27)
 

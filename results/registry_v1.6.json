@@ -42,7 +42,8 @@
       "is_classification": false,
       "signal_strength": "strong",
       "brf_class": "Reliable"
-    }
+    },
+    "display_name": "ASSISTments 2009-2010"
   },
   "assistments_school": {
     "key": "assistments_school",
@@ -87,7 +88,8 @@
       "is_classification": false,
       "signal_strength": "strong",
       "brf_class": "Reliable"
-    }
+    },
+    "display_name": "ASSISTments 2009-2010 (by school)"
   },
   "college_scorecard": {
     "key": "college_scorecard",
@@ -132,7 +134,8 @@
       "is_classification": false,
       "signal_strength": "moderate",
       "brf_class": "Reliable"
-    }
+    },
+    "display_name": "US College Scorecard"
   },
   "college_scorecard_carnegie": {
     "key": "college_scorecard_carnegie",
@@ -177,7 +180,8 @@
       "is_classification": false,
       "signal_strength": "moderate",
       "brf_class": "Reliable"
-    }
+    },
+    "display_name": "US College Scorecard (by Carnegie)"
   },
   "college_scorecard_ownership": {
     "key": "college_scorecard_ownership",
@@ -222,7 +226,8 @@
       "is_classification": false,
       "signal_strength": "moderate",
       "brf_class": "Reliable"
-    }
+    },
+    "display_name": "US College Scorecard (by ownership)"
   },
   "college_scorecard_region": {
     "key": "college_scorecard_region",
@@ -267,7 +272,8 @@
       "is_classification": false,
       "signal_strength": "moderate",
       "brf_class": "Reliable"
-    }
+    },
+    "display_name": "US College Scorecard (by region)"
   },
   "colleges_aaup": {
     "key": "colleges_aaup",
@@ -312,7 +318,8 @@
       "is_classification": false,
       "signal_strength": "strong",
       "brf_class": "Reliable"
-    }
+    },
+    "display_name": "Colleges AAUP"
   },
   "colleges_aaup_type": {
     "key": "colleges_aaup_type",
@@ -357,7 +364,8 @@
       "is_classification": false,
       "signal_strength": "strong",
       "brf_class": "Reliable"
-    }
+    },
+    "display_name": "Colleges AAUP (by type)"
   },
   "colleges_usnews": {
     "key": "colleges_usnews",
@@ -402,7 +410,8 @@
       "is_classification": false,
       "signal_strength": "strong",
       "brf_class": "Reliable"
-    }
+    },
+    "display_name": "Colleges US News"
   },
   "entrance_exam": {
     "key": "entrance_exam",
@@ -447,7 +456,8 @@
       "is_classification": false,
       "signal_strength": "strong",
       "brf_class": "Reliable"
-    }
+    },
+    "display_name": "Entrance Exam"
   },
   "higher_ed": {
     "key": "higher_ed",
@@ -492,7 +502,8 @@
       "is_classification": false,
       "signal_strength": "moderate",
       "brf_class": "Void"
-    }
+    },
+    "display_name": "Higher Ed"
   },
   "law_school": {
     "key": "law_school",
@@ -537,7 +548,8 @@
       "is_classification": false,
       "signal_strength": "moderate",
       "brf_class": "Reliable"
-    }
+    },
+    "display_name": "Law School Admission"
   },
   "mathe": {
     "key": "mathe",
@@ -582,7 +594,8 @@
       "is_classification": false,
       "signal_strength": "weak",
       "brf_class": "Void"
-    }
+    },
+    "display_name": "MathE"
   },
   "mm_tba": {
     "key": "mm_tba",
@@ -627,7 +640,8 @@
       "is_classification": false,
       "signal_strength": "none",
       "brf_class": "Void"
-    }
+    },
+    "display_name": "MM-TBA"
   },
   "oli": {
     "key": "oli",
@@ -672,7 +686,8 @@
       "is_classification": false,
       "signal_strength": "weak",
       "brf_class": "Reliable"
-    }
+    },
+    "display_name": "OLI Engineering Statics 2011"
   },
   "oulad": {
     "key": "oulad",
@@ -717,7 +732,8 @@
       "is_classification": false,
       "signal_strength": "strong",
       "brf_class": "Reliable"
-    }
+    },
+    "display_name": "OULAD"
   },
   "pisa2015": {
     "key": "pisa2015",
@@ -762,7 +778,8 @@
       "is_classification": false,
       "signal_strength": "none",
       "brf_class": "Void"
-    }
+    },
+    "display_name": "PISA 2015 Science"
   },
   "student_depression": {
     "key": "student_depression",
@@ -807,7 +824,8 @@
       "is_classification": false,
       "signal_strength": "strong",
       "brf_class": "Reliable"
-    }
+    },
+    "display_name": "Student Depression Survey"
   },
   "student_depression_degree": {
     "key": "student_depression_degree",
@@ -852,7 +870,8 @@
       "is_classification": false,
       "signal_strength": "strong",
       "brf_class": "Reliable"
-    }
+    },
+    "display_name": "Student Depression Survey (by degree)"
   },
   "student_depression_prof": {
     "key": "student_depression_prof",
@@ -897,7 +916,8 @@
       "is_classification": false,
       "signal_strength": "strong",
       "brf_class": "Reliable"
-    }
+    },
+    "display_name": "Student Depression Survey (by profession)"
   },
   "student_dropout": {
     "key": "student_dropout",
@@ -942,7 +962,8 @@
       "is_classification": false,
       "signal_strength": "strong",
       "brf_class": "Reliable"
-    }
+    },
+    "display_name": "Student Dropout"
   },
   "students_exam_scores": {
     "key": "students_exam_scores",
@@ -986,7 +1007,8 @@
       "is_classification": false,
       "signal_strength": "weak",
       "brf_class": "Reliable"
-    }
+    },
+    "display_name": "Students Exam Scores (Kaggle)"
   },
   "tae": {
     "key": "tae",
@@ -1031,7 +1053,8 @@
       "is_classification": false,
       "signal_strength": "moderate",
       "brf_class": "Void"
-    }
+    },
+    "display_name": "Teaching Assistant Evaluation"
   },
   "turkiye": {
     "key": "turkiye",
@@ -1076,7 +1099,8 @@
       "is_classification": false,
       "signal_strength": "weak",
       "brf_class": "Reliable"
-    }
+    },
+    "display_name": "Turkiye Student Evaluation"
   },
   "uci_student": {
     "key": "uci_student",
@@ -1121,7 +1145,8 @@
       "is_classification": false,
       "signal_strength": "moderate",
       "brf_class": "Reliable"
-    }
+    },
+    "display_name": "UCI Student"
   },
   "uci_student_math": {
     "key": "uci_student_math",
@@ -1166,7 +1191,8 @@
       "is_classification": false,
       "signal_strength": "none",
       "brf_class": "Void"
-    }
+    },
+    "display_name": "UCI Student Performance (Math)"
   },
   "xapi_edu": {
     "key": "xapi_edu",
@@ -1211,7 +1237,8 @@
       "is_classification": false,
       "signal_strength": "strong",
       "brf_class": "Reliable"
-    }
+    },
+    "display_name": "xAPI-Edu-Data"
   },
   "_registry_version": "1.6",
   "_total_entries": 27
