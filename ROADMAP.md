@@ -10,10 +10,12 @@
 ## Current Status
 
 - **BehaviorAudit** (SR, R2 submitted -- awaiting decision)
-- **BRF Package v0.1.5**: `pip install benchmark-reliability` — includes `brf.registry` subpackage
+- **BRF Package v0.2.1**: `pip install benchmark-reliability` — includes `brf.registry` subpackage, diagnose/rank/recommend, CLI
 - **BRF Benchmark Registry v1.5**: 25 entries (18 unique + 7 alt views); 20 Reliable, 5 Void, 0 Fragile
-  - Dataset-as-Code architecture; CLI; SHA-256 verification
-  - v1.5 frozen as Paper 3 data source; Registry independently evolves to v1.6+
+  - Dataset-as-Code architecture; CLI; SHA-256 (8/9 downloadable)
+  - GitHub release v1.5; Zenodo DOI pending webhook activation
+  - 625-line manuscript drafted (9 tables, 28 refs, 2 figures)
+  - v1.5 frozen for Paper 3; Registry independently evolves
 
 ---
 
@@ -22,30 +24,34 @@
 | # | Project | Contribution | Target | Status |
 |---|---------|--------------|--------|--------|
 | 1 | **BehaviorAudit** | BRF measurement framework (four-dimension audit protocol) | *Scientific Reports* | R2 submitted |
-| 2 | **benchmark-reliability** | Software paper: BRF audit engine, Registry, CLI, verification | *JOSS* | Writing |
+| 2 | **BRF Benchmark Registry** | Data Descriptor: versioned, reproducible, Dataset-as-Code collection of group-aware benchmarks; metadata schema, SHA-256 verification, CLI, coverage analysis | *Scientific Data* / *Data in Brief* | Manuscript drafted (625 lines) |
 | 3 | **Benchmark Reliability Meta-analysis** | Discovery: *What dataset characteristics predict S, E, B, I?* Central finding: Fragile=0 across 25 group-aware benchmarks. S-vs-E 2D visualization, bootstrap CI, meta-regression, grouping sensitivity. Registry v1.5 as data source. | *Computers & Education* / *TMLR* | Registry v1.5 ready |
 | 4 | **LLM Scoring Reliability** | Effects of LLM-as-scorer on benchmark reliability | *C&E* / *BJET* | Depends on Paper 3 |
-| 5 | **Fairness + Explanation Stability** | From statistical reliability to trustworthiness | *TNNLS* / *C&E* | Conditional on demographic data |
-| 6 | **Benchmark Design Guidelines** | Minimum reliability standards for future dataset construction | *Review of Educational Research* | Synthesizes Papers 3-5 |
-| 7 | **LLM Scoring Mechanism** | Causal evidence linking scorer bias to BRF shift | High-impact ML journal | Evidence-driven |
+| 5 | **benchmark-reliability (JOSS)** | Software paper: BRF audit engine, diagnose/rank/recommend, Registry, CLI — after multi-paper usage demonstrated | *JOSS* | Waiting: repo needs 6+ months public history (~Dec 2026) |
+| 6 | **Fairness + Explanation Stability** | From statistical reliability to trustworthiness | *TNNLS* / *C&E* | Conditional on demographic data |
+| 7 | **Benchmark Design Guidelines** | Minimum reliability standards for future dataset construction | *Review of Educational Research* | Synthesizes Papers 3-6 |
+| 8 | **LLM Scoring Mechanism** | Causal evidence linking scorer bias to BRF shift | High-impact ML journal | Evidence-driven |
 
 ### Paper Roles
 
 - **Paper 1** (done): Measurement framework. "Here is a way to audit benchmarks."
-- **Paper 2** (in progress): Software tool. "This package implements the framework with a CLI, Registry, and verification." Zero scientific claims — tool identity only.
-- **Paper 3** (planned): Scientific discovery. "Using this tool on 25 benchmarks, we find Fragile=0. What dataset characteristics predict reliability?"
+- **Paper 2** (drafted): Data infrastructure. "Here is a versioned, reproducible registry of group-aware benchmarks — not just data, but Dataset-as-Code with metadata, verification, and CLI."
+- **Paper 3** (planned): Scientific discovery. "Using this infrastructure on 25 benchmarks, we find Fragile=0. Grouping sensitivity is the dominant factor."
+- **Paper 5** (waiting): Tool identity. "This software has been used in Papers 2-4."
 
 ### Registry Positioning
 
-The Registry is **not** a standalone paper. It is the data infrastructure that
-Paper 3 is built on. The 625-line Data Descriptor manuscript written during
-development becomes Paper 3's Methods + Data Availability chapter.
+The Registry **is** Paper 2 — a standalone Data Descriptor. The 625-line manuscript
+documents its architecture (Dataset-as-Code), metadata schema (16 fields),
+software infrastructure (CLI, SHA-256), dataset curation (18 unique datasets,
+15 domains), and technical validation.
+
+JOSS (Paper 5) is deferred until the repo has 6+ months public history and papers
+2-4 provide citation evidence — transforming JOSS from a "promise of future use"
+into "documentation of demonstrated use."
 
 Registry has its own lifecycle (v1.5 → v1.6 → v2.0), independent of any paper.
-Paper 3 freezes at v1.5 for reproducibility. If the Registry accumulates
-sufficient external citations and usage, a standalone Data Descriptor
-(Scientific Data) may be revisited later — with citation evidence that
-currently doesn't exist.
+Paper 3 freezes at v1.5 for reproducibility.
 
 ---
 
@@ -129,9 +135,9 @@ Each dataset records:
 ## Key Positioning
 
 - **BRF is a measurement framework, not a theory.**
-- **Registry is a product, not a paper.** Own lifecycle, own versions. Data source for Paper 3, DOI-versioned for reproducibility. May become a standalone Data Descriptor later if external citations justify it.
-- **JOSS (Paper 2) is a tool identity card, not a scientific claim.** Proves the tool exists and works. Zero dependency on downstream papers.
-- **Paper 3 is the research paper.** Uses Registry v1.5; asks scientific questions; Fragile=0 is the central finding.
+- **Registry is Paper 2 — a Data Descriptor, not a research paper.** Documents the what and how of the Registry; zero BRF analysis.
+- **Paper 3 is the research paper.** Uses Registry v1.5; Fragile=0 is the central finding.
+- **JOSS (Paper 5) is the tool identity, not the core contribution.** After multi-paper usage, it documents demonstrated impact — not promised future use. Blocked by JOSS 6-month public-history requirement (~Dec 2026).
 - **Community Adoption is the endgame.** "Did you run BRF?"
 
 ---
@@ -145,19 +151,15 @@ Each dataset records:
 
 ---
 
-## What Changed (July 2026 update)
+## What Changed (July 2026, final)
 
-1. **Paper 2 redefined: Registry Data Descriptor → JOSS software paper.**
-   The 625-line Registry manuscript (Dataset-as-Code architecture, metadata schema,
-   9 tables) is merged into Paper 3's Methods + Data Availability chapter.
-   Paper 2 is now `benchmark-reliability` → JOSS: tool identity, zero dependencies.
-2. **JOSS moved from Paper 7 to Paper 2.** Tool ships first, establishes its
-   academic identity before being used by Papers 3-4.
-3. **Registry no longer a standalone paper.** v1.5 is Paper 3's data source.
-   Registry lifecycles independently (v1.6, v2.0...). A standalone Data Descriptor
-   may be revisited if future external citations justify it.
-4. **Fragile absence is the central finding of Paper 3.** N=25, Fragile=0,
-   bootstrap CI, rule-of-three upper bound ~12%, S-vs-E bimodal distribution.
+1. **Paper 2 returned to Registry Data Descriptor.** JOSS cannot be submitted now
+   (repo needs 6+ months public history, ~Dec 2026). The 625-line Registry
+   manuscript is ready now. Paper 2 = Registry (Scientific Data), not JOSS.
+2. **JOSS moved to Paper 5.** After Papers 2-4 have cited the tool, JOSS documents
+   demonstrated impact rather than promised future use — strengthening the case.
+3. **v0.2.1 released.** diagnose(), rank(), recommend() provide context-aware
+   per-dimension diagnostics instead of opaque 3-class labels.
+4. **Fragile=0 confirmed at N=25.** Bootstrap CI, rule-of-three upper bound ~12%.
+   Core finding for Paper 3.
 5. **BRF unified branding.** All artifacts prefixed with BRF.
-6. **Continuous measurement over discrete classification.** S and E are continuous;
-   Reliable/Void/Fragile is communication shorthand only.
