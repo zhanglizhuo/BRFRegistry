@@ -4,32 +4,21 @@ The **BRF Benchmark Registry** is a versioned, DOI-tracked collection of
 group-aware educational prediction benchmarks audited under the
 **Benchmark Reliability Framework (BRF)**.
 
-> Registry v1.5 : 25 datasets | 20 Reliable | 5 Void | 0 Fragile
+> Registry v1.5 : 27 entries (20 unique + 7 alt views) | 21 Reliable | 6 Void | 0 Fragile
 
-**Architecture**: Dataset-as-Code — each dataset is a Python module with
-`download → verify → prepare` pipeline. Adding a new dataset = one `.py` file.
+**Architecture**: Dataset-as-Code — each dataset is a self-contained Python
+module with `download → verify → prepare` pipeline. 0 external dependencies.
 
 ## Quick Start
 
 ```bash
-# Install BRF
 pip install benchmark-reliability
 
-# List all datasets
-python -m registry.cli list
-
-# Download and verify a dataset
-python -m registry.cli download tae
-python -m registry.cli verify tae
-
-# Sync all (download + verify all datasets)
-python -m registry.cli sync
-
-# Show metadata
-python -m registry.cli info oulad
-
-# Run BRF on all registered datasets
-python run_registry.py
+# Browse the Registry
+brf registry list              # 20 datasets
+brf registry info tae          # full metadata
+brf registry sync              # download + verify all
+brf audit tae                  # run BRF on a dataset
 ```
 
 ## Structure
@@ -37,15 +26,18 @@ python run_registry.py
 ```
 BRFRegistry/
 |-- registry/
-|   |-- sources/          # One .py per dataset (DatasetSource subclass)
+|   |-- sources/          # 20 DatasetSource .py files (auto-discovered)
+|   |-- cards/            # 20 machine-readable YAML Dataset Cards
 |   |-- cache/            # Downloaded data (gitignored)
 |   |-- manifest.yaml     # Registry version + dataset index
+|   |-- taxonomy.yaml     # 5-level benchmark taxonomy
+|   |-- version_policy.yaml # Lifecycle + deprecation rules
 |   |-- cli.py            # CLI: list, download, verify, sync, info
 |   |-- verify.py         # SHA-256 verification
 |   `-- known_datasets.py # Legacy metadata registry
-|-- results/              # BRF audit results (JSON)
-|-- run_registry.py       # Run BRF on all registered datasets
-`-- ROADMAP.md            # Project roadmap & paper definitions
+|-- results/
+|   `-- registry_v1.5.json # 27 entries with BRF results + enriched metadata
+`-- run_registry.py        # Run BRF on all registered datasets
 ```
 
 ## Adding a Dataset
@@ -79,69 +71,55 @@ class MyDataset(DatasetSource):
 
 ## Registry Contents
 
-| Version | Date | Datasets | Reliable | Void | Fragile |
-|---------|------|----------|----------|------|---------|
-| v1.0 | 2026-03-28 | 7 | 4 | 3 | 0 |
-| v1.5 | 2026-07-01 | 25 | 20 | 5 | 0 |
+| Version | Date | Entries | Unique | Alt Views | Reliable | Void | Fragile |
+|---------|------|---------|--------|-----------|----------|------|---------|
+| v1.0 | 2026-03-28 | 7 | 7 | 0 | 4 | 3 | 0 |
+| v1.5 | 2026-07-01 | 27 | 20 | 7 | 21 | 6 | 0 |
 
-### v1.5 (current) -- 25 datasets
+### v1.5 (current) — 27 entries
 
-| Dataset                                   | N      | p  | G   | B     | I    | Stab | M    | S     | E     | Class    |
-|-------------------------------------------|--------|----|-----|-------|------|------|------|-------|-------|----------|
-| ASSISTments 2009-2010                     | 3729   | 5  | 124 | 0.51  | 0.05 | 1.00 | 0.44 | 0.95  | 0.95  | Reliable |
-| ASSISTments 2009-2010 (by school)         | 3729   | 5  | 58  | 0.51  | 0.05 | 1.00 | 0.39 | 0.95  | 0.90  | Reliable |
-| US College Scorecard                      | 2220   | 30 | 55  | 0.24  | 0.18 | 1.00 | 0.45 | 0.82  | 0.69  | Reliable |
-| US College Scorecard (by Carnegie)        | 1902   | 27 | 22  | 0.30  | 0.19 | 1.00 | 0.42 | 0.81  | 0.71  | Reliable |
-| US College Scorecard (by ownership)       | 2220   | 27 | 3   | 0.24  | 0.18 | 1.00 | 0.74 | 0.82  | 0.98  | Reliable |
-| US College Scorecard (by region)          | 2220   | 27 | 9   | 0.24  | 0.18 | 1.00 | 0.63 | 0.82  | 0.87  | Reliable |
-| Colleges AAUP                             | 1161   | 9  | 52  | 0.48  | 0.10 | 1.00 | 0.54 | 0.90  | 1.03  | Reliable |
-| Colleges AAUP (by type)                   | 1161   | 9  | 4   | 0.48  | 0.10 | 1.00 | 0.47 | 0.90  | 0.95  | Reliable |
-| Colleges US News                          | 1204   | 31 | 51  | 0.50  | 0.12 | 1.00 | 0.54 | 0.88  | 1.04  | Reliable |
-| Entrance Exam                             | 666    | 49 | 3   | 0.46  | 0.12 | 1.00 | 0.51 | 0.88  | 0.97  | Reliable |
-| Higher Ed                                 | 145    | 31 | 9   | 0.17  | 2.00 | 0.97 | 0.39 | -1.03 | 0.56  | Void     |
-| Law School Admission                      | 20800  | 10 | 6   | 0.18  | 0.04 | 1.00 | 0.55 | 0.96  | 0.73  | Reliable |
-| MathE                                     | 833    | 26 | 14  | 0.03  | 2.47 | 0.83 | 0.60 | -1.64 | 0.63  | Void     |
-| MM-TBA                                    | 186    | 13 | 0   | -0.03 | 1.44 | 0.67 | 0.00 | -0.77 | -0.03 | Void     |
-| OLI Engineering Statics 2011              | 194947 | 2  | 19  | 0.04  | 0.04 | 1.00 | 0.67 | 0.96  | 0.71  | Reliable |
-| OULAD                                     | 32593  | 44 | 22  | 0.47  | 0.02 | 1.00 | 0.77 | 0.98  | 1.24  | Reliable |
-| PISA 2015 Science                         | 519334 | 2  | 73  | 0.00  | 0.13 | 0.03 | 0.66 | -0.10 | 0.66  | Void     |
-| Student Depression Survey                 | 27875  | 21 | 30  | 0.52  | 0.02 | 1.00 | 0.85 | 0.98  | 1.37  | Reliable |
-| Student Depression Survey (by degree)     | 27901  | 21 | 28  | 0.52  | 0.02 | 1.00 | 0.45 | 0.98  | 0.97  | Reliable |
-| Student Depression Survey (by profession) | 27884  | 21 | 3   | 0.52  | 0.02 | 1.00 | 0.00 | 0.98  | 0.52  | Reliable |
-| Student Dropout                           | 3630   | 36 | 17  | 0.66  | 0.03 | 1.00 | 0.65 | 0.97  | 1.30  | Reliable |
-| Teaching Assistant Evaluation             | 151    | 4  | 25  | 0.12  | 1.36 | 0.93 | 0.63 | -0.42 | 0.75  | Void     |
-| Turkiye Student Evaluation                | 5820   | 28 | 13  | 0.02  | 0.44 | 1.00 | 0.68 | 0.56  | 0.70  | Reliable |
-| UCI Student                               | 649    | 56 | 2   | 0.24  | 0.38 | 1.00 | 0.81 | 0.62  | 1.06  | Reliable |
-| xAPI-Edu-Data                             | 480    | 72 | 12  | 0.66  | 0.11 | 1.00 | 0.69 | 0.89  | 1.34  | Reliable |
+| Dataset | N | p | G | S | E | Class |
+|---------|---|---|---|---|---|---|-------|
+| ASSISTments 2009-2010 | 3.7K | 5 | 124 | 0.95 | 0.95 | Reliable |
+| ASSISTments 2009-2010 (by school) | 3.7K | 5 | 58 | 0.95 | 0.90 | Reliable |
+| US College Scorecard | 2.2K | 30 | 55 | 0.82 | 0.69 | Reliable |
+| US College Scorecard (by Carnegie) | 1.9K | 27 | 22 | 0.81 | 0.71 | Reliable |
+| US College Scorecard (by ownership) | 2.2K | 27 | 3 | 0.82 | 0.98 | Reliable |
+| US College Scorecard (by region) | 2.2K | 27 | 9 | 0.82 | 0.87 | Reliable |
+| Colleges AAUP | 1.2K | 9 | 52 | 0.90 | 1.03 | Reliable |
+| Colleges AAUP (by type) | 1.2K | 9 | 4 | 0.90 | 0.95 | Reliable |
+| Colleges US News | 1.2K | 31 | 51 | 0.88 | 1.04 | Reliable |
+| Entrance Exam | 666 | 49 | 3 | 0.88 | 0.97 | Reliable |
+| Higher Ed | 145 | 31 | 9 | -1.03 | 0.56 | Void |
+| Law School Admission | 20.8K | 7 | 6 | 0.96 | 0.73 | Reliable |
+| MathE | 833 | 26 | 14 | -1.64 | 0.63 | Void |
+| MM-TBA | 186 | 13 | 0 | -0.77 | -0.03 | Void |
+| OLI Engineering Statics 2011 | 195K | 2 | 19 | 0.96 | 0.71 | Reliable |
+| OULAD | 32.6K | 44 | 22 | 0.98 | 1.24 | Reliable |
+| PISA 2015 Science | 519K | 2 | 73 | -0.10 | 0.66 | Void |
+| Student Depression Survey | 27.9K | 21 | 30 | 0.98 | 1.37 | Reliable |
+| Student Depression Survey (by degree) | 27.9K | 21 | 28 | 0.98 | 0.97 | Reliable |
+| Student Depression Survey (by profession) | 27.9K | 21 | 3 | 0.98 | 0.52 | Reliable |
+| Student Dropout | 3.6K | 36 | 17 | 0.97 | 1.30 | Reliable |
+| Students Exam Scores (Kaggle) | 30.6K | 17 | 5 | 0.97 | 1.04 | Reliable |
+| Teaching Assistant Evaluation | 151 | 4 | 25 | -0.42 | 0.75 | Void |
+| Turkiye Student Evaluation | 5.8K | 28 | 13 | 0.56 | 0.70 | Reliable |
+| UCI Student | 649 | 56 | 2 | 0.62 | 1.06 | Reliable |
+| UCI Student (Math) | 395 | 56 | 2 | -2.67 | 0.43 | Void |
+| xAPI-Edu-Data | 480 | 72 | 12 | 0.89 | 1.34 | Reliable |
 
 ### BRF Metric Definitions
 
-| Metric | Formula | Meaning |
-|--------|---------|---------|
-| B | mean(Delta(R^2) vs mean baseline) | Predictive signal strength |
-| I | std(R^2) / max(|mean(R^2)|, 1e-4) + 1e-8 | Intrinsic instability |
-| N | fraction of folds where R^2_real > median(R^2_perm) | Null separation |
-| M | 0.5 * norm_group_entropy + 0.5 * group_balance | Metadata adequacy |
-| S | N - I | Stability (signal - noise) |
-| E | B + M | Evidence (predictive + structural) |
+S = N - I (Stability), E = B + M (Evidence).
+See `results/registry_v1.5.json` for full B, I, N, M values.
 
-Classification: Void if S <= 0, Fragile if S > 0 and E <= 0.5, Reliable otherwise.
+## Key Findings (v1.5, N=27)
 
-## Key Findings (v1.5, N=25)
-
-- **Fragile absent at scale**: Across 25 datasets spanning 6 domains, the
-  Fragile regime (S>0, E<=0.5) was never observed. Bootstrap 95% CI:
-  [0%, 0%]; rule-of-three upper bound ~12%.
-- **Bimodal distribution**: Datasets cluster into Reliable (S>>0, E>0.5,
-  N~1.0) or Void (S<0). No intermediate regime detected.
-- **Grouping sensitivity is large**: The same data with different grouping
-  yields E varying by 0.35-0.85 (e.g., Student Depression: City E=1.37,
-  Profession E=0.52 — near-Fragile).
-- **Void causes are diverse**: small N (Higher Ed), low feature density
-  (TAE), no grouping metadata (MM-TBA), cross-domain transfer failure
-  (MathE), zero predictive signal (PISA).
-
-Full S-vs-E scatter data available in `results/registry_v1.5.json`.
+- **Fragile absent**: Across 27 entries, 0 Fragile. Rule-of-three upper bound ~11%.
+- **Bimodal**: 21 Reliable, 6 Void — no intermediate regime.
+- **Grouping sensitivity**: Same data, different grouping → E shifts by 0.35–0.85.
+- **Self-contained**: 20/20 source modules independent (0 BA dependencies).
+- **SHA-256**: 9/11 direct-download entries verified (82%).
 
 ## License
 
