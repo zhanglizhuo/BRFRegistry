@@ -1,6 +1,6 @@
 # BRF Registry Benchmark Taxonomy
 # Hierarchical classification of all 18 unique datasets.
-# Generated from registry_v1.5.json.
+# Generated from registry_v1.6.json.
 
 taxonomy:
   version: "1.0"
