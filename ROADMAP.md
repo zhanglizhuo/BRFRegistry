@@ -24,7 +24,7 @@
 | # | Project | Contribution | Target | Status |
 |---|---------|--------------|--------|--------|
 | 1 | **BehaviorAudit** | BRF measurement framework (four-dimension audit protocol) | *Scientific Reports* | R2 submitted |
-| 2 | **BRF Benchmark Registry** | Data Descriptor: versioned, reproducible, Dataset-as-Code collection of group-aware benchmarks; metadata schema, SHA-256 verification, CLI, coverage analysis | *Scientific Data* / *Data in Brief* | Manuscript drafted (625 lines) |
+| 2 | **BRF Benchmark Registry** | Data Descriptor / Infrastructure: versioned, reproducible, Dataset-as-Code collection of group-aware benchmarks; executable pipeline (download→verify→prepare→audit); metadata cards, taxonomy, version policy | *GigaScience* | Manuscript drafted (14 tables, 1 figure, cards/taxonomy/policy) |
 | 3 | **Benchmark Reliability Meta-analysis** | Discovery: *What dataset characteristics predict S, E, B, I?* Central finding: Fragile=0 across 25 group-aware benchmarks. S-vs-E 2D visualization, bootstrap CI, meta-regression, grouping sensitivity. Registry v1.5 as data source. | *Computers & Education* / *TMLR* | Registry v1.5 ready |
 | 4 | **LLM Scoring Reliability** | Effects of LLM-as-scorer on benchmark reliability | *C&E* / *BJET* | Depends on Paper 3 |
 | 5 | **benchmark-reliability (JOSS)** | Software paper: BRF audit engine, diagnose/rank/recommend, Registry, CLI — after multi-paper usage demonstrated | *JOSS* | Waiting: repo needs 6+ months public history (~Dec 2026) |
@@ -135,7 +135,7 @@ Each dataset records:
 ## Key Positioning
 
 - **BRF is a measurement framework, not a theory.**
-- **Registry is Paper 2 — a Data Descriptor, not a research paper.** Documents the what and how of the Registry; zero BRF analysis.
+- **Registry is Paper 2 — a Benchmark Infrastructure Paper, not a data paper.** Contribution: executable benchmark registry (Dataset-as-Code pipeline, cards, taxonomy, version policy). The 25 datasets demonstrate the infrastructure; they are not the contribution itself.
 - **Paper 3 is the research paper.** Uses Registry v1.5; Fragile=0 is the central finding.
 - **JOSS (Paper 5) is the tool identity, not the core contribution.** After multi-paper usage, it documents demonstrated impact — not promised future use. Blocked by JOSS 6-month public-history requirement (~Dec 2026).
 - **Community Adoption is the endgame.** "Did you run BRF?"
