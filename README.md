@@ -6,8 +6,8 @@ group-aware educational prediction benchmarks audited under the
 
 > Registry v1.6 : 27 entries (20 unique + 7 alt views) | 21 Reliable | 6 Void | 0 Fragile
 
-**Architecture**: Dataset-as-Code — each dataset is a self-contained Python
-module with `download → verify → prepare` pipeline. 0 external dependencies.
+Collection of group-aware educational prediction benchmarks with standardized
+metadata, reproducible preprocessing, and BRF audit results.
 
 ## Quick Start
 
@@ -36,38 +36,15 @@ BRFRegistry/
 |   |-- verify.py         # SHA-256 verification
 |   `-- known_datasets.py # Legacy metadata registry
 |-- results/
-|   `-- registry_v1.5.json # 27 entries with BRF results + enriched metadata
+|   `-- registry_v1.6.json # 27 entries with BRF results + enriched metadata
 `-- run_registry.py        # Run BRF on all registered datasets
 ```
 
 ## Adding a Dataset
 
-Drop a `.py` file in `registry/sources/` implementing a `DatasetSource` subclass
-decorated with `@register_source`. Auto-discovered on next import.
-
-```python
-from registry.sources import DatasetSource, register_source
-
-@register_source
-class MyDataset(DatasetSource):
-    name = "my_dataset"
-    display_name = "My Dataset"
-    source_url = "https://..."
-    license_info = "CC BY 4.0"
-    task = "regression"
-    n_samples = 1000
-    n_features = 10
-    n_groups = 20
-    grouping_description = "School (20 schools)"
-
-    def download(self):
-        # Download from source_url, cache locally
-        ...
-
-    def prepare(self):
-        # Return (X, y, groups, metadata_card)
-        ...
-```
+Submit a PR with a `DatasetSource` subclass. See existing sources in
+`registry/sources/` for examples. Datasets must satisfy the
+[inclusion criteria](#) and pass BRF audit before merging.
 
 ## Registry Contents
 
@@ -76,7 +53,7 @@ class MyDataset(DatasetSource):
 | v1.0 | 2026-03-28 | 7 | 7 | 0 | 4 | 3 | 0 |
 | v1.6 | 2026-07-01 | 27 | 20 | 7 | 21 | 6 | 0 |
 
-### v1.5 (current) — 27 entries
+### v1.6 (current) — 27 entries
 
 | Dataset | N | p | G | S | E | Class |
 |---------|---|---|---|---|---|---|-------|
@@ -111,9 +88,9 @@ class MyDataset(DatasetSource):
 ### BRF Metric Definitions
 
 S = N - I (Stability), E = B + M (Evidence).
-See `results/registry_v1.5.json` for full B, I, N, M values.
+See `results/registry_v1.6.json` for full B, I, N, M values.
 
-## Key Findings (v1.5, N=27)
+## Key Findings (v1.6, N=27)
 
 - **Fragile absent**: Across 27 entries, 0 Fragile. Rule-of-three upper bound ~11%.
 - **Bimodal**: 21 Reliable, 6 Void — no intermediate regime.
