@@ -11,11 +11,12 @@
 
 - **BehaviorAudit** (SR, R2 submitted -- awaiting decision)
 - **BRF Package v0.2.1**: `pip install benchmark-reliability` — includes `brf.registry` subpackage, diagnose/rank/recommend, CLI
-- **BRF Benchmark Registry v1.5**: 25 entries (18 unique + 7 alt views); 20 Reliable, 5 Void, 0 Fragile
-  - Dataset-as-Code architecture; CLI; SHA-256 (8/9 downloadable)
-  - GitHub release v1.5; Zenodo DOI pending webhook activation
-  - 625-line manuscript drafted (9 tables, 28 refs, 2 figures)
-  - v1.5 frozen for Paper 3; Registry independently evolves
+- **BRF Benchmark Registry v1.6**: 27 entries (20 unique + 7 alt views); 21 Reliable, 6 Void, 0 Fragile
+  - Dataset-as-Code architecture; CLI; SHA-256 (9/11 downloadable, 82%)
+  - All 20 source modules self-contained (0 external dependencies)
+  - GitHub release v1.6; Zenodo DOI via webhook
+  - 14 tables, 1 figure, 20 YAML Dataset Cards, taxonomy, version policy
+  - Paper 2 & Paper 3 both reference v1.6; Registry independently evolves to v1.7+
 
 ---
 
@@ -24,8 +25,8 @@
 | # | Project | Contribution | Target | Status |
 |---|---------|--------------|--------|--------|
 | 1 | **BehaviorAudit** | BRF measurement framework (four-dimension audit protocol) | *Scientific Reports* | R2 submitted |
-| 2 | **BRF Benchmark Registry** | Data Descriptor / Infrastructure: versioned, reproducible, Dataset-as-Code collection of group-aware benchmarks; executable pipeline (download→verify→prepare→audit); metadata cards, taxonomy, version policy | *GigaScience* | Manuscript drafted (14 tables, 1 figure, cards/taxonomy/policy) |
-| 3 | **Benchmark Reliability Meta-analysis** | Discovery: *What dataset characteristics predict S, E, B, I?* Central finding: Fragile=0 across 25 group-aware benchmarks. S-vs-E 2D visualization, bootstrap CI, meta-regression, grouping sensitivity. Registry v1.5 as data source. | *Computers & Education* / *TMLR* | Registry v1.5 ready |
+| 2 | **BRF Benchmark Registry** | Data Descriptor / Collection: 18 unique datasets + 7 grouping views; Dataset-as-Code pipeline; metadata cards, taxonomy, version policy; zero BRF analysis | *Scientific Data* | Manuscript v4 ready (14 tables, 1 figure, 18 YAML cards) |
+| 3 | **Benchmark Reliability Meta-analysis** | Discovery: *What dataset characteristics predict S, E, B, I?* Central finding: Fragile=0 across 25 group-aware benchmarks. S-vs-E 2D visualization, bootstrap CI, meta-regression, grouping sensitivity. Registry v1.6 as data source. | *Computers & Education* / *TMLR* | Registry v1.6 ready |
 | 4 | **LLM Scoring Reliability** | Effects of LLM-as-scorer on benchmark reliability | *C&E* / *BJET* | Depends on Paper 3 |
 | 5 | **benchmark-reliability (JOSS)** | Software paper: BRF audit engine, diagnose/rank/recommend, Registry, CLI — after multi-paper usage demonstrated | *JOSS* | Waiting: repo needs 6+ months public history (~Dec 2026) |
 | 6 | **Fairness + Explanation Stability** | From statistical reliability to trustworthiness | *TNNLS* / *C&E* | Conditional on demographic data |
@@ -50,8 +51,8 @@ JOSS (Paper 5) is deferred until the repo has 6+ months public history and paper
 2-4 provide citation evidence — transforming JOSS from a "promise of future use"
 into "documentation of demonstrated use."
 
-Registry has its own lifecycle (v1.5 → v1.6 → v2.0), independent of any paper.
-Paper 3 freezes at v1.5 for reproducibility.
+Registry has its own lifecycle (v1.6 → v1.7 → v2.0), independent of any paper.
+Papers 2 and 3 both freeze at v1.6 for reproducibility.
 
 ---
 
@@ -81,12 +82,13 @@ independent of any single paper.
 | Version | Datasets | Goal | Paper |
 |---------|----------|------|-------|
 | v1.0 | 7 | Initial SR validation set | BehaviorAudit reference |
-| v1.5 | 25 | Diverse educational benchmarks + infrastructure | Paper 2 submission; Paper 3 data |
-| v1.6+ | 25-30 | Enriched metadata, additional domains | Continuous updates |
-| v2.0 | 30+ | Multi-domain (health, HR, etc.) | Future versions |
+| v1.5 | 25 | Initial large-scale collection | Historical |
+| v1.6 | 27 | + Kaggle + UCI Math; 0 external deps | Paper 2 & Paper 3 |
+| v1.7+ | 27-35 | Enriched metadata, additional domains | Continuous updates |
+| v2.0 | 35+ | Multi-domain (health, HR, etc.) | Future versions |
 
 **Key principle**: Registry versions advance independently of the paper pipeline.
-Paper 3 freezes at v1.5 for reproducibility; Registry continues to v1.6, v1.7, v2.0.
+Papers 2 and 3 both freeze at v1.6 for reproducibility; Registry continues to v1.7, v2.0.
 
 ### Inclusion Criteria
 
@@ -135,8 +137,8 @@ Each dataset records:
 ## Key Positioning
 
 - **BRF is a measurement framework, not a theory.**
-- **Registry is Paper 2 — a Benchmark Infrastructure Paper, not a data paper.** Contribution: executable benchmark registry (Dataset-as-Code pipeline, cards, taxonomy, version policy). The 25 datasets demonstrate the infrastructure; they are not the contribution itself.
-- **Paper 3 is the research paper.** Uses Registry v1.5; Fragile=0 is the central finding.
+- **Registry is Paper 2 — a Data Descriptor (collection), not a research paper.** Contribution: 18 unique group-aware datasets with executable pipeline, versioned metadata cards, taxonomy, and policy. Documents *what* and *how* — zero BRF analysis.
+- **Paper 3 is the research paper.** Uses Registry v1.6; Fragile=0 is the central finding.
 - **JOSS (Paper 5) is the tool identity, not the core contribution.** After multi-paper usage, it documents demonstrated impact — not promised future use. Blocked by JOSS 6-month public-history requirement (~Dec 2026).
 - **Community Adoption is the endgame.** "Did you run BRF?"
 
