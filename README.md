@@ -81,7 +81,7 @@ class MyDataset(DatasetSource):
 
 | Version | Date | Datasets | Reliable | Void | Fragile |
 |---------|------|----------|----------|------|---------|
-| v1.0 | 2026-06-28 | 7 | 4 | 3 | 0 |
+| v1.0 | 2026-03-28 | 7 | 4 | 3 | 0 |
 | v1.5 | 2026-07-01 | 25 | 20 | 5 | 0 |
 
 ### v1.5 (current) -- 25 datasets
