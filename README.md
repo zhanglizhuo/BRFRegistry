@@ -5,6 +5,7 @@ group-aware educational prediction benchmarks audited under the
 **Benchmark Reliability Framework (BRF)**.
 
 > Registry v1.6 : 27 entries (20 unique + 7 alt views) | 21 Reliable | 6 Void | 0 Fragile
+> DOI: [10.5281/zenodo.21098157](https://doi.org/10.5281/zenodo.21098157)
 
 Collection of group-aware educational prediction benchmarks with standardized
 metadata, reproducible preprocessing, and BRF audit results.

@@ -14,7 +14,7 @@
 - **BRF Benchmark Registry v1.6**: 27 entries (20 unique + 7 alt views); 21 Reliable, 6 Void, 0 Fragile
   - Dataset-as-Code architecture; CLI; SHA-256 (9/11 downloadable, 82%)
   - All 20 source modules self-contained (0 external dependencies)
-  - GitHub release v1.6; Zenodo DOI via webhook
+  - GitHub release v1.6; Zenodo DOI: 10.5281/zenodo.21098157
   - 14 tables, 1 figure, 20 YAML Dataset Cards, taxonomy, version policy
   - Paper 2 & Paper 3 both reference v1.6; Registry independently evolves to v1.7+
 
