@@ -32,7 +32,17 @@
     "year": "2009-2010",
     "domain": "Intelligent Tutoring",
     "grouping": "Teacher",
-    "grouping_rationale": "Teacher determines curriculum and instruction quality"
+    "grouping_rationale": "Teacher determines curriculum and instruction quality",
+    "data_quality": {
+      "n": 3729,
+      "p": 5,
+      "g": 124,
+      "np_ratio": 745.8,
+      "group_quality": "sparse",
+      "is_classification": false,
+      "signal_strength": "strong",
+      "brf_class": "Reliable"
+    }
   },
   "assistments_school": {
     "key": "assistments_school",
@@ -67,7 +77,17 @@
     "year": "2009-2010",
     "domain": "Intelligent Tutoring",
     "grouping": "School",
-    "grouping_rationale": "School determines resources and student demographics"
+    "grouping_rationale": "School determines resources and student demographics",
+    "data_quality": {
+      "n": 3729,
+      "p": 5,
+      "g": 58,
+      "np_ratio": 745.8,
+      "group_quality": "sparse",
+      "is_classification": false,
+      "signal_strength": "strong",
+      "brf_class": "Reliable"
+    }
   },
   "college_scorecard": {
     "key": "college_scorecard",
@@ -102,7 +122,17 @@
     "year": "2015-2016",
     "domain": "Institutional Outcomes",
     "grouping": "State",
-    "grouping_rationale": "State determines funding, policy, and regulatory environment"
+    "grouping_rationale": "State determines funding, policy, and regulatory environment",
+    "data_quality": {
+      "n": 2220,
+      "p": 30,
+      "g": 55,
+      "np_ratio": 74.0,
+      "group_quality": "sparse",
+      "is_classification": false,
+      "signal_strength": "moderate",
+      "brf_class": "Reliable"
+    }
   },
   "college_scorecard_carnegie": {
     "key": "college_scorecard_carnegie",
@@ -137,7 +167,17 @@
     "year": "2015-2016",
     "domain": "Institutional Outcomes",
     "grouping": "Carnegie classification",
-    "grouping_rationale": "Classification captures institutional mission and selectivity"
+    "grouping_rationale": "Classification captures institutional mission and selectivity",
+    "data_quality": {
+      "n": 1902,
+      "p": 27,
+      "g": 22,
+      "np_ratio": 70.4,
+      "group_quality": "sparse",
+      "is_classification": false,
+      "signal_strength": "moderate",
+      "brf_class": "Reliable"
+    }
   },
   "college_scorecard_ownership": {
     "key": "college_scorecard_ownership",
@@ -172,7 +212,17 @@
     "year": "2015-2016",
     "domain": "Institutional Outcomes",
     "grouping": "Ownership type",
-    "grouping_rationale": "Ownership type determines funding model"
+    "grouping_rationale": "Ownership type determines funding model",
+    "data_quality": {
+      "n": 2220,
+      "p": 27,
+      "g": 3,
+      "np_ratio": 82.2,
+      "group_quality": "balanced",
+      "is_classification": false,
+      "signal_strength": "moderate",
+      "brf_class": "Reliable"
+    }
   },
   "college_scorecard_region": {
     "key": "college_scorecard_region",
@@ -207,7 +257,17 @@
     "year": "2015-2016",
     "domain": "Institutional Outcomes",
     "grouping": "Region",
-    "grouping_rationale": "Geographic region captures economic clusters"
+    "grouping_rationale": "Geographic region captures economic clusters",
+    "data_quality": {
+      "n": 2220,
+      "p": 27,
+      "g": 9,
+      "np_ratio": 82.2,
+      "group_quality": "balanced",
+      "is_classification": false,
+      "signal_strength": "moderate",
+      "brf_class": "Reliable"
+    }
   },
   "colleges_aaup": {
     "key": "colleges_aaup",
@@ -242,7 +302,17 @@
     "year": "1995",
     "domain": "Institutional Economics",
     "grouping": "State",
-    "grouping_rationale": "State determines cost of living and funding levels"
+    "grouping_rationale": "State determines cost of living and funding levels",
+    "data_quality": {
+      "n": 1161,
+      "p": 9,
+      "g": 52,
+      "np_ratio": 129.0,
+      "group_quality": "balanced",
+      "is_classification": false,
+      "signal_strength": "strong",
+      "brf_class": "Reliable"
+    }
   },
   "colleges_aaup_type": {
     "key": "colleges_aaup_type",
@@ -277,7 +347,17 @@
     "year": "1995",
     "domain": "Institutional Economics",
     "grouping": "Institution type",
-    "grouping_rationale": "Type determines mission and budget structure"
+    "grouping_rationale": "Type determines mission and budget structure",
+    "data_quality": {
+      "n": 1161,
+      "p": 9,
+      "g": 4,
+      "np_ratio": 129.0,
+      "group_quality": "sparse",
+      "is_classification": false,
+      "signal_strength": "strong",
+      "brf_class": "Reliable"
+    }
   },
   "colleges_usnews": {
     "key": "colleges_usnews",
@@ -312,7 +392,17 @@
     "year": "1995",
     "domain": "Institutional Rankings",
     "grouping": "State",
-    "grouping_rationale": "State determines policy, funding, and demographics"
+    "grouping_rationale": "State determines policy, funding, and demographics",
+    "data_quality": {
+      "n": 1204,
+      "p": 31,
+      "g": 51,
+      "np_ratio": 38.8,
+      "group_quality": "balanced",
+      "is_classification": false,
+      "signal_strength": "strong",
+      "brf_class": "Reliable"
+    }
   },
   "entrance_exam": {
     "key": "entrance_exam",
@@ -347,7 +437,17 @@
     "year": "2021",
     "domain": "Academic Performance",
     "grouping": "Qualification type",
-    "grouping_rationale": "Qualification determines prior knowledge and preparation"
+    "grouping_rationale": "Qualification determines prior knowledge and preparation",
+    "data_quality": {
+      "n": 666,
+      "p": 49,
+      "g": 3,
+      "np_ratio": 13.6,
+      "group_quality": "balanced",
+      "is_classification": false,
+      "signal_strength": "strong",
+      "brf_class": "Reliable"
+    }
   },
   "higher_ed": {
     "key": "higher_ed",
@@ -382,7 +482,17 @@
     "year": "2020",
     "domain": "Academic Performance",
     "grouping": "Course",
-    "grouping_rationale": "Course determines difficulty and grading standards"
+    "grouping_rationale": "Course determines difficulty and grading standards",
+    "data_quality": {
+      "n": 145,
+      "p": 31,
+      "g": 9,
+      "np_ratio": 4.7,
+      "group_quality": "sparse",
+      "is_classification": false,
+      "signal_strength": "moderate",
+      "brf_class": "Void"
+    }
   },
   "law_school": {
     "key": "law_school",
@@ -417,7 +527,17 @@
     "year": "1991",
     "domain": "Legal Education",
     "grouping": "Cluster",
-    "grouping_rationale": "Cluster captures law school tier and selectivity"
+    "grouping_rationale": "Cluster captures law school tier and selectivity",
+    "data_quality": {
+      "n": 20800,
+      "p": 10,
+      "g": 6,
+      "np_ratio": 2080.0,
+      "group_quality": "balanced",
+      "is_classification": false,
+      "signal_strength": "moderate",
+      "brf_class": "Reliable"
+    }
   },
   "mathe": {
     "key": "mathe",
@@ -452,7 +572,17 @@
     "year": "2019-2023",
     "domain": "Math Assessment",
     "grouping": "Math topic",
-    "grouping_rationale": "Math topic determines question type and difficulty"
+    "grouping_rationale": "Math topic determines question type and difficulty",
+    "data_quality": {
+      "n": 833,
+      "p": 26,
+      "g": 14,
+      "np_ratio": 32.0,
+      "group_quality": "balanced",
+      "is_classification": false,
+      "signal_strength": "weak",
+      "brf_class": "Void"
+    }
   },
   "mm_tba": {
     "key": "mm_tba",
@@ -487,7 +617,17 @@
     "year": "2025",
     "domain": "LLM Evaluation",
     "grouping": "None",
-    "grouping_rationale": "No grouping metadata available (LLM-scored benchmark)"
+    "grouping_rationale": "No grouping metadata available (LLM-scored benchmark)",
+    "data_quality": {
+      "n": 186,
+      "p": 13,
+      "g": 0,
+      "np_ratio": 14.3,
+      "group_quality": "none",
+      "is_classification": false,
+      "signal_strength": "none",
+      "brf_class": "Void"
+    }
   },
   "oli": {
     "key": "oli",
@@ -522,7 +662,17 @@
     "year": "2011",
     "domain": "Engineering Education",
     "grouping": "Curriculum module",
-    "grouping_rationale": "Module determines content domain and difficulty"
+    "grouping_rationale": "Module determines content domain and difficulty",
+    "data_quality": {
+      "n": 194947,
+      "p": 2,
+      "g": 19,
+      "np_ratio": 97473.5,
+      "group_quality": "balanced",
+      "is_classification": false,
+      "signal_strength": "weak",
+      "brf_class": "Reliable"
+    }
   },
   "oulad": {
     "key": "oulad",
@@ -557,7 +707,17 @@
     "year": "2013-2014",
     "domain": "Learning Analytics",
     "grouping": "Course module",
-    "grouping_rationale": "Module determines assessment structure and content"
+    "grouping_rationale": "Module determines assessment structure and content",
+    "data_quality": {
+      "n": 32593,
+      "p": 44,
+      "g": 22,
+      "np_ratio": 740.8,
+      "group_quality": "balanced",
+      "is_classification": false,
+      "signal_strength": "strong",
+      "brf_class": "Reliable"
+    }
   },
   "pisa2015": {
     "key": "pisa2015",
@@ -592,7 +752,17 @@
     "year": "2015",
     "domain": "Large-scale Assessment",
     "grouping": "Country",
-    "grouping_rationale": "Country determines education system and resources"
+    "grouping_rationale": "Country determines education system and resources",
+    "data_quality": {
+      "n": 519334,
+      "p": 2,
+      "g": 73,
+      "np_ratio": 259667.0,
+      "group_quality": "balanced",
+      "is_classification": false,
+      "signal_strength": "none",
+      "brf_class": "Void"
+    }
   },
   "student_depression": {
     "key": "student_depression",
@@ -627,7 +797,17 @@
     "year": "2023",
     "domain": "Mental Health",
     "grouping": "City",
-    "grouping_rationale": "City captures regional socioeconomic and cultural context"
+    "grouping_rationale": "City captures regional socioeconomic and cultural context",
+    "data_quality": {
+      "n": 27875,
+      "p": 21,
+      "g": 30,
+      "np_ratio": 1327.4,
+      "group_quality": "balanced",
+      "is_classification": false,
+      "signal_strength": "strong",
+      "brf_class": "Reliable"
+    }
   },
   "student_depression_degree": {
     "key": "student_depression_degree",
@@ -662,7 +842,17 @@
     "year": "2023",
     "domain": "Mental Health",
     "grouping": "Degree",
-    "grouping_rationale": "Degree determines academic pressure and career path"
+    "grouping_rationale": "Degree determines academic pressure and career path",
+    "data_quality": {
+      "n": 27901,
+      "p": 21,
+      "g": 28,
+      "np_ratio": 1328.6,
+      "group_quality": "sparse",
+      "is_classification": false,
+      "signal_strength": "strong",
+      "brf_class": "Reliable"
+    }
   },
   "student_depression_prof": {
     "key": "student_depression_prof",
@@ -697,7 +887,17 @@
     "year": "2023",
     "domain": "Mental Health",
     "grouping": "Profession",
-    "grouping_rationale": "Profession determines lifestyle patterns and stress"
+    "grouping_rationale": "Profession determines lifestyle patterns and stress",
+    "data_quality": {
+      "n": 27884,
+      "p": 21,
+      "g": 3,
+      "np_ratio": 1327.8,
+      "group_quality": "minimal",
+      "is_classification": false,
+      "signal_strength": "strong",
+      "brf_class": "Reliable"
+    }
   },
   "student_dropout": {
     "key": "student_dropout",
@@ -732,7 +932,17 @@
     "year": "2022",
     "domain": "Academic Success",
     "grouping": "Course",
-    "grouping_rationale": "Course determines curriculum difficulty and grading"
+    "grouping_rationale": "Course determines curriculum difficulty and grading",
+    "data_quality": {
+      "n": 3630,
+      "p": 36,
+      "g": 17,
+      "np_ratio": 100.8,
+      "group_quality": "balanced",
+      "is_classification": false,
+      "signal_strength": "strong",
+      "brf_class": "Reliable"
+    }
   },
   "students_exam_scores": {
     "key": "students_exam_scores",
@@ -766,7 +976,17 @@
       "scale": true,
       "elapsed_seconds": 29.0
     },
-    "brf_error": null
+    "brf_error": null,
+    "data_quality": {
+      "n": 30641,
+      "p": 17,
+      "g": 5,
+      "np_ratio": 1802.4,
+      "group_quality": "balanced",
+      "is_classification": false,
+      "signal_strength": "weak",
+      "brf_class": "Reliable"
+    }
   },
   "tae": {
     "key": "tae",
@@ -801,7 +1021,17 @@
     "year": "1997",
     "domain": "Teaching Evaluation",
     "grouping": "Instructor",
-    "grouping_rationale": "Instructor determines teaching style and grading"
+    "grouping_rationale": "Instructor determines teaching style and grading",
+    "data_quality": {
+      "n": 151,
+      "p": 4,
+      "g": 25,
+      "np_ratio": 37.8,
+      "group_quality": "balanced",
+      "is_classification": false,
+      "signal_strength": "moderate",
+      "brf_class": "Void"
+    }
   },
   "turkiye": {
     "key": "turkiye",
@@ -836,7 +1066,17 @@
     "year": "2013",
     "domain": "Teaching Evaluation",
     "grouping": "Course",
-    "grouping_rationale": "Course determines difficulty perception and content"
+    "grouping_rationale": "Course determines difficulty perception and content",
+    "data_quality": {
+      "n": 5820,
+      "p": 28,
+      "g": 13,
+      "np_ratio": 207.9,
+      "group_quality": "balanced",
+      "is_classification": false,
+      "signal_strength": "weak",
+      "brf_class": "Reliable"
+    }
   },
   "uci_student": {
     "key": "uci_student",
@@ -871,7 +1111,17 @@
     "year": "2008",
     "domain": "Academic Performance",
     "grouping": "School",
-    "grouping_rationale": "School determines teaching quality and resources"
+    "grouping_rationale": "School determines teaching quality and resources",
+    "data_quality": {
+      "n": 649,
+      "p": 56,
+      "g": 2,
+      "np_ratio": 11.6,
+      "group_quality": "balanced",
+      "is_classification": false,
+      "signal_strength": "moderate",
+      "brf_class": "Reliable"
+    }
   },
   "uci_student_math": {
     "key": "uci_student_math",
@@ -906,7 +1156,17 @@
       "scale": true,
       "elapsed_seconds": 1.0
     },
-    "brf_error": null
+    "brf_error": null,
+    "data_quality": {
+      "n": 395,
+      "p": 56,
+      "g": 2,
+      "np_ratio": 7.1,
+      "group_quality": "balanced",
+      "is_classification": false,
+      "signal_strength": "none",
+      "brf_class": "Void"
+    }
   },
   "xapi_edu": {
     "key": "xapi_edu",
@@ -941,6 +1201,16 @@
     "year": "2016",
     "domain": "Learning Management",
     "grouping": "Student cohort",
-    "grouping_rationale": "Student cohort within LMS session"
+    "grouping_rationale": "Student cohort within LMS session",
+    "data_quality": {
+      "n": 480,
+      "p": 72,
+      "g": 12,
+      "np_ratio": 6.7,
+      "group_quality": "balanced",
+      "is_classification": false,
+      "signal_strength": "strong",
+      "brf_class": "Reliable"
+    }
   }
 }
