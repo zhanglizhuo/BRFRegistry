@@ -53,7 +53,7 @@ Submit a PR with a `DatasetSource` subclass. See existing sources in
 | v1.0 | 2026-03-28 | 7 | 7 | 0 | 4 | 3 | 0 |
 | v1.6 | 2026-07-01 | 27 | 20 | 7 | 21 | 6 | 0 |
 
-### v1.6 (current) — 27 entries
+### v1.6 (current) -- 27 entries
 
 | Dataset | N | p | G | S | E | Class |
 |---------|---|---|---|---|---|---|-------|
@@ -93,7 +93,7 @@ See `results/registry_v1.6.json` for full B, I, N, M values.
 ## Key Findings (v1.6, N=27)
 
 - **Fragile absent**: Across 27 entries, 0 Fragile. Rule-of-three upper bound ~11%.
-- **Bimodal**: 21 Reliable, 6 Void — no intermediate regime.
+- **Bimodal**: 21 Reliable, 6 Void -- no intermediate regime.
 - **Grouping sensitivity**: Same data, different grouping → E shifts by 0.35–0.85.
 - **Self-contained**: 20/20 source modules independent (0 BA dependencies).
 - **SHA-256**: 9/11 direct-download entries verified (82%).
