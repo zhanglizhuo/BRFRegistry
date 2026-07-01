@@ -255,15 +255,57 @@ register_dataset(
 )
 
 register_dataset(
-    key="assistments_school",
-    name="ASSISTments 2009-2010 (by school)",
-    n=3729,
-    n_features=5,
-    target_type="continuous (overall accuracy)",
-    n_groups=58,
-    source_url="http://base.ustc.edu.cn/data/ASSISTment/2009_skill_builder_data_corrected.zip",
+    key="uci_student_math",
+    name="UCI Student Performance (Math)",
+    n=395,
+    n_features=56,
+    target_type="continuous (G3 grade)",
+    n_groups=2,
+    source_url="https://archive.ics.uci.edu/dataset/320/student+performance",
     dataset_root="",
-    reference="Feng, Heffernan & Koedinger (2009)",
-    license_info="Public research data",
-    notes="Same data as assistments, grouped by school (58) instead of teacher (124).",
+    reference="Cortez & Silva (2008); UCI ID 320 (Math)",
+    license_info="CC BY 4.0",
+    notes="Portuguese Math subset (student-mat.csv). School as group.",
+)
+
+register_dataset(
+    key="students_exam_scores",
+    name="Students Exam Scores (Kaggle)",
+    n=30641,
+    n_features=17,
+    target_type="continuous (math score)",
+    n_groups=5,
+    source_url="https://www.kaggle.com/datasets/desalegngeb/students-exam-scores",
+    dataset_root="",
+    reference="Kaggle: Students Exam Scores",
+    license_info="CC0 (Kaggle)",
+    notes="30.6K US high school students. Ethnic group (5) as group.",
+)
+
+register_dataset(
+    key="law_school",
+    name="Law School Admission",
+    n=20800,
+    n_features=7,
+    target_type="binary (bar exam pass)",
+    n_groups=6,
+    source_url="https://www.openml.org/search?type=data&id=43889",
+    dataset_root="",
+    reference="LSAC; OpenML ID 43889",
+    license_info="Public Domain (OpenML)",
+    notes="20.8K law school applicants. Cluster (6) as group.",
+)
+
+register_dataset(
+    key="pisa2015",
+    name="PISA 2015 Science",
+    n=519334,
+    n_features=2,
+    target_type="continuous (science score)",
+    n_groups=73,
+    source_url="http://base.ustc.edu.cn/data/pisa2015_science.zip",
+    dataset_root="",
+    reference="OECD PISA 2015",
+    license_info="OECD Public Use",
+    notes="519K students across 73 countries. Country as group.",
 )

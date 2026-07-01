@@ -3,14 +3,13 @@
 
 version: "1.5"
 release_date: "2026-07-01"
-total_datasets: 25
+total_datasets: 27
 
 description: >
   Curated collection of group-aware educational benchmark datasets
   with standardized metadata, reproducibility scripts, and BRF
   (Benchmark Reliability Framework) audit results.
-  Includes multiple grouping views for meta-analysis of how
-  grouping granularity shapes BRF metrics (S, E, B, I, N, M).
+  20 unique datasets + 7 alternative grouping views = 27 total entries.
 
 datasets:
   - oulad
@@ -18,6 +17,7 @@ datasets:
   - xapi_edu
   - entrance_exam
   - uci_student
+  - uci_student_math
   - higher_ed
   - mm_tba
   - tae
@@ -37,11 +37,12 @@ datasets:
   - college_scorecard_ownership
   - pisa2015
   - law_school
+  - students_exam_scores
   - colleges_aaup_type
 
 brf_results:
-  reliable: 20
-  void: 5
+  reliable: 21
+  void: 6
   fragile: 0
 
 schema_version: "2.0.0"
