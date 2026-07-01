@@ -1,0 +1,35 @@
+name: student_depression
+key: student_depression
+version: '1.0'
+source:
+  url: https://www.openml.org/search?type=data&id=46753
+  repository: OpenML
+  license: Public Domain (OpenML)
+collection:
+  year: '2023'
+  country: India
+task:
+  type: ''
+  target: binary (depression yes/no)
+features:
+  count: 21
+samples:
+  count: 27875
+grouping:
+  variable: City
+  rationale: City captures regional socioeconomic and cultural context
+  count: 30
+education:
+  level: Higher Education
+  domain: Mental Health
+reference: Student Depression Dataset; OpenML ID 46753
+notes: Student mental health survey. City as group (30 Indian cities). Run as regression.
+brf_compatibility:
+  S: 0.983
+  E: 1.372
+  class: Reliable
+  audited_version: v1.5
+  note: BRF class is communication shorthand only. Use continuous S and E values for
+    analysis.
+integrity:
+  sha256: d18d7476eec0f3f1352dd3cdf1ade52dbe9084cc8c523d3c8aa22f9d7248957a

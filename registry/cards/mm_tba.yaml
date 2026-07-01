@@ -1,0 +1,33 @@
+name: mm_tba
+key: mm_tba
+version: '1.0'
+source:
+  url: https://github.com/broadsense/MM-TBA
+  repository: GitHub
+  license: TBD
+collection:
+  year: '2025'
+  country: International
+task:
+  type: ''
+  target: continuous (GPT-4 rubric mean)
+features:
+  count: 13
+samples:
+  count: 186
+grouping:
+  variable: None
+  rationale: No grouping metadata available (LLM-scored benchmark)
+  count: 0
+education:
+  level: Higher Education
+  domain: LLM Evaluation
+reference: Huang et al. (2025)
+notes: 186 lecture segments. No grouping metadata.
+brf_compatibility:
+  S: -0.769
+  E: -0.034
+  class: Void
+  audited_version: v1.5
+  note: BRF class is communication shorthand only. Use continuous S and E values for
+    analysis.

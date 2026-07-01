@@ -1,0 +1,33 @@
+name: law_school
+key: law_school
+version: '1.0'
+source:
+  url: https://www.openml.org/search?type=data&id=43889
+  repository: Unknown
+  license: Public Domain (OpenML)
+collection:
+  year: '1991'
+  country: US
+task:
+  type: ''
+  target: binary (bar exam pass)
+features:
+  count: 10
+samples:
+  count: 20800
+grouping:
+  variable: Cluster
+  rationale: Cluster captures law school tier and selectivity
+  count: 6
+education:
+  level: Higher Education
+  domain: Legal Education
+reference: Law School Admissions; OpenML ID 43889
+notes: '20.8K law school applicants. Group: cluster (6). Target: bar exam pass.'
+brf_compatibility:
+  S: 0.959
+  E: 0.731
+  class: Reliable
+  audited_version: v1.5
+  note: BRF class is communication shorthand only. Use continuous S and E values for
+    analysis.

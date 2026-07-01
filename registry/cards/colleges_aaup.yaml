@@ -1,0 +1,36 @@
+name: colleges_aaup
+key: colleges_aaup
+version: '1.0'
+source:
+  url: https://www.openml.org/search?type=data&id=488
+  repository: OpenML
+  license: Public Domain (OpenML)
+collection:
+  year: '1995'
+  country: US
+task:
+  type: ''
+  target: continuous (avg faculty salary)
+features:
+  count: 9
+samples:
+  count: 1161
+grouping:
+  variable: State
+  rationale: State determines cost of living and funding levels
+  count: 52
+education:
+  level: Higher Education
+  domain: Institutional Economics
+reference: AAUP Faculty Salary Survey (OpenML ID 488)
+notes: '1161 US colleges, 52 state groups. Institutional-level. Target: average salary
+  all ranks.'
+brf_compatibility:
+  S: 0.899
+  E: 1.026
+  class: Reliable
+  audited_version: v1.5
+  note: BRF class is communication shorthand only. Use continuous S and E values for
+    analysis.
+integrity:
+  sha256: 5eafc5406a35b84887cd3bd13721615fbb73e33cf304b77bfbe38b5e16668ace

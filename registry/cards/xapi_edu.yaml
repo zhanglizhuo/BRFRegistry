@@ -1,0 +1,33 @@
+name: xapi_edu
+key: xapi_edu
+version: '1.0'
+source:
+  url: https://www.kaggle.com/datasets/aljarah/xAPI-Edu-Data
+  repository: Other
+  license: CC BY-SA 4.0 (Kaggle)
+collection:
+  year: '2016'
+  country: International
+task:
+  type: ''
+  target: ordinal 3-class (L/M/H)
+features:
+  count: 72
+samples:
+  count: 480
+grouping:
+  variable: Student cohort
+  rationale: Student cohort within LMS session
+  count: 12
+education:
+  level: K12
+  domain: Learning Management
+reference: Amrieh et al. (2016)
+notes: Kalboard 360. Features one-hot encoded.
+brf_compatibility:
+  S: 0.89
+  E: 1.344
+  class: Reliable
+  audited_version: v1.5
+  note: BRF class is communication shorthand only. Use continuous S and E values for
+    analysis.

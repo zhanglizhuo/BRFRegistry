@@ -1,0 +1,34 @@
+name: oulad
+key: oulad
+version: '1.0'
+source:
+  url: https://analyse.kmi.open.ac.uk/open_dataset
+  repository: Other
+  license: CC BY-SA 4.0
+collection:
+  year: 2013-2014
+  country: UK
+task:
+  type: ''
+  target: binary (pass/fail)
+features:
+  count: 44
+samples:
+  count: 32593
+grouping:
+  variable: Course module
+  rationale: Module determines assessment structure and content
+  count: 22
+education:
+  level: Higher Education
+  domain: Learning Analytics
+reference: Kuzilek et al. (2017)
+notes: Open University Learning Analytics Dataset. Binarized pass-or-distinction vs
+  fail-or-withdrawn.
+brf_compatibility:
+  S: 0.98
+  E: 1.236
+  class: Reliable
+  audited_version: v1.5
+  note: BRF class is communication shorthand only. Use continuous S and E values for
+    analysis.

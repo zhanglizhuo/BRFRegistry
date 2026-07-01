@@ -1,0 +1,36 @@
+name: mathe
+key: mathe
+version: '1.0'
+source:
+  url: https://archive.ics.uci.edu/dataset/1031/dataset+for+assessing+mathematics+learning+in+higher+education
+  repository: UCI
+  license: CC BY 4.0
+collection:
+  year: 2019-2023
+  country: International (EU)
+task:
+  type: ''
+  target: continuous (question difficulty)
+features:
+  count: 26
+samples:
+  count: 833
+grouping:
+  variable: Math topic
+  rationale: Math topic determines question type and difficulty
+  count: 14
+education:
+  level: Higher Education
+  domain: Math Assessment
+reference: Azevedo, Pacheco, Fernandes & Pereira (2024); UCI ID 1031
+notes: Question-level aggregation of 9546 student answers. Topic as group. Cross-topic
+  transfer fails.
+brf_compatibility:
+  S: -1.636
+  E: 0.632
+  class: Void
+  audited_version: v1.5
+  note: BRF class is communication shorthand only. Use continuous S and E values for
+    analysis.
+integrity:
+  sha256: 97844121a1e4cc6b7ad435f9ed6710d84141fc8fe61087df8bc5eb77b22e060c

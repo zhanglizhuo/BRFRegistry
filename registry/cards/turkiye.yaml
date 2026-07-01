@@ -1,0 +1,35 @@
+name: turkiye
+key: turkiye
+version: '1.0'
+source:
+  url: https://archive.ics.uci.edu/dataset/262/turkiye+student+evaluation
+  repository: UCI
+  license: CC BY 4.0
+collection:
+  year: '2013'
+  country: Turkey
+task:
+  type: ''
+  target: ordinal 5-class (difficulty 1-5)
+features:
+  count: 28
+samples:
+  count: 5820
+grouping:
+  variable: Course
+  rationale: Course determines difficulty perception and content
+  count: 13
+education:
+  level: Higher Education
+  domain: Teaching Evaluation
+reference: Gazi University; UCI ID 262
+notes: Student course evaluations from Gazi University, Turkey. Course as group.
+brf_compatibility:
+  S: 0.555
+  E: 0.699
+  class: Reliable
+  audited_version: v1.5
+  note: BRF class is communication shorthand only. Use continuous S and E values for
+    analysis.
+integrity:
+  sha256: e5c4bf0f98af39adbc0bd23ddbc7ab1d5ffbcf028e7540a464ff6d725cb5f2eb

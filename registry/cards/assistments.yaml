@@ -1,0 +1,36 @@
+name: assistments
+key: assistments
+version: '1.0'
+source:
+  url: http://base.ustc.edu.cn/data/ASSISTment/2009_skill_builder_data_corrected.zip
+  repository: USTC Datashop
+  license: TBD (public research data)
+collection:
+  year: 2009-2010
+  country: US
+task:
+  type: ''
+  target: continuous (overall accuracy)
+features:
+  count: 5
+samples:
+  count: 3729
+grouping:
+  variable: Teacher
+  rationale: Teacher determines curriculum and instruction quality
+  count: 124
+education:
+  level: K12
+  domain: Intelligent Tutoring
+reference: Feng, Heffernan & Koedinger (2009)
+notes: Skill builder corrected. Student-level aggregates of 328K transactions. Teacher
+  as group.
+brf_compatibility:
+  S: 0.953
+  E: 0.946
+  class: Reliable
+  audited_version: v1.5
+  note: BRF class is communication shorthand only. Use continuous S and E values for
+    analysis.
+integrity:
+  sha256: 1aa296e00b6c88c4d6fad4ca2ae4866484d9fe5484f38f5c8c94dfc49f045e08

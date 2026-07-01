@@ -1,0 +1,36 @@
+name: oli
+key: oli
+version: '1.0'
+source:
+  url: http://base.ustc.edu.cn/data/OLI_data.zip
+  repository: USTC Datashop
+  license: Public research data (PSLC DataShop)
+collection:
+  year: '2011'
+  country: US
+task:
+  type: ''
+  target: binary (first attempt correctness)
+features:
+  count: 2
+samples:
+  count: 194947
+grouping:
+  variable: Curriculum module
+  rationale: Module determines content domain and difficulty
+  count: 19
+education:
+  level: Higher Education
+  domain: Engineering Education
+reference: CMU OLI; PSLC DataShop
+notes: Engineering Statics course. 194K steps, 19 modules. Target is classification
+  but run as regression.
+brf_compatibility:
+  S: 0.958
+  E: 0.71
+  class: Reliable
+  audited_version: v1.5
+  note: BRF class is communication shorthand only. Use continuous S and E values for
+    analysis.
+integrity:
+  sha256: 8ba76de29f34cf9ffbbb6ef49b83875a6971af25a449a066da6371257edd99d9

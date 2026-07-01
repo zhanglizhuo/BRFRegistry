@@ -1,0 +1,68 @@
+# BRF Registry Version Policy
+#
+# Defines the lifecycle of Registry versions, dataset additions/deprecations,
+# and the rules governing what happens when upstream data changes.
+
+version_policy:
+  version: "1.0"
+  last_updated: "2026-07-01"
+
+  # ---- Semantic Versioning Rules ----
+  # Registry uses <major>.<minor> versioning:
+  #   major: may add OR remove datasets; may change API
+  #   minor: may add datasets OR enrich metadata; never removes entries
+
+  current: "1.5"
+
+  # ---- Dataset Lifecycle ----
+  # Each dataset passes through these states:
+  #
+  #   candidate → active → deprecated → retired
+  #
+  #   candidate:  Proposed via PR, passes inclusion criteria, pending BRF audit
+  #   active:     Fully integrated, downloadable, verifyable, BRF-audited
+  #   deprecated: Source URL broken, license changed, or data withdrawn by owner.
+  #               Still accessible via cache. Warning shown on download.
+  #   retired:    Removed from active Registry. Metadata preserved for provenance.
+  #               No longer downloadable via Registry (original source may still work).
+
+  # ---- Deprecation Rules ----
+  # A dataset is deprecated when:
+  #   1. Source URL returns 404/403 for >30 consecutive days
+  #   2. Upstream license changes to non-permissive
+  #   3. Original authors withdraw the dataset
+  #   4. SHA-256 mismatch detected and cannot be resolved
+  #
+  # A deprecated dataset:
+  #   - Remains in results JSON with status = "deprecated"
+  #   - Is still accessible from local cache
+  #   - Shows a warning on `brf registry download <key>`
+  #   - Is excluded from new BRF audit runs by default
+
+  # ---- Retirement Rules ----
+  # A deprecated dataset is retired when:
+  #   1. It has been deprecated for >12 months with no resolution
+  #   2. OR the data is known to be permanently unavailable
+  #
+  # A retired dataset:
+  #   - Is removed from active source modules
+  #   - Metadata + BRF results preserved in archive/
+  #   - Is NOT listed in `brf registry list`
+  #   - Is documented in RETIRED.md with reason and date
+
+  # ---- Version Freeze ----
+  # When a paper is published using a specific Registry version:
+  #   - That version is tagged (e.g., v1.5) on GitHub
+  #   - A Zenodo DOI is minted for the exact tagged snapshot
+  #   - The paper cites the DOI, not the GitHub URL
+  #
+  # Example:
+  #   Paper 3 uses Registry v1.5 → cites DOI 10.5281/zenodo.XXXXXXX
+  #   Registry continues to v1.6, v1.7 independently
+  #   Paper 3's results remain forever reproducible via the frozen v1.5 DOI
+
+  # ---- Known Issues (v1.5) ----
+  known_issues:
+    - "7 source modules depend on BehaviorAudit repository (OULAD, Student Dropout, xAPI-Edu, Entrance Exam, UCI Student, Higher Ed, MM-TBA). Migration to direct public-source downloads planned for v1.6."
+    - "2 datasets (Law School, PISA 2015) lack standalone source modules. To be added in v1.6."
+    - "SHA-256 coverage: 9/16 source modules (56%). All 9 downloadable entries covered (100%). 7 BA-dependent modules have no downloadable files to hash."

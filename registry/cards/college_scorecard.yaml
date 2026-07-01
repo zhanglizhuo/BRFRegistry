@@ -1,0 +1,35 @@
+name: college_scorecard
+key: college_scorecard
+version: '1.0'
+source:
+  url: https://www.openml.org/search?type=data&id=42121
+  repository: OpenML
+  license: Public Domain (OpenML)
+collection:
+  year: 2015-2016
+  country: US
+task:
+  type: ''
+  target: continuous (admission rate)
+features:
+  count: 30
+samples:
+  count: 2220
+grouping:
+  variable: State
+  rationale: State determines funding, policy, and regulatory environment
+  count: 55
+education:
+  level: Higher Education
+  domain: Institutional Outcomes
+reference: US Dept of Education; OpenML ID 42121
+notes: 7804 colleges, filtered to 2220 with admission data.
+brf_compatibility:
+  S: 0.824
+  E: 0.687
+  class: Reliable
+  audited_version: v1.5
+  note: BRF class is communication shorthand only. Use continuous S and E values for
+    analysis.
+integrity:
+  sha256: d4dca5f3d35fba46a164a1e8a59c35d643a89cbc25a216431a44913dd4cf5e00

@@ -1,0 +1,33 @@
+name: uci_student
+key: uci_student
+version: '1.0'
+source:
+  url: https://archive.ics.uci.edu/dataset/320/student+performance
+  repository: UCI
+  license: CC BY 4.0
+collection:
+  year: '2008'
+  country: Portugal
+task:
+  type: ''
+  target: continuous (0-20)
+features:
+  count: 56
+samples:
+  count: 649
+grouping:
+  variable: School
+  rationale: School determines teaching quality and resources
+  count: 2
+education:
+  level: Secondary
+  domain: Academic Performance
+reference: Cortez & Silva (2008)
+notes: Portuguese-language subset. G1 and G2 excluded.
+brf_compatibility:
+  S: 0.623
+  E: 1.058
+  class: Reliable
+  audited_version: v1.5
+  note: BRF class is communication shorthand only. Use continuous S and E values for
+    analysis.

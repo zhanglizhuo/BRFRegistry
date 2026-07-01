@@ -1,0 +1,35 @@
+name: tae
+key: tae
+version: '1.0'
+source:
+  url: https://archive.ics.uci.edu/dataset/100/teaching+assistant+evaluation
+  repository: UCI
+  license: CC BY 4.0
+collection:
+  year: '1997'
+  country: US
+task:
+  type: ''
+  target: ordinal 3-class (Low/Medium/High)
+features:
+  count: 4
+samples:
+  count: 151
+grouping:
+  variable: Instructor
+  rationale: Instructor determines teaching style and grading
+  count: 25
+education:
+  level: Higher Education
+  domain: Teaching Evaluation
+reference: Loh (1997); UCI ID 100
+notes: TA performance from U Wisconsin-Madison Stats Dept. Instructor as group.
+brf_compatibility:
+  S: -0.423
+  E: 0.746
+  class: Void
+  audited_version: v1.5
+  note: BRF class is communication shorthand only. Use continuous S and E values for
+    analysis.
+integrity:
+  sha256: e83ec0a1000f4d2a7d19de9de2fc8c381357304c5c8ff942779136a9e0eefca4

@@ -1,0 +1,34 @@
+name: pisa2015
+key: pisa2015
+version: '1.0'
+source:
+  url: http://base.ustc.edu.cn/data/pisa2015_science.zip
+  repository: Unknown
+  license: OECD Public Use
+collection:
+  year: '2015'
+  country: International (73)
+task:
+  type: ''
+  target: continuous (score)
+features:
+  count: 2
+samples:
+  count: 519334
+grouping:
+  variable: Country
+  rationale: Country determines education system and resources
+  count: 73
+education:
+  level: Secondary (Assessment)
+  domain: Large-scale Assessment
+reference: OECD PISA 2015 Science Assessment
+notes: '519K students, 73 countries. Cognitve item scores aggregated to student level.
+  B=0: no predictive features.'
+brf_compatibility:
+  S: -0.1
+  E: 0.657
+  class: Void
+  audited_version: v1.5
+  note: BRF class is communication shorthand only. Use continuous S and E values for
+    analysis.

@@ -1,0 +1,35 @@
+name: colleges_usnews
+key: colleges_usnews
+version: '1.0'
+source:
+  url: https://www.openml.org/search?type=data&id=538
+  repository: OpenML
+  license: Public Domain (OpenML)
+collection:
+  year: '1995'
+  country: US
+task:
+  type: ''
+  target: continuous (graduation rate)
+features:
+  count: 31
+samples:
+  count: 1204
+grouping:
+  variable: State
+  rationale: State determines policy, funding, and demographics
+  count: 51
+education:
+  level: Higher Education
+  domain: Institutional Rankings
+reference: US News College Rankings (OpenML ID 538)
+notes: '1204 US colleges, 51 state groups. Target: graduation rate.'
+brf_compatibility:
+  S: 0.885
+  E: 1.038
+  class: Reliable
+  audited_version: v1.5
+  note: BRF class is communication shorthand only. Use continuous S and E values for
+    analysis.
+integrity:
+  sha256: c96a8f3e34764ce52442bf10c50a4170260993de35ada0c7d82a8c6fec75104a

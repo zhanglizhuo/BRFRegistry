@@ -1,0 +1,33 @@
+name: entrance_exam
+key: entrance_exam
+version: '1.0'
+source:
+  url: https://archive.ics.uci.edu/dataset/582/student+academic+performance
+  repository: UCI
+  license: CC BY 4.0
+collection:
+  year: '2021'
+  country: India
+task:
+  type: ''
+  target: ordinal 4-class (0-3)
+features:
+  count: 49
+samples:
+  count: 666
+grouping:
+  variable: Qualification type
+  rationale: Qualification determines prior knowledge and preparation
+  count: 3
+education:
+  level: Higher Education
+  domain: Academic Performance
+reference: Bora & Dey (2021); UCI ID 582
+notes: UCI ID 582. student_entrance_582.csv.
+brf_compatibility:
+  S: 0.884
+  E: 0.966
+  class: Reliable
+  audited_version: v1.5
+  note: BRF class is communication shorthand only. Use continuous S and E values for
+    analysis.

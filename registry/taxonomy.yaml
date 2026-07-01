@@ -1,0 +1,96 @@
+# BRF Registry Benchmark Taxonomy
+# Hierarchical classification of all 18 unique datasets.
+# Generated from registry_v1.5.json.
+
+taxonomy:
+  version: "1.0"
+  date: "2026-07-01"
+
+  # ---- Level 1: Education Tier ----
+  education_level:
+    - K12:
+        - ASSISTments 2009-2010
+        - xAPI-Edu-Data
+    - Secondary:
+        - UCI Student Performance
+        - PISA 2015 Science
+    - Higher Education:
+        - OULAD
+        - Student Dropout
+        - Entrance Exam
+        - Higher Ed
+        - TAE
+        - Turkiye
+        - MathE
+        - MM-TBA
+        - OLI Engineering Statics 2011
+        - Student Depression
+        - Law School Admission
+    - Mixed:
+        - Colleges AAUP
+        - Colleges US News
+        - College Scorecard
+
+  # ---- Level 2: Task Type ----
+  task_type:
+    - regression:
+        - UCI Student Performance
+        - Higher Ed
+        - MM-TBA
+        - Turkiye
+        - ASSISTments
+        - MathE
+        - OLI
+        - Colleges AAUP
+        - Colleges US News
+        - College Scorecard
+        - Law School
+    - classification:
+        - OULAD
+        - Student Dropout
+        - xAPI-Edu
+        - Entrance Exam
+        - TAE
+        - Student Depression
+        - PISA 2015
+
+  # ---- Level 3: Grouping Type ----
+  grouping_type:
+    - institutional:
+        - State: Colleges AAUP, Colleges US News, College Scorecard
+        - Country: PISA 2015
+        - School: UCI Student, ASSISTments
+    - organizational:
+        - Course: OULAD, Student Dropout, Higher Ed, Turkiye
+        - Qualification: Entrance Exam
+        - Module: MathE, OLI
+    - interpersonal:
+        - Instructor: TAE
+        - Teacher: ASSISTments
+    - demographic:
+        - City: Student Depression
+        - Profession: Student Depression
+        - Cluster: Law School
+    - none:
+        - MM-TBA
+
+  # ---- Level 4: Domain ----
+  domain:
+    - Learning Analytics: OULAD, xAPI-Edu
+    - Academic Performance: Student Dropout, Entrance Exam, UCI Student, Higher Ed
+    - Teaching Evaluation: TAE, Turkiye
+    - Intelligent Tutoring: ASSISTments
+    - Math Assessment: MathE
+    - LLM Evaluation: MM-TBA
+    - Engineering Education: OLI
+    - Institutional: Colleges AAUP, Colleges US News, College Scorecard
+    - Mental Health: Student Depression
+    - Legal Education: Law School
+    - Large-scale Assessment: PISA 2015
+
+  # ---- Level 5: Geographic Origin ----
+  geography:
+    - US: ASSISTments, Colleges AAUP, Colleges US News, College Scorecard, TAE, OLI, Law School
+    - Europe: OULAD (UK), Student Dropout (Portugal), UCI Student (Portugal), MathE (EU), Turkiye (Turkey), Higher Ed (Turkey)
+    - Asia: Entrance Exam (India), Student Depression (India)
+    - International: xAPI-Edu, MM-TBA, PISA 2015

@@ -1,0 +1,33 @@
+name: student_dropout
+key: student_dropout
+version: '1.0'
+source:
+  url: https://archive.ics.uci.edu/dataset/697/student+dropout+and+academic+success
+  repository: UCI
+  license: CC BY 4.0
+collection:
+  year: '2022'
+  country: Portugal
+task:
+  type: ''
+  target: binary (Graduate/Dropout)
+features:
+  count: 36
+samples:
+  count: 3630
+grouping:
+  variable: Course
+  rationale: Course determines curriculum difficulty and grading
+  count: 17
+education:
+  level: Higher Education
+  domain: Academic Success
+reference: Realinho et al. (2022); UCI ID 697
+notes: Excludes 'Enrolled' students.
+brf_compatibility:
+  S: 0.971
+  E: 1.302
+  class: Reliable
+  audited_version: v1.5
+  note: BRF class is communication shorthand only. Use continuous S and E values for
+    analysis.
