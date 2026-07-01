@@ -4,7 +4,7 @@ The **BRF Benchmark Registry** is a versioned, DOI-tracked collection of
 group-aware educational prediction benchmarks audited under the
 **Benchmark Reliability Framework (BRF)**.
 
-> Registry v1.5 : 27 entries (20 unique + 7 alt views) | 21 Reliable | 6 Void | 0 Fragile
+> Registry v1.6 : 27 entries (20 unique + 7 alt views) | 21 Reliable | 6 Void | 0 Fragile
 
 **Architecture**: Dataset-as-Code — each dataset is a self-contained Python
 module with `download → verify → prepare` pipeline. 0 external dependencies.
@@ -74,7 +74,7 @@ class MyDataset(DatasetSource):
 | Version | Date | Entries | Unique | Alt Views | Reliable | Void | Fragile |
 |---------|------|---------|--------|-----------|----------|------|---------|
 | v1.0 | 2026-03-28 | 7 | 7 | 0 | 4 | 3 | 0 |
-| v1.5 | 2026-07-01 | 27 | 20 | 7 | 21 | 6 | 0 |
+| v1.6 | 2026-07-01 | 27 | 20 | 7 | 21 | 6 | 0 |
 
 ### v1.5 (current) — 27 entries
 

@@ -1,7 +1,7 @@
 # BRF Benchmark Registry Manifest
 # https://github.com/zhanglizhuo/BRFRegistry
 
-version: "1.5"
+version: "1.6"
 release_date: "2026-07-01"
 total_datasets: 27
 
@@ -10,6 +10,9 @@ description: >
   with standardized metadata, reproducibility scripts, and BRF
   (Benchmark Reliability Framework) audit results.
   20 unique datasets + 7 alternative grouping views = 27 total entries.
+  v1.6 adds uci_student_math, students_exam_scores, law_school source,
+  pisa2015 source. All 20 source modules are self-contained (0 external
+  dependencies). SHA-256 coverage: 9/11 downloadable (82%).
 
 datasets:
   - oulad
