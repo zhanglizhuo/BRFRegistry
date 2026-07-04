@@ -1,51 +1,61 @@
 # BRF Benchmark Registry Manifest
 # https://github.com/zhanglizhuo/BRFRegistry
 
-version: "1.6"
-release_date: "2026-07-01"
-total_datasets: 27
+version: "2.0"
+release_date: "2026-07-04"
+total_datasets: 35
 
 description: >
-  Curated collection of group-aware educational benchmark datasets
-  with standardized metadata, reproducibility scripts, and BRF
-  (Benchmark Reliability Framework) audit results.
-  20 unique datasets + 7 alternative grouping views = 27 total entries.
-  v1.6 adds uci_student_math, students_exam_scores, law_school source,
-  pisa2015 source. All 20 source modules are self-contained (0 external
-  dependencies). SHA-256 coverage: 9/11 downloadable (82%).
+  Curated collection of group-aware benchmark datasets across education,
+  engineering, transportation, energy, and other domains with standardized
+  metadata, reproducibility scripts, and BRF (Benchmark Reliability Framework)
+  audit results.
+  35 unique datasets. v2.0 expands from education-only to multi-domain
+  (15 new datasets: abalone, airfoil, auto_mpg, bike_sharing, ccpp, concrete,
+  energy_building, kaggle_students_performance, kdd_cup_2010, nursery,
+  real_estate, seoul_bike, student_absences, student_health, wine_quality).
+  All 35 source modules are self-contained (0 external dependencies).
 
 datasets:
-  - oulad
-  - student_dropout
-  - xapi_edu
-  - entrance_exam
-  - uci_student
-  - uci_student_math
-  - higher_ed
-  - mm_tba
-  - tae
-  - turkiye
+  - abalone
+  - airfoil
   - assistments
-  - mathe
+  - auto_mpg
+  - bike_sharing
+  - ccpp
+  - college_scorecard
   - colleges_aaup
   - colleges_usnews
-  - college_scorecard
-  - oli
-  - student_depression
-  - student_depression_prof
-  - student_depression_degree
-  - assistments_school
-  - college_scorecard_region
-  - college_scorecard_carnegie
-  - college_scorecard_ownership
-  - pisa2015
+  - concrete
+  - energy_building
+  - entrance_exam
+  - higher_ed
+  - kaggle_students_performance
+  - kdd_cup_2010
   - law_school
+  - mathe
+  - mm_tba
+  - nursery
+  - oli
+  - oulad
+  - pisa2015
+  - real_estate
+  - seoul_bike
+  - student_absences
+  - student_depression
+  - student_dropout
+  - student_health
   - students_exam_scores
-  - colleges_aaup_type
+  - tae
+  - turkiye
+  - uci_student
+  - uci_student_math
+  - wine_quality
+  - xapi_edu
 
 brf_results:
-  reliable: 21
-  void: 6
+  reliable: 26
+  void: 8
   fragile: 0
 
 schema_version: "2.0.0"

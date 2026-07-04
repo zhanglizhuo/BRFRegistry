@@ -309,3 +309,213 @@ register_dataset(
     license_info="OECD Public Use",
     notes="519K students across 73 countries. Country as group.",
 )
+
+register_dataset(
+    key="abalone",
+    name="Abalone Age (Sex groups)",
+    n=4177,
+    n_features=10,
+    target_type="continuous (age via rings)",
+    n_groups=3,
+    source_url="https://archive.ics.uci.edu/dataset/1/abalone",
+    dataset_root="",
+    reference="Nash et al. (1995); UCI ID 1",
+    license_info="CC BY 4.0",
+    notes="Sex as group (M/F/I).",
+)
+
+register_dataset(
+    key="airfoil",
+    name="Airfoil Noise (Freq)",
+    n=1503,
+    n_features=5,
+    target_type="continuous (sound pressure)",
+    n_groups=3,
+    source_url="https://archive.ics.uci.edu/dataset/291/airfoil+self+noise",
+    dataset_root="",
+    reference="Brooks et al. (1989); UCI ID 291",
+    license_info="CC BY 4.0",
+    notes="Frequency bins as groups.",
+)
+
+register_dataset(
+    key="auto_mpg",
+    name="Auto MPG (Origin groups)",
+    n=398,
+    n_features=9,
+    target_type="continuous (mpg)",
+    n_groups=3,
+    source_url="https://archive.ics.uci.edu/dataset/9/auto+mpg",
+    dataset_root="",
+    reference="Quinlan (1993); UCI ID 9",
+    license_info="CC BY 4.0",
+    notes="Origin (US/Europe/Japan) as group.",
+)
+
+register_dataset(
+    key="bike_sharing",
+    name="Bike Sharing (Season)",
+    n=731,
+    n_features=10,
+    target_type="continuous (bike count)",
+    n_groups=4,
+    source_url="https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset",
+    dataset_root="",
+    reference="Fanaee-T & Gama (2013); UCI ID 275",
+    license_info="CC BY 4.0",
+    notes="Season as group. Day-level aggregation.",
+)
+
+register_dataset(
+    key="ccpp",
+    name="Combined Cycle Power (Temp)",
+    n=9568,
+    n_features=3,
+    target_type="continuous (net hourly energy)",
+    n_groups=3,
+    source_url="https://archive.ics.uci.edu/dataset/294/combined+cycle+power+plant",
+    dataset_root="",
+    reference="Tufekci (2014); UCI ID 294",
+    license_info="CC BY 4.0",
+    notes="Temperature bins as groups.",
+)
+
+register_dataset(
+    key="concrete",
+    name="Concrete Strength (Age)",
+    n=1030,
+    n_features=7,
+    target_type="continuous (compressive strength)",
+    n_groups=3,
+    source_url="https://archive.ics.uci.edu/dataset/165/concrete+compressive+strength",
+    dataset_root="",
+    reference="Yeh (1998); UCI ID 165",
+    license_info="CC BY 4.0",
+    notes="Age bins as groups.",
+)
+
+register_dataset(
+    key="energy_building",
+    name="Energy Building (Orientation)",
+    n=768,
+    n_features=8,
+    target_type="continuous (heating load)",
+    n_groups=4,
+    source_url="https://archive.ics.uci.edu/dataset/242/energy+efficiency",
+    dataset_root="",
+    reference="Tsanas & Xifara (2012); UCI ID 242",
+    license_info="CC BY 4.0",
+    notes="Orientation as group.",
+)
+
+register_dataset(
+    key="kaggle_students_performance",
+    name="Kaggle Students Performance in Exams",
+    n=1000,
+    n_features=14,
+    target_type="continuous (math score)",
+    n_groups=5,
+    source_url="https://www.kaggle.com/datasets/spscientist/students-performance-in-exams",
+    dataset_root="",
+    reference="Kaggle (spscientist); originally from NCES",
+    license_info="CC0: Public Domain (Kaggle)",
+    notes="Race/ethnicity as group (5 categories A-E).",
+)
+
+register_dataset(
+    key="kdd_cup_2010",
+    name="KDD Cup 2010 (Algebra I 2005-2006)",
+    n=574,
+    n_features=5,
+    target_type="continuous (mean correct first attempt)",
+    n_groups=22,
+    source_url="http://base.ustc.edu.cn/data/KDD_Cup_2010/algebra_2005_2006.zip",
+    dataset_root="",
+    reference="Stamper, Niculescu-Mizil, Ritter, Gordon & Koedinger (2010)",
+    license_info="Public research data (PSLC DataShop)",
+    notes="Student-level aggregation of 809K step logs from Algebra I 2005-2006. Curriculum unit as group.",
+)
+
+register_dataset(
+    key="nursery",
+    name="UCI Nursery School Applications",
+    n=12960,
+    n_features=24,
+    target_type="continuous (rank ordinal 1-5)",
+    n_groups=3,
+    source_url="https://archive.ics.uci.edu/dataset/76/nursery",
+    dataset_root="",
+    reference="Olave, Rajkovic & Bohanec (1989); UCI ID 76",
+    license_info="CC BY 4.0",
+    notes="Parents occupation as group (3 levels).",
+)
+
+register_dataset(
+    key="real_estate",
+    name="Real Estate Valuation (Stores)",
+    n=414,
+    n_features=6,
+    target_type="continuous (unit price)",
+    n_groups=3,
+    source_url="https://archive.ics.uci.edu/dataset/477/real+estate+valuation",
+    dataset_root="",
+    reference="Yeh & Hsu (2018); UCI ID 477",
+    license_info="CC BY 4.0",
+    notes="Convenience stores count binned as group.",
+)
+
+register_dataset(
+    key="seoul_bike",
+    name="Seoul Bike Sharing (Season)",
+    n=8760,
+    n_features=11,
+    target_type="continuous (bike rental count)",
+    n_groups=4,
+    source_url="https://archive.ics.uci.edu/dataset/560/seoul+bike+sharing+demand",
+    dataset_root="",
+    reference="Sathishkumar et al. (2020); UCI ID 560",
+    license_info="CC BY 4.0",
+    notes="Season as group.",
+)
+
+register_dataset(
+    key="student_absences",
+    name="UCI Student Absences (Kaggle)",
+    n=395,
+    n_features=37,
+    target_type="continuous (absence count)",
+    n_groups=2,
+    source_url="https://www.kaggle.com/datasets/uciml/student-alcohol-consumption",
+    dataset_root="",
+    reference="Cortez & Silva (2008); UCI ID 320 (Kaggle mirror)",
+    license_info="CC BY 4.0",
+    notes="School (GP/MS) as group. Renamed from student_alcohol.",
+)
+
+register_dataset(
+    key="student_health",
+    name="UCI Student Health (Por, Mjob)",
+    n=649,
+    n_features=53,
+    target_type="continuous (health status)",
+    n_groups=5,
+    source_url="https://www.kaggle.com/datasets/uciml/student-alcohol-consumption",
+    dataset_root="",
+    reference="Cortez & Silva (2008); UCI ID 320 (Kaggle mirror, health target)",
+    license_info="CC BY 4.0",
+    notes="Mother's job as group (5 categories).",
+)
+
+register_dataset(
+    key="wine_quality",
+    name="Wine Quality (Red+White)",
+    n=6497,
+    n_features=11,
+    target_type="continuous (quality score)",
+    n_groups=2,
+    source_url="https://archive.ics.uci.edu/dataset/186/wine+quality",
+    dataset_root="",
+    reference="Cortez et al. (2009); UCI ID 186",
+    license_info="CC BY 4.0",
+    notes="Wine type (red/white) as group.",
+)

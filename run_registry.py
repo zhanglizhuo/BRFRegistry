@@ -112,7 +112,7 @@ def main(subset=None):
         print(f"  {key:<20} -> {cls}")
 
     # Save
-    out_path = RESULTS_DIR / "registry_v1.json"
+    out_path = RESULTS_DIR / "registry_v2.0.json"
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
     print(f"\n  Saved to {out_path}")

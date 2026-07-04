@@ -1,3 +1,10 @@
+"""DEPRECATED: Legacy adapter layer for BehaviorAudit-dependent datasets.
+
+Replaced by DatasetSource auto-discovery in registry/sources/ (v2.0+).
+All 35 datasets now have self-contained source modules. This file
+is retained for backward compatibility with existing scripts.
+"""
+
 from typing import Optional, Tuple
 
 import numpy as np

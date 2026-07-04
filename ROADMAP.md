@@ -11,12 +11,11 @@
 
 - **BehaviorAudit** (SR, R2 submitted -- awaiting decision)
 - **BRF Package v0.2.1**: `pip install benchmark-reliability` — includes `brf.registry` subpackage, diagnose/rank/recommend, CLI
-- **BRF Benchmark Registry v1.6**: 27 entries (20 unique + 7 alt views); 21 Reliable, 6 Void, 0 Fragile
-  - Dataset-as-Code architecture; CLI; SHA-256 (9/11 downloadable, 82%)
-  - All 20 source modules self-contained (0 external dependencies)
-  - GitHub release v1.6; Zenodo DOI: 10.5281/zenodo.21098157
-  - 14 tables, 1 figure, 20 YAML Dataset Cards, taxonomy, version policy
-  - Paper 2 & Paper 3 both reference v1.6; Registry independently evolves to v1.7+
+- **BRF Benchmark Registry v2.0**: 35 entries (35 unique); 26 Reliable, 8 Void, 0 Fragile
+  - Dataset-as-Code architecture; CLI; 35 self-contained source modules
+  - Expanded from education-only to multi-domain (engineering, energy, transportation, etc.)
+  - GitHub release v2.0; DOI pending
+  - Paper 2 & Paper 3 reference v1.6 (frozen); Registry continues independently at v2.0+
 
 ---
 
@@ -84,8 +83,8 @@ independent of any single paper.
 | v1.0 | 7 | Initial SR validation set | BehaviorAudit reference |
 | v1.5 | 25 | Initial large-scale collection | Historical |
 | v1.6 | 27 | + Kaggle + UCI Math; 0 external deps | Paper 2 & Paper 3 |
-| v1.7+ | 27-35 | Enriched metadata, additional domains | Continuous updates |
-| v2.0 | 35+ | Multi-domain (health, HR, etc.) | Future versions |
+| v1.7 | 27-31 | Enriched metadata, additional domains | Continuous updates |
+| v2.0 | 35 | Multi-domain (engineering, energy, transportation, etc.) | Current version |
 
 **Key principle**: Registry versions advance independently of the paper pipeline.
 Papers 2 and 3 both freeze at v1.6 for reproducibility; Registry continues to v1.7, v2.0.
