@@ -1,0 +1,35 @@
+name: concrete
+key: concrete
+version: '1.0'
+source:
+  url: 
+  repository: Public
+  license: CC BY 4.0
+collection:
+  year: ''
+  country: 
+task:
+  type: regression
+  target: continuous
+features:
+  count: 7
+samples:
+  count: 1030
+grouping:
+  variable: Age bins (1-28d, 29-90d, 91+d)
+  rationale: ''
+  count: 3
+education:
+  level: N/A (Non-Edu)
+  domain: Civil Engineering
+reference: Yeh (1998); UCI ID 165
+notes: 
+brf_compatibility:
+  S: 0.8934
+  E: 0.8775
+  class: Reliable
+  audited_version: v2.0
+  note: BRF class is communication shorthand only. Use continuous S and E values for
+    analysis.
+integrity:
+  sha256: 29d0352b435bf8d1ac08e93fe33615c60b82f7953e9e8e2f09be073742395afb

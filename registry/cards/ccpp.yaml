@@ -1,0 +1,35 @@
+name: ccpp
+key: ccpp
+version: '1.0'
+source:
+  url: 
+  repository: Public
+  license: CC BY 4.0
+collection:
+  year: ''
+  country: 
+task:
+  type: regression
+  target: continuous
+features:
+  count: 3
+samples:
+  count: 9568
+grouping:
+  variable: Temperature bins (cold<15C, mild<25C, hot)
+  rationale: ''
+  count: 3
+education:
+  level: N/A (Non-Edu)
+  domain: Energy
+reference: Tufekci (2014); UCI ID 294
+notes: 
+brf_compatibility:
+  S: 0.9928
+  E: 1.7385
+  class: Reliable
+  audited_version: v2.0
+  note: BRF class is communication shorthand only. Use continuous S and E values for
+    analysis.
+integrity:
+  sha256: 51848da3c8b8c29f709f159fad95443eaa8ff2e95c721a00bba582048cd207e4

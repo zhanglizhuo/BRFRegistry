@@ -1,0 +1,35 @@
+name: kdd_cup_2010
+key: kdd_cup_2010
+version: '1.0'
+source:
+  url: http://base.ustc.edu.cn/data/KDD_Cup_2010/algebra_2005_2006.zip
+  repository: USTC Datashop
+  license: Public research data (PSLC DataShop)
+collection:
+  year: ''
+  country: US
+task:
+  type: regression
+  target: continuous
+features:
+  count: 5
+samples:
+  count: 574
+grouping:
+  variable: Curriculum Unit (22 categories)
+  rationale: ''
+  count: 22
+education:
+  level: K12
+  domain: Intelligent Tutoring
+reference: Stamper, Niculescu-Mizil, Ritter, Gordon & Koedinger (2010)
+notes: Student-level aggregation of 809K step logs from Algebra I 2005-2006.
+brf_compatibility:
+  S: 0.9526
+  E: 1.1781
+  class: Reliable
+  audited_version: v2.0
+  note: BRF class is communication shorthand only. Use continuous S and E values for
+    analysis.
+integrity:
+  sha256: 19528668530108555e344e5bfcc68c762f63a458a32038599d189667e4f10407

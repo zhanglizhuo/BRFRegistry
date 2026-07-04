@@ -1,0 +1,35 @@
+name: student_absences
+key: student_absences
+version: '1.0'
+source:
+  url: https://www.kaggle.com/datasets/uciml/student-alcohol-consumption
+  repository: Kaggle
+  license: CC BY 4.0
+collection:
+  year: ''
+  country: Portugal
+task:
+  type: regression
+  target: continuous
+features:
+  count: 55
+samples:
+  count: 395
+grouping:
+  variable: School (2: GP/MS)
+  rationale: ''
+  count: 2
+education:
+  level: Secondary
+  domain: Student Behavior
+reference: Cortez & Silva (2008); UCI ID 320 (Kaggle mirror)
+notes: 
+brf_compatibility:
+  S: -0.7622
+  E: 0.2914
+  class: Void
+  audited_version: v2.0
+  note: BRF class is communication shorthand only. Use continuous S and E values for
+    analysis.
+integrity:
+  sha256: 659f3984643c2def53ba5e49f551c6ce3657039f9c25306cacb8f43b818a5190

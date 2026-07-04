@@ -1,0 +1,35 @@
+name: student_health
+key: student_health
+version: '1.0'
+source:
+  url: https://www.kaggle.com/datasets/uciml/student-alcohol-consumption
+  repository: Kaggle
+  license: CC BY 4.0
+collection:
+  year: ''
+  country: Portugal
+task:
+  type: regression
+  target: continuous
+features:
+  count: 53
+samples:
+  count: 649
+grouping:
+  variable: Mother's Job (5: teacher, health, services, at_home, other)
+  rationale: ''
+  count: 5
+education:
+  level: Secondary
+  domain: Student Health
+reference: Cortez & Silva (2008); UCI ID 320 (Kaggle mirror, health target)
+notes: 
+brf_compatibility:
+  S: -3.1459
+  E: 0.6684
+  class: Void
+  audited_version: v2.0
+  note: BRF class is communication shorthand only. Use continuous S and E values for
+    analysis.
+integrity:
+  sha256: 3fb408fe4b66d4cdb90ad4ec5e3fb6de94ba662d0471a3d46c03da483069f76b

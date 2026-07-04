@@ -1,0 +1,35 @@
+name: seoul_bike
+key: seoul_bike
+version: '1.0'
+source:
+  url: https://archive.ics.uci.edu/static/public/560/seoul+bike+sharing+demand.zip
+  repository: UCI
+  license: CC BY 4.0
+collection:
+  year: ''
+  country: South Korea
+task:
+  type: regression
+  target: continuous
+features:
+  count: 9
+samples:
+  count: 8760
+grouping:
+  variable: Season (4: Spring/Summer/Autumn/Winter)
+  rationale: ''
+  count: 4
+education:
+  level: N/A (Non-Edu)
+  domain: Transportation
+reference: Sathishkumar et al. (2020); UCI ID 560
+notes: 
+brf_compatibility:
+  S: 0.9661
+  E: 1.4649
+  class: Reliable
+  audited_version: v2.0
+  note: BRF class is communication shorthand only. Use continuous S and E values for
+    analysis.
+integrity:
+  sha256: 827e5d046b09f52c546646a1a492ddf8c71ff61edd9b032894f846e37b2f9576

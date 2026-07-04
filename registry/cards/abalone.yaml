@@ -1,0 +1,35 @@
+name: abalone
+key: abalone
+version: '1.0'
+source:
+  url: https://archive.ics.uci.edu/static/public/1/abalone.zip
+  repository: UCI
+  license: CC BY 4.0
+collection:
+  year: ''
+  country: 
+task:
+  type: regression
+  target: continuous
+features:
+  count: 7
+samples:
+  count: 4177
+grouping:
+  variable: Sex (M/F/I, 3 groups)
+  rationale: ''
+  count: 3
+education:
+  level: N/A (Non-Edu)
+  domain: Marine Biology
+reference: Nash et al. (1995); UCI ID 1
+notes: 
+brf_compatibility:
+  S: 0.9292
+  E: 1.4792
+  class: Reliable
+  audited_version: v2.0
+  note: BRF class is communication shorthand only. Use continuous S and E values for
+    analysis.
+integrity:
+  sha256: a2daaed9c48ef860360f6438a224a2fde2576f1ebcf4f821ffe23645c229b23e

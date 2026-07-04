@@ -1,0 +1,35 @@
+name: wine_quality
+key: wine_quality
+version: '1.0'
+source:
+  url: https://archive.ics.uci.edu/static/public/186/wine+quality.zip
+  repository: UCI
+  license: CC BY 4.0
+collection:
+  year: ''
+  country: Portugal
+task:
+  type: regression
+  target: continuous
+features:
+  count: 11
+samples:
+  count: 6497
+grouping:
+  variable: Wine type (red/white, 2 groups)
+  rationale: ''
+  count: 2
+education:
+  level: N/A (Non-Education)
+  domain: Food Science
+reference: Cortez et al. (2009); UCI ID 186
+notes: 
+brf_compatibility:
+  S: 0.9306
+  E: 0.9332
+  class: Reliable
+  audited_version: v2.0
+  note: BRF class is communication shorthand only. Use continuous S and E values for
+    analysis.
+integrity:
+  sha256: 457aa78e3a76dbf9d47713aa5a2a70ddc597aa2b22bc8ad36631cf9a38f42728

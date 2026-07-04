@@ -1,0 +1,35 @@
+name: bike_sharing
+key: bike_sharing
+version: '1.0'
+source:
+  url: 
+  repository: Public
+  license: CC BY 4.0
+collection:
+  year: ''
+  country: 
+task:
+  type: regression
+  target: continuous
+features:
+  count: 10
+samples:
+  count: 731
+grouping:
+  variable: Season (4: spring/summer/fall/winter)
+  rationale: ''
+  count: 4
+education:
+  level: N/A (Non-Edu)
+  domain: Transportation
+reference: Fanaee-T & Gama (2013); UCI ID 275
+notes: 
+brf_compatibility:
+  S: 0.9618
+  E: 1.7664
+  class: Reliable
+  audited_version: v2.0
+  note: BRF class is communication shorthand only. Use continuous S and E values for
+    analysis.
+integrity:
+  sha256: 75c2c56f116c9ebbd9bcb06087c2b7fffc7b8f8225dd37d388aa7e1996cf19dc

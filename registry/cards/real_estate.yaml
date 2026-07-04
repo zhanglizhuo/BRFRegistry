@@ -1,0 +1,35 @@
+name: real_estate
+key: real_estate
+version: '1.0'
+source:
+  url: https://archive.ics.uci.edu/static/public/477/real+estate+valuation.zip
+  repository: UCI
+  license: CC BY 4.0
+collection:
+  year: ''
+  country: Taiwan
+task:
+  type: regression
+  target: continuous
+features:
+  count: 4
+samples:
+  count: 414
+grouping:
+  variable: Convenience stores binned (0-2, 3-5, 6+)
+  rationale: ''
+  count: 3
+education:
+  level: N/A (Non-Edu)
+  domain: Real Estate
+reference: Yeh & Hsu (2018); UCI ID 477
+notes: 
+brf_compatibility:
+  S: 0.8394
+  E: 1.5162
+  class: Reliable
+  audited_version: v2.0
+  note: BRF class is communication shorthand only. Use continuous S and E values for
+    analysis.
+integrity:
+  sha256: e0074220e235164e8fe010e055a94a4aed8bf484e0e33d7f8efc65e1b6a48b5e

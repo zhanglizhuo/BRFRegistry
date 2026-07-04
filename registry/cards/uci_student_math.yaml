@@ -1,0 +1,35 @@
+name: uci_student_math
+key: uci_student_math
+version: '1.0'
+source:
+  url: https://archive.ics.uci.edu/static/public/320/student+performance.zip
+  repository: UCI
+  license: CC BY 4.0
+collection:
+  year: ''
+  country: Portugal
+task:
+  type: regression
+  target: continuous
+features:
+  count: 56
+samples:
+  count: 395
+grouping:
+  variable: School (2: GP/MS)
+  rationale: ''
+  count: 2
+education:
+  level: Secondary
+  domain: Academic Performance
+reference: Cortez & Silva (2008); UCI ID 320
+notes: 
+brf_compatibility:
+  S: -2.6739
+  E: 0.4321
+  class: Void
+  audited_version: v2.0
+  note: BRF class is communication shorthand only. Use continuous S and E values for
+    analysis.
+integrity:
+  sha256: e47f9ee225e1ee6e69b7564e6dac7123e80b8486677fe111f351964cef5dec80
