@@ -44,7 +44,8 @@ class EntranceExamSource(DatasetSource):
             return csv_path
         for f in dest_dir.glob("**/*.csv"):
             if "entrance" in f.name.lower() or "582" in f.name:
-                return f
+                shutil.copy(str(f), str(csv_path))
+                return csv_path
         return dest_dir
 
     def prepare(self):

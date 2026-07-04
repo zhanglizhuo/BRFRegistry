@@ -52,7 +52,8 @@ class XAPIEduSource(DatasetSource):
                 with zipfile.ZipFile(io.BytesIO(resp.read())) as z:
                     z.extractall(str(dest_dir))
                 for f in dest_dir.glob("**/*.csv"):
-                    return f
+                    shutil.copy(str(f), str(csv_path))
+                    return csv_path
                 break
             except Exception:
                 continue

@@ -19,13 +19,13 @@ class HigherEdSource(DatasetSource):
     reference = "Yilmaz & Sekeroglu (2020); UCI ID 856"
     task = "regression"
     n_samples = 145
-    n_features = 31
+    n_features = 30
     n_groups = 9
     sha256 = "d5905d231bedd7e4cdcf708fab55fc65b79dfe12012e846eccad3e88b5ecb019"
     grouping_description = "Course ID (9 courses)"
 
     def download(self):
-        import urllib.request, zipfile, io
+        import urllib.request, zipfile, io, shutil
         dest_dir = self._ensure_cache_dir()
         csv_path = dest_dir / "higher_ed_856.csv"
         if csv_path.exists():
@@ -33,12 +33,17 @@ class HigherEdSource(DatasetSource):
         resp = urllib.request.urlopen(self.source_url, timeout=60)
         with zipfile.ZipFile(io.BytesIO(resp.read())) as z:
             z.extractall(str(dest_dir))
+        # Save the first CSV found to the canonical path
         for f in dest_dir.glob("**/*.csv"):
-            return f
-        # Fallback: search for any file
+            if f.name != csv_path.name:
+                shutil.copy(str(f), str(csv_path))
+                return csv_path
+            return csv_path
+        # Fallback: save any file as CSV
         for f in dest_dir.glob("**/*"):
-            if f.is_file():
-                return f
+            if f.is_file() and f.name != csv_path.name:
+                shutil.copy(str(f), str(csv_path))
+                return csv_path
         return dest_dir
 
     def prepare(self):
