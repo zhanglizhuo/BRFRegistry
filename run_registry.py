@@ -1,8 +1,3 @@
-"""Build BRF Benchmark Registry: run BRF on all known datasets and save results.
-
-Uses the Dataset-as-Code architecture (registry/sources/).
-"""
-
 import json
 import time
 from pathlib import Path
@@ -18,7 +13,6 @@ RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 
 
 def run_brf_on_source(source):
-    """Run BRF on a single DatasetSource instance."""
     info = source.metadata()
 
     print(f"\n{'='*60}")
@@ -33,14 +27,8 @@ def run_brf_on_source(source):
         print(f"  ERROR: could not prepare -- {e}")
         return {**info, "brf_error": f"prepare_failed: {e}", "brf_result": None}
 
-    scaler = StandardScaler()
-    X = scaler.fit_transform(X_raw)
-
-    if groups_raw is not None:
-        groups = np.array(groups_raw)
-    else:
-        groups = None
-
+    X = StandardScaler().fit_transform(X_raw)
+    groups = np.array(groups_raw) if groups_raw is not None else None
     n_grp = len(np.unique(groups)) if groups is not None else 0
     print(f"  N={len(y)}, features={X.shape[1]}, groups={n_grp}")
 
@@ -79,14 +67,8 @@ def run_brf_on_source(source):
 
 
 def main(subset=None):
-    """Run BRF on all (or a *subset* of) registered datasets.
-
-    Args:
-        subset: Optional list of dataset keys to run. If None, runs all.
-    """
     keys = subset if subset is not None else list_sources()
     results = {}
-
     successes = 0
     failures = 0
 
@@ -95,7 +77,6 @@ def main(subset=None):
         if source is None:
             print(f"\n  SKIP {key}: not registered")
             continue
-
         result = run_brf_on_source(source)
         results[key] = result
         if result["brf_result"] and result["brf_error"] is None:
@@ -103,7 +84,6 @@ def main(subset=None):
         else:
             failures += 1
 
-    # Summary
     print(f"\n{'='*60}")
     print(f"  SUMMARY: {successes} succeeded, {failures} failed")
     print(f"{'='*60}")
@@ -111,7 +91,6 @@ def main(subset=None):
         cls = r["brf_result"]["class"] if r["brf_result"] else "ERROR"
         print(f"  {key:<20} -> {cls}")
 
-    # Save
     out_path = RESULTS_DIR / "registry_v2.0.json"
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2, ensure_ascii=False)

@@ -1,14 +1,5 @@
-"""UCI Nursery School Applications (UCI ID 76).
-
-Pre-primary education level. 12,960 rows, 8 categorical features.
-Target: application decision (ordinal: not_recom/recommend/very_recom/priority/spec_prior).
-Group: parents' occupation (3 groups: usual/pretentious/great_pret).
-"""
-
-import numpy as np
-
+"""UCI Nursery School Applications (UCI ID 76). application decision (ordinal: not_recom/recommend/very_recom/priority/spec_prior)."""
 from . import DatasetSource, register_source
-
 
 @register_source
 class NurserySource(DatasetSource):
@@ -57,9 +48,6 @@ class NurserySource(DatasetSource):
         cat_cols = feat_df.select_dtypes(include=["object"]).columns.tolist()
         X_df = pd.get_dummies(feat_df, columns=cat_cols, dummy_na=False)
         X = X_df.fillna(0).astype(float).values
-        
-        # Ensure groups is not included in features to avoid leakage
-        # (parents is excluded from feat_df above)
         
         card = {"n_samples": len(y), "n_features": X.shape[1],
                 "n_groups": df["parents"].nunique(),

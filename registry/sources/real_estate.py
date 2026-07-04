@@ -1,16 +1,9 @@
-"""Real Estate Valuation (UCI ID 477).
-
-Property valuation benchmark. 414 rows, 6 features.
-Target: house price per unit area. Group: convenience stores binned (0-2, 3-5, 6+).
-Non-educational cross-domain benchmark.
-"""
-
+"""Real Estate Valuation (UCI ID 477). house price per unit area. Group: convenience stores binned (0-2, 3-5, 6+)."""
 import numpy as np
 import pandas as pd
 import io
 
 from . import DatasetSource, register_source
-
 
 @register_source
 class RealEstateSource(DatasetSource):

@@ -1,15 +1,7 @@
-"""Abalone Age Prediction (UCI ID 1).
-
-Classic regression benchmark. 4177 rows, 8 features.
-Target: rings (age proxy, 1-29). Group: sex (M/F/I, 3 groups).
-Non-educational cross-domain benchmark.
-"""
-
-import numpy as np
+"""Abalone Age Prediction (UCI ID 1). rings (age proxy, 1-29). Group: sex (M/F/I, 3 groups)."""
 import pandas as pd
 
 from . import DatasetSource, register_source
-
 
 @register_source
 class AbaloneSource(DatasetSource):

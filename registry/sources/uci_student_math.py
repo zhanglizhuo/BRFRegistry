@@ -1,13 +1,5 @@
-"""UCI Student Performance — Math subset (UCI ID 320).
-
-Same source as uci_student (Portuguese), different subject (Math).
-Target: G3 (final grade). Group: school (GP/MS).
-"""
-
-import numpy as np
-
+"""UCI Student Performance — Math subset (UCI ID 320). G3 (final grade). Group: school (GP/MS)."""
 from . import DatasetSource, register_source
-
 
 @register_source
 class UCIStudentMathSource(DatasetSource):

@@ -1,16 +1,7 @@
-"""UCI Student Absences (Kaggle mirror, UCI ID 320).
-
-Same student data as uci_student, but with full 33-feature set.
-Target: absences (number of school absences, 0-93).
-Group: school (GP/MS, 2 groups).
-Differs from uci_student (G3 grade target) and uci_student_math (math G3).
-"""
-
-import numpy as np
+"""UCI Student Absences (Kaggle mirror, UCI ID 320). absences (number of school absences, 0-93)."""
 import shutil
 
 from . import DatasetSource, register_source
-
 
 @register_source
 class StudentAbsencesSource(DatasetSource):
@@ -35,7 +26,8 @@ class StudentAbsencesSource(DatasetSource):
             return csv_path
         path = kagglehub.dataset_download("uciml/student-alcohol-consumption")
         src_csv = f"{path}/student-mat.csv"
-        if __import__('os').path.exists(src_csv):
+        import os
+        if os.path.exists(src_csv):
             shutil.copy(src_csv, str(csv_path))
         return csv_path
 
@@ -44,12 +36,8 @@ class StudentAbsencesSource(DatasetSource):
 
         path = self.download()
         df = pd.read_csv(str(path))
-        
-        # Target: absences (0-93, highly skewed, represents dropout risk proxy)
         y = df["absences"].values.astype(float)
         groups = df["school"].astype(str).values
-        
-        # Features: all columns except absences and highly correlated G1/G2/G3
         feat_df = df.drop(columns=["absences", "G1", "G2", "G3"])
         cat_cols = feat_df.select_dtypes(include=["object"]).columns.tolist()
         X_df = pd.get_dummies(feat_df, columns=cat_cols, dummy_na=False)

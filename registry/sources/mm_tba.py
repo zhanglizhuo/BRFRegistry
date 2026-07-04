@@ -1,10 +1,4 @@
-"""MM-TBA -- Multi-Modal Teaching Behavior Analysis.
-
-Target: mean of first 4 GPT-4 rubric scores (continuous).
-Features: 13 items from transcript text analysis + metadata.
-Groups: None (no grouping metadata).
-"""
-
+"""MM-TBA -- Multi-Modal Teaching Behavior Analysis. mean of first 4 GPT-4 rubric scores (continuous)."""
 import numpy as np
 import re, io, zipfile, urllib.request
 from pathlib import Path
@@ -20,7 +14,6 @@ FEATURE_NAMES = [
 MATH_KEYWORDS = ["函数", "方程", "不等式", "角", "圆", "分数", "概率", "几何", "证明"]
 GRADE_MAP = {"p1":1,"p2":2,"p3":3,"p4":4,"p5":5,"p6":6,"j1":7,"j2":8,"j3":9,"s1":10,"s2":11,"s3":12}
 SUBJECT_MAP = {"math":1,"mathematics":1,"english":2,"chinese":3,"physics":4,"chemistry":5,"biology":6,"history":7,"geography":8,"politics":9}
-
 
 @register_source
 class MMTBASource(DatasetSource):
@@ -102,7 +95,6 @@ class MMTBASource(DatasetSource):
                 "n_groups": 0, "source": "MM-TBA (GitHub)",
                 "features": FEATURE_NAMES}
         return X, y, None, card
-
 
 # ---- inline preprocessing functions ----
 

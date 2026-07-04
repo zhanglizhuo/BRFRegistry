@@ -1,12 +1,5 @@
-"""Entrance Exam (UCI ID 582).
-
-Download from UCI, one-hot encode, extract target/features/groups.
-"""
-
-import numpy as np
-
+"""Entrance Exam (UCI ID 582)."""
 from . import DatasetSource, register_source
-
 
 @register_source
 class EntranceExamSource(DatasetSource):

@@ -1,12 +1,7 @@
-"""ASSISTments 2009-2010 Skill Builder (corrected).
-
-Data sourced from USTC datashop mirror.
-"""
-
+"""ASSISTments 2009-2010 Skill Builder (corrected)."""
 import numpy as np
 
 from . import DatasetSource, register_source
-
 
 @register_source
 class ASSISTmentsSource(DatasetSource):
@@ -23,7 +18,7 @@ class ASSISTmentsSource(DatasetSource):
     n_groups = 124
     grouping_description = "Teacher (124 categories)"
     sha256 = "1aa296e00b6c88c4d6fad4ca2ae4866484d9fe5484f38f5c8c94dfc49f045e08"
-    notes = "Student-level aggregates of 401K transactions."
+    notes = "Student-level aggregates of skill-builder transactions."
 
     def download(self):
         import urllib.request, zipfile, io

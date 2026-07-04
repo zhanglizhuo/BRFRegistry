@@ -1,15 +1,7 @@
-"""Seoul Bike Sharing (UCI ID 560).
-
-Transportation demand prediction. 8760 rows, 14 features.
-Target: rented bike count. Group: season (4: Spring/Summer/Autumn/Winter).
-Non-educational cross-domain benchmark.
-"""
-
-import numpy as np
+"""Seoul Bike Sharing (UCI ID 560). rented bike count. Group: season (4: Spring/Summer/Autumn/Winter)."""
 import pandas as pd
 
 from . import DatasetSource, register_source
-
 
 @register_source
 class SeoulBikeSource(DatasetSource):

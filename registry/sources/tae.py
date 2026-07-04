@@ -4,7 +4,6 @@ import numpy as np
 
 from . import DatasetSource, register_source
 
-
 @register_source
 class TAESource(DatasetSource):
     name = "tae"

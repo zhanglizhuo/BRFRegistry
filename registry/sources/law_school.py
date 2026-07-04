@@ -1,13 +1,5 @@
-"""Law School Admission (OpenML ID 43889).
-
-Predict bar exam passage from admission characteristics.
-Target: bar exam pass. Group: cluster (6 law school tiers).
-"""
-
-import numpy as np
-
+"""Law School Admission (OpenML ID 43889). bar exam pass. Group: cluster (6 law school tiers)."""
 from . import DatasetSource, register_source
-
 
 @register_source
 class LawSchoolSource(DatasetSource):
@@ -41,11 +33,7 @@ class LawSchoolSource(DatasetSource):
 
         path = self.download()
         df = pd.read_csv(str(path))
-
-        # Target: bar exam pass (binary)
         y = (df["bar"].astype(str).str.upper() == "TRUE").astype(float).values
-
-        # Features: numeric admission predictors
         feat_cols = ["age", "decile1", "decile3", "fam_inc", "lsat", "ugpa", "fulltime"]
         for c in feat_cols:
             df[c] = pd.to_numeric(df[c], errors="coerce")

@@ -1,15 +1,7 @@
-"""Kaggle Students Performance in Exams (K12).
-
-1000 high school students, 3 score targets (math/reading/writing).
-Target: math score (0-100). Group: race/ethnicity (5 groups).
-Source: Kaggle (spscientist/students-performance-in-exams).
-"""
-
-import numpy as np
+"""Kaggle Students Performance in Exams (K12). math score (0-100). Group: race/ethnicity (5 groups)."""
 import pandas as pd
 
 from . import DatasetSource, register_source
-
 
 @register_source
 class KaggleStudentsPerformanceSource(DatasetSource):

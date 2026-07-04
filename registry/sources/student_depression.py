@@ -1,13 +1,7 @@
-"""Student Depression Dataset (OpenML ID 46753).
-
-Mental health survey of students across Indian cities.
-Target: depression (binary). Group: City (30 groups).
-"""
-
+"""Student Depression Dataset (OpenML ID 46753). depression (binary). Group: City (30 groups)."""
 import numpy as np
 
 from . import DatasetSource, register_source
-
 
 @register_source
 class StudentDepressionSource(DatasetSource):
@@ -42,12 +36,9 @@ class StudentDepressionSource(DatasetSource):
 
     def prepare(self):
         import pandas as pd
-        import sys
 
         path = self.download()
         df = pd.read_csv(str(path), low_memory=False)
-
-        # Decode bytes-only columns
         for col in df.select_dtypes([object]).columns:
             sample = df[col].dropna().iloc[0] if len(df[col].dropna()) > 0 else None
             if sample is not None and isinstance(sample, bytes):
@@ -61,13 +52,9 @@ class StudentDepressionSource(DatasetSource):
         valid = city_counts[city_counts >= 5].index
         df = df[df["City"].isin(valid)].copy()
         y = df["Depression"].astype(float).values
-
-        # Numeric features
         num_cols = ["Age", "Academic Pressure", "CGPA", "Study Satisfaction",
                     "Work/Study Hours", "Financial Stress"]
         X_num = df[num_cols].fillna(0).values.astype(float)
-
-        # Categorical (one-hot, exclude City/Profession/Degree)
         dummy_list = [X_num]
         for col in df.select_dtypes([object]).columns:
             if col in ("City", "Profession", "Degree", "Depression"):

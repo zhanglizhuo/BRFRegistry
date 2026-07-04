@@ -1,15 +1,5 @@
-"""Wine Quality (UCI ID 186) — cross-domain benchmark.
-
-Non-educational regression benchmark for cross-domain comparison.
-Target: quality rating (0-10). Group: wine type (red/white, 2 groups).
-Used as out-of-domain test for the BRF Fragile hypothesis.
-"""
-
-import numpy as np
-import shutil
-
+"""Wine Quality (UCI ID 186) — cross-domain benchmark. quality rating (0-10). Group: wine type (red/white, 2 groups)."""
 from . import DatasetSource, register_source
-
 
 @register_source
 class WineQualitySource(DatasetSource):
@@ -35,7 +25,6 @@ class WineQualitySource(DatasetSource):
         resp = urllib.request.urlopen(self.source_url, timeout=60)
         with zipfile.ZipFile(io.BytesIO(resp.read())) as z:
             z.extractall(str(dest_dir))
-        # Combine red and white wine CSVs
         import pandas as pd
         red_path = next(dest_dir.glob("**/*red*"), None)
         white_path = next(dest_dir.glob("**/*white*"), None)

@@ -1,13 +1,7 @@
-"""KDD Cup 2010 Algebra I 2005-2006 (Development Set).
-
-Student-step logs from Carnegie Learning Cognitive Tutor,
-aggregated to student level. Data sourced from USTC mirror.
-"""
-
+"""KDD Cup 2010 Algebra I 2005-2006 (Development Set)."""
 import numpy as np
 
 from . import DatasetSource, register_source
-
 
 @register_source
 class KDDCup2010Source(DatasetSource):

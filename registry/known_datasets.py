@@ -104,14 +104,14 @@ register_dataset(
     key="higher_ed",
     name="Higher Education Students Performance",
     n=145,
-    n_features=31,
+    n_features=30,
     target_type="continuous (0-7)",
     n_groups=9,
     source_url="https://archive.ics.uci.edu/dataset/856/higher+education+students+performance+evaluation",
     dataset_root="datasets/StudentExam",
     reference="Yilmaz & Sekeroglu (2020); UCI ID 856",
     license_info="CC BY 4.0",
-    notes="UCI ID 856. higher_ed_856.csv. Small N.",
+    notes="UCI ID 856. 30 item columns, GRADE as target.",
 )
 
 register_dataset(

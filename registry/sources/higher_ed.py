@@ -1,13 +1,5 @@
-"""Higher Education Students Performance (UCI ID 856).
-
-Download from UCI, one-hot encode. Target: OUTPUT Grade (0-7).
-Group: Course ID (9 groups).
-"""
-
-import numpy as np
-
+"""Higher Education Students Performance (UCI ID 856)."""
 from . import DatasetSource, register_source
-
 
 @register_source
 class HigherEdSource(DatasetSource):
@@ -51,13 +43,9 @@ class HigherEdSource(DatasetSource):
 
         path = self.download()
         df = pd.read_csv(str(path))
-        
-        # Target: last column (GRADE, 0-7)
         target_cols = [c for c in df.columns if 'grade' in str(c).lower()]
         y_col = target_cols[0] if target_cols else df.columns[-1]
         y = df[y_col].values.astype(float)
-        
-        # Group: COURSE ID (9 groups)
         group_cols = [c for c in df.columns if 'course' in str(c).lower()]
         g_col = group_cols[0] if group_cols else df.columns[1]
         groups = df[g_col].astype(str).values

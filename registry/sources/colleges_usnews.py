@@ -1,13 +1,7 @@
-"""Colleges US News Rankings (OpenML ID 538).
-
-US News & World Report college ranking data.
-Target: Graduation rate. Group: US State (51 groups).
-"""
-
+"""Colleges US News Rankings (OpenML ID 538). Graduation rate. Group: US State (51 groups)."""
 import numpy as np
 
 from . import DatasetSource, register_source
-
 
 @register_source
 class CollegesUSNewsSource(DatasetSource):
@@ -31,8 +25,6 @@ class CollegesUSNewsSource(DatasetSource):
         arff_path = dest_dir / "colleges_usnews.arff"
         if arff_path.exists():
             return arff_path
-
-        # Try OpenML API first (faster for large files)
         try:
             import openml
             ds = openml.datasets.get_dataset(538)
@@ -43,8 +35,6 @@ class CollegesUSNewsSource(DatasetSource):
             return dest_dir / "colleges_usnews.csv"
         except Exception:
             pass
-
-        # Fallback: direct ARFF download
         import urllib.request
         urllib.request.urlretrieve(self.source_url, str(arff_path))
         return arff_path

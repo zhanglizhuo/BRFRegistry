@@ -1,16 +1,8 @@
-"""Auto MPG (UCI ID 9).
-
-Classic regression benchmark. 398 rows, 7 features.
-Target: mpg (miles per gallon). Group: origin (1=US, 2=Europe, 3=Japan).
-Non-educational cross-domain benchmark.
-"""
-
-import numpy as np
+"""Auto MPG (UCI ID 9). mpg (miles per gallon). Group: origin (1=US, 2=Europe, 3=Japan)."""
 import pandas as pd
 import io
 
 from . import DatasetSource, register_source
-
 
 @register_source
 class AutoMPGSource(DatasetSource):

@@ -1,13 +1,7 @@
-"""US College Scorecard (OpenML ID 42121).
-
-Comprehensive US college data with Rich feature set.
-Target: admission rate. Group: State (59 groups).
-"""
-
+"""US College Scorecard (OpenML ID 42121). admission rate. Group: State (59 groups)."""
 import numpy as np
 
 from . import DatasetSource, register_source
-
 
 @register_source
 class CollegeScorecardSource(DatasetSource):
@@ -48,15 +42,11 @@ class CollegeScorecardSource(DatasetSource):
         id_cols = ["school_name", "city", "zip", "school_webpage", "latitude", "longitude",
                    "state"]
         target_col = "admission_rate"
-
-        # Filter rows with valid target
         mask = df[target_col].notna()
         df = df[mask].copy()
         df[target_col] = df[target_col].astype(float)
 
         y = df[target_col].values
-
-        # Feature columns: numeric, exclude ID cols and target
         feat_cols = [
             c for c in df.columns
             if c not in id_cols and c != target_col

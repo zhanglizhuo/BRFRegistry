@@ -1,17 +1,7 @@
-"""UCI Student Health (Portuguese, Kaggle mirror, UCI ID 320).
-
-Portuguese-language students subset, 33 features.
-Target: self-rated health (ordinal 1-5).
-Group: mother's job (Mjob, 5 categories).
-Distinct from uci_student (Portuguese G3), uci_student_math (Math G3),
-and student_absences (Math absences).
-"""
-
-import numpy as np
+"""UCI Student Health (Portuguese, Kaggle mirror, UCI ID 320). self-rated health (ordinal 1-5)."""
 import shutil
 
 from . import DatasetSource, register_source
-
 
 @register_source
 class StudentHealthSource(DatasetSource):
@@ -36,7 +26,8 @@ class StudentHealthSource(DatasetSource):
             return csv_path
         path = kagglehub.dataset_download("uciml/student-alcohol-consumption")
         src_csv = f"{path}/student-por.csv"
-        if __import__('os').path.exists(src_csv):
+        import os
+        if os.path.exists(src_csv):
             shutil.copy(src_csv, str(csv_path))
         return csv_path
 

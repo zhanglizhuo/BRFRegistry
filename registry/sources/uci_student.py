@@ -1,13 +1,5 @@
-"""UCI Student Performance (UCI ID 320).
-
-Download from UCI. Target: G3 (final grade 0-20). Group: school (GP/MS).
-G1 and G2 excluded as trivially predictive.
-"""
-
-import numpy as np
-
+"""UCI Student Performance (UCI ID 320)."""
 from . import DatasetSource, register_source
-
 
 @register_source
 class UCIStudentSource(DatasetSource):

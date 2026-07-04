@@ -1,38 +1,11 @@
-"""BRF Registry CLI -- download, verify, and prepare datasets.
-
-Usage::
-
-    # List all datasets
-    python -m registry.cli list
-
-    # Download a dataset (with verification)
-    python -m registry.cli download tae
-    python -m registry.cli download --all
-
-    # Verify checksums
-    python -m registry.cli verify tae
-    python -m registry.cli verify --all
-
-    # Sync (download + verify all)
-    python -m registry.cli sync
-
-    # Show metadata
-    python -m registry.cli info tae
-"""
-
-from __future__ import annotations
-
 import argparse
 from pathlib import Path
-
-import sys
 
 from .sources import REGISTRY_SOURCES, list_sources
 from .verify import verify_dataset, verify_all
 
 
 def cmd_list():
-    """List all registered datasets."""
     print(f"BRF Registry -- {len(list_sources())} datasets\n")
     for key in list_sources():
         source = REGISTRY_SOURCES[key]
@@ -40,16 +13,11 @@ def cmd_list():
               f"N={source.n_samples:>5d}  G={source.n_groups:>4d}")
 
 
-def cmd_download(key: str = None, all_: bool = False):
-    """Download dataset(s)."""
-    if all_:
-        keys = list_sources()
-    elif key:
-        keys = [key]
-    else:
+def cmd_download(key=None, all_=False):
+    keys = list_sources() if all_ else ([key] if key else [])
+    if not keys:
         print("Usage: download <key> or download --all")
         return
-
     for k in keys:
         source = REGISTRY_SOURCES.get(k)
         if source is None:
@@ -59,17 +27,14 @@ def cmd_download(key: str = None, all_: bool = False):
         try:
             path = source.download()
             print(f"  -> {path}")
-            # Verify after download
-            if source.sha256:
-                ok = source._check_sha256(path) if isinstance(path, Path) else True
-                if not ok:
+            if source.sha256 and isinstance(path, Path):
+                if not source._check_sha256(path):
                     print(f"  WARNING: SHA-256 mismatch!")
         except Exception as e:
             print(f"  FAILED: {e}")
 
 
-def cmd_verify(key: str = None, all_: bool = False):
-    """Verify dataset checksums."""
+def cmd_verify(key=None, all_=False):
     if all_:
         verify_all()
     elif key:
@@ -79,7 +44,6 @@ def cmd_verify(key: str = None, all_: bool = False):
 
 
 def cmd_sync():
-    """Download + verify all datasets."""
     print("Syncing all datasets...")
     for key in list_sources():
         source = REGISTRY_SOURCES[key]
@@ -87,45 +51,38 @@ def cmd_sync():
         try:
             path = source.download()
             print(f"    Downloaded to {path}")
-            if source.sha256:
-                ok = source._check_sha256(path) if isinstance(path, Path) else True
+            if source.sha256 and isinstance(path, Path):
+                ok = source._check_sha256(path)
                 print(f"    Checksum: {'OK' if ok else 'FAIL'}")
         except Exception as e:
             print(f"    FAILED: {e}")
 
 
-def cmd_info(key: str):
-    """Show dataset metadata."""
+def cmd_info(key):
     source = REGISTRY_SOURCES.get(key)
     if source is None:
         print(f"Unknown dataset: {key}")
         return
-    meta = source.metadata()
-    for k, v in meta.items():
+    for k, v in source.metadata().items():
         print(f"  {k}: {v}")
 
 
 def main():
     parser = argparse.ArgumentParser(description="BRF Registry CLI")
-    sub = parser.add_subparsers(dest="command", help="Command")
+    sub = parser.add_subparsers(dest="command")
 
-    sub.add_parser("list", help="List all datasets")
-
-    dl = sub.add_parser("download", help="Download dataset(s)")
-    dl.add_argument("key", nargs="?", help="Dataset key")
-    dl.add_argument("--all", action="store_true", help="Download all")
-
-    vf = sub.add_parser("verify", help="Verify checksums")
-    vf.add_argument("key", nargs="?", help="Dataset key")
-    vf.add_argument("--all", action="store_true", help="Verify all")
-
-    sub.add_parser("sync", help="Download + verify all datasets")
-
-    info = sub.add_parser("info", help="Show dataset metadata")
-    info.add_argument("key", help="Dataset key")
+    sub.add_parser("list")
+    dl = sub.add_parser("download")
+    dl.add_argument("key", nargs="?")
+    dl.add_argument("--all", action="store_true")
+    vf = sub.add_parser("verify")
+    vf.add_argument("key", nargs="?")
+    vf.add_argument("--all", action="store_true")
+    sub.add_parser("sync")
+    info = sub.add_parser("info")
+    info.add_argument("key")
 
     args = parser.parse_args()
-
     if args.command == "list":
         cmd_list()
     elif args.command == "download":

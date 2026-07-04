@@ -1,9 +1,6 @@
 """Turkiye Student Evaluation (UCI ID 262)."""
 
-import numpy as np
-
 from . import DatasetSource, register_source
-
 
 @register_source
 class TurkiyeSource(DatasetSource):

@@ -1,13 +1,5 @@
-"""xAPI-Edu-Data (Kalboard 360).
-
-Download from UCI mirror. Target: Class (L/M/H, ordinal).
-Group: Topic (12 subjects).
-"""
-
-import numpy as np
-
+"""xAPI-Edu-Data (Kalboard 360)."""
 from . import DatasetSource, register_source
-
 
 @register_source
 class XAPIEduSource(DatasetSource):

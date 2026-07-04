@@ -1,13 +1,7 @@
-"""Student Dropout (UCI ID 697).
-
-Download from UCI. Target: Graduate/Dropout (binary, Enrolled excluded).
-Group: Course (17 programs).
-"""
-
+"""Student Dropout (UCI ID 697)."""
 import numpy as np
 
 from . import DatasetSource, register_source
-
 
 @register_source
 class StudentDropoutSource(DatasetSource):

@@ -1,15 +1,7 @@
-"""Energy Efficiency (UCI ID 242).
-
-Building energy simulation. 768 rows, 8 features.
-Target: heating load (Y1). Group: orientation (X6, 4 categories).
-Non-educational cross-domain benchmark.
-"""
-
-import numpy as np
+"""Energy Efficiency (UCI ID 242). heating load (Y1). Group: orientation (X6, 4 categories)."""
 import pandas as pd
 
 from . import DatasetSource, register_source
-
 
 @register_source
 class EnergyBuildingSource(DatasetSource):

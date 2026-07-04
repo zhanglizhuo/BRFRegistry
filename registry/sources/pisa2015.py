@@ -1,13 +1,7 @@
-"""PISA 2015 Science Assessment (OECD).
-
-International student assessment with country-level grouping.
-Target: overall science score. Group: Country (73 groups).
-"""
-
+"""PISA 2015 Science Assessment (OECD). overall science score. Group: Country (73 groups)."""
 import numpy as np
 
 from . import DatasetSource, register_source
-
 
 @register_source
 class PISA2015Source(DatasetSource):
@@ -47,13 +41,9 @@ class PISA2015Source(DatasetSource):
     def prepare(self):
         import csv
         from collections import defaultdict
-        from pathlib import Path
-
         path = self.download()
         if path.is_dir():
             path = next(path.glob("**/*.csv"), path)
-
-        # Parse item-level data, aggregate to student level
         student_scores = defaultdict(list)
         countries = {}
 
@@ -78,8 +68,6 @@ class PISA2015Source(DatasetSource):
                     val = row[j].strip().strip("\"'")
                     scores.append(1.0 if val == "Full credit" else 0.0)
                 student_scores[stu].extend(scores)
-
-        # Student-level aggregation
         X_list, y_list, g_list = [], [], []
         for stu, scores in student_scores.items():
             if scores:
