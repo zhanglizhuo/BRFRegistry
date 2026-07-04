@@ -41,7 +41,7 @@ class MMTBASource(DatasetSource):
     def download(self):
         import urllib.request, zipfile, io, shutil
         dest_dir = self._ensure_cache_dir()
-        meta_path = dest_dir / "MM-TBA" / "metadata.xlsx"
+        meta_path = dest_dir / "MM-TBA" / "MM-TBA" / "metadata.xlsx"
         if meta_path.exists():
             return dest_dir
         # Download from figshare
