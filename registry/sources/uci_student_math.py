@@ -25,13 +25,13 @@ class UCIStudentMathSource(DatasetSource):
     grouping_description = "School (2: GP/MS)"
 
     def download(self):
-        import urllib.request, zipfile, io, shutil
+        import urllib.request, zipfile, io
         dest_dir = self._ensure_cache_dir()
         csv_path = dest_dir / "student-mat.csv"
         if csv_path.exists():
             return csv_path
         # Try to reuse uci_student cache first
-        import os
+        import os, shutil
         sibling = dest_dir.parent / "uci_student" / "student-mat.csv"
         if sibling.exists():
             shutil.copy(str(sibling), str(csv_path))
@@ -39,6 +39,11 @@ class UCIStudentMathSource(DatasetSource):
         resp = urllib.request.urlopen(self.source_url, timeout=60)
         with zipfile.ZipFile(io.BytesIO(resp.read())) as z:
             z.extractall(str(dest_dir))
+        # Handle nested zip
+        nested = dest_dir / "student.zip"
+        if nested.exists():
+            with zipfile.ZipFile(str(nested)) as z2:
+                z2.extractall(str(dest_dir))
         for f in dest_dir.glob("**/*.csv"):
             if "mat" in f.name.lower():
                 return f

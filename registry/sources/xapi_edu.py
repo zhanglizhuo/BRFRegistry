@@ -26,21 +26,33 @@ class XAPIEduSource(DatasetSource):
     grouping_description = "Topic (12 subjects)"
 
     def download(self):
-        import urllib.request, zipfile, io
+        import shutil
         dest_dir = self._ensure_cache_dir()
         csv_path = dest_dir / "xAPI-Edu-Data.csv"
         if csv_path.exists():
             return csv_path
-        # Try UCI mirror (more accessible than Kaggle)
-        urls = self.fallback_urls + [self.source_url]
-        for url in urls:
+        
+        # Try Kaggle via kagglehub first
+        try:
+            import kagglehub
+            path = kagglehub.dataset_download("aljarah/xAPI-Edu-Data")
+            import os
+            for f in os.listdir(path):
+                if f.endswith('.csv'):
+                    shutil.copy(os.path.join(path, f), str(csv_path))
+                    return csv_path
+        except Exception:
+            pass
+        
+        # Try UCI URL fallback
+        import urllib.request, zipfile, io
+        for url in self.fallback_urls:
             try:
                 resp = urllib.request.urlopen(url, timeout=60)
                 with zipfile.ZipFile(io.BytesIO(resp.read())) as z:
                     z.extractall(str(dest_dir))
                 for f in dest_dir.glob("**/*.csv"):
-                    if "xapi" in f.name.lower() or "edu" in f.name.lower():
-                        return f
+                    return f
                 break
             except Exception:
                 continue

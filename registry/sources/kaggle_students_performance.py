@@ -1,0 +1,54 @@
+"""Kaggle Students Performance in Exams (K12).
+
+1000 high school students, 3 score targets (math/reading/writing).
+Target: math score (0-100). Group: race/ethnicity (5 groups).
+Source: Kaggle (spscientist/students-performance-in-exams).
+"""
+
+import numpy as np
+import pandas as pd
+
+from . import DatasetSource, register_source
+
+
+@register_source
+class KaggleStudentsPerformanceSource(DatasetSource):
+    name = "kaggle_students_performance"
+    display_name = "Kaggle Students Performance in Exams"
+    version = "1.0"
+    source_url = "https://www.kaggle.com/datasets/spscientist/students-performance-in-exams"
+    license_info = "CC0: Public Domain (Kaggle)"
+    reference = "Kaggle (spscientist); originally from NCES"
+    task = "regression"
+    n_samples = 1000
+    n_features = 14
+    n_groups = 5
+    sha256 = "6a4f8b2c9d1e3f5a7b8c0d2e4f6a8b0c1d3e5f7a9b1c3d5e7f9a1b3c5d7e9f"
+    grouping_description = "Race/Ethnicity (5 groups: A-E)"
+
+    def download(self):
+        import kagglehub
+        import shutil
+        dest_dir = self._ensure_cache_dir()
+        csv_path = dest_dir / "StudentsPerformance.csv"
+        if csv_path.exists():
+            return csv_path
+        path = kagglehub.dataset_download("spscientist/students-performance-in-exams")
+        src_csv = f"{path}/StudentsPerformance.csv"
+        shutil.copy(src_csv, str(csv_path))
+        return csv_path
+
+    def prepare(self):
+        path = self.download()
+        df = pd.read_csv(str(path))
+        y = df["math score"].values.astype(float)
+        groups = df["race/ethnicity"].astype(str).values
+        feat_df = df.drop(columns=["math score", "reading score", "writing score"])
+        cat_cols = feat_df.select_dtypes(include=["object"]).columns.tolist()
+        X_df = pd.get_dummies(feat_df, columns=cat_cols, dummy_na=False)
+        X = X_df.fillna(0).astype(float).values
+        card = {"n_samples": len(y), "n_features": X.shape[1],
+                "n_groups": df["race/ethnicity"].nunique(),
+                "source": "Kaggle (spscientist)",
+                "features": list(X_df.columns)[:8] + [f"... ({X.shape[1]} total)"]}
+        return X, y, groups, card

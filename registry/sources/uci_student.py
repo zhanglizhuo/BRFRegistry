@@ -33,6 +33,11 @@ class UCIStudentSource(DatasetSource):
         resp = urllib.request.urlopen(self.source_url, timeout=60)
         with zipfile.ZipFile(io.BytesIO(resp.read())) as z:
             z.extractall(str(dest_dir))
+        # Handle nested zip: UCI wraps the actual data in student.zip
+        nested = dest_dir / "student.zip"
+        if nested.exists():
+            with zipfile.ZipFile(str(nested)) as z2:
+                z2.extractall(str(dest_dir))
         for f in dest_dir.glob("**/*.csv"):
             if "por" in f.name.lower():
                 return f

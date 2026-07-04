@@ -34,7 +34,10 @@ class HigherEdSource(DatasetSource):
         with zipfile.ZipFile(io.BytesIO(resp.read())) as z:
             z.extractall(str(dest_dir))
         for f in dest_dir.glob("**/*.csv"):
-            if "higher" in f.name.lower() or "856" in f.name:
+            return f
+        # Fallback: search for any file
+        for f in dest_dir.glob("**/*"):
+            if f.is_file():
                 return f
         return dest_dir
 
@@ -43,13 +46,21 @@ class HigherEdSource(DatasetSource):
 
         path = self.download()
         df = pd.read_csv(str(path))
-        y = df["OUTPUT Grade"].values.astype(float)
-        groups = df["Course ID"].astype(str).values
-        feat_df = df.drop(columns=["OUTPUT Grade"])
-        cat_cols = feat_df.select_dtypes(include=["object"]).columns.tolist()
-        X_df = pd.get_dummies(feat_df, columns=cat_cols, dummy_na=False)
-        X = X_df.fillna(0).astype(float).values
+        
+        # Target: last column (GRADE, 0-7)
+        target_cols = [c for c in df.columns if 'grade' in str(c).lower()]
+        y_col = target_cols[0] if target_cols else df.columns[-1]
+        y = df[y_col].values.astype(float)
+        
+        # Group: COURSE ID (9 groups)
+        group_cols = [c for c in df.columns if 'course' in str(c).lower()]
+        g_col = group_cols[0] if group_cols else df.columns[1]
+        groups = df[g_col].astype(str).values
+        
+        drop_cols = [c for c in [y_col, g_col, 'STUDENT ID'] if c in df.columns]
+        feat_df = df.drop(columns=drop_cols)
+        X = feat_df.fillna(0).astype(float).values
         card = {"n_samples": len(y), "n_features": X.shape[1],
-                "n_groups": df["Course ID"].nunique(), "source": "UCI ID 856",
-                "features": list(X_df.columns)[:8] + [f"... ({X.shape[1]} total)"]}
+                "n_groups": df[g_col].nunique(), "source": "UCI ID 856",
+                "features": list(feat_df.columns)[:8] + [f"... ({X.shape[1]} total)"]}
         return X, y, groups, card
