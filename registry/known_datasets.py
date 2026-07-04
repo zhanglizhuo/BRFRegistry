@@ -32,7 +32,7 @@ def register_dataset(
 
 register_dataset(
     key="oulad",
-    name="OULAD",
+    name="Open University Learning Analytics Dataset",
     n=32593,
     n_features=44,
     target_type="binary (pass/fail)",
@@ -46,7 +46,7 @@ register_dataset(
 
 register_dataset(
     key="student_dropout",
-    name="Student Dropout",
+    name="Student Dropout and Academic Success",
     n=3630,
     n_features=36,
     target_type="binary (Graduate/Dropout)",
@@ -88,7 +88,7 @@ register_dataset(
 
 register_dataset(
     key="uci_student",
-    name="UCI Student",
+    name="UCI Student Performance",
     n=649,
     n_features=56,
     target_type="continuous (0-20)",
@@ -102,7 +102,7 @@ register_dataset(
 
 register_dataset(
     key="higher_ed",
-    name="Higher Ed",
+    name="Higher Education Students Performance",
     n=145,
     n_features=31,
     target_type="continuous (0-7)",
@@ -116,7 +116,7 @@ register_dataset(
 
 register_dataset(
     key="mm_tba",
-    name="MM-TBA",
+    name="MM-TBA Teaching Behavior Analysis",
     n=186,
     n_features=13,
     target_type="continuous (GPT-4 rubric mean)",
@@ -172,7 +172,7 @@ register_dataset(
 
 register_dataset(
     key="mathe",
-    name="MathE",
+    name="MathE Mathematics Learning",
     n=833,
     n_features=26,
     target_type="continuous (question difficulty)",
@@ -186,7 +186,7 @@ register_dataset(
 
 register_dataset(
     key="colleges_aaup",
-    name="Colleges AAUP",
+    name="AAUP College Faculty Salary",
     n=1161,
     n_features=9,
     target_type="continuous (avg faculty salary)",
@@ -200,7 +200,7 @@ register_dataset(
 
 register_dataset(
     key="colleges_usnews",
-    name="Colleges US News",
+    name="Colleges US News Rankings",
     n=1204,
     n_features=31,
     target_type="continuous (graduation rate)",
@@ -272,7 +272,7 @@ register_dataset(
     key="students_exam_scores",
     name="Students Exam Scores (Kaggle)",
     n=30641,
-    n_features=17,
+    n_features=14,
     target_type="continuous (math score)",
     n_groups=5,
     source_url="https://www.kaggle.com/datasets/desalegngeb/students-exam-scores",
@@ -328,7 +328,7 @@ register_dataset(
     key="airfoil",
     name="Airfoil Noise (Freq)",
     n=1503,
-    n_features=5,
+    n_features=4,
     target_type="continuous (sound pressure)",
     n_groups=3,
     source_url="https://archive.ics.uci.edu/dataset/291/airfoil+self+noise",
