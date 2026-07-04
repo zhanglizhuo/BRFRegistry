@@ -15,7 +15,7 @@ class RealEstateSource(DatasetSource):
     reference = "Yeh & Hsu (2018); UCI ID 477"
     task = "regression"
     n_samples = 414
-    n_features = 6
+    n_features = 4
     n_groups = 3
     grouping_description = "Convenience stores binned (0-2, 3-5, 6+)"
     sha256 = "e0074220e235164e8fe010e055a94a4aed8bf484e0e33d7f8efc65e1b6a48b5e"

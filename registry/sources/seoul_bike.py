@@ -13,7 +13,7 @@ class SeoulBikeSource(DatasetSource):
     reference = "Sathishkumar et al. (2020); UCI ID 560"
     task = "regression"
     n_samples = 8760
-    n_features = 11
+    n_features = 9
     n_groups = 4
     grouping_description = "Season (4: Spring/Summer/Autumn/Winter)"
     sha256 = "827e5d046b09f52c546646a1a492ddf8c71ff61edd9b032894f846e37b2f9576"

@@ -13,7 +13,7 @@ class KaggleStudentsPerformanceSource(DatasetSource):
     reference = "Kaggle (spscientist); originally from NCES"
     task = "regression"
     n_samples = 1000
-    n_features = 14
+    n_features = 17
     n_groups = 5
     sha256 = "ade5869dba8b2d3e2b96379359fb2f61cb0308e8394d9b1ba37e174cfe3bee69"
     grouping_description = "Race/Ethnicity (5 groups: A-E)"

@@ -13,7 +13,7 @@ class EnergyBuildingSource(DatasetSource):
     reference = "Tsanas & Xifara (2012); UCI ID 242"
     task = "regression"
     n_samples = 768
-    n_features = 8
+    n_features = 7
     n_groups = 4
     grouping_description = "Orientation (X6, 4 categories: 2/3/4/5)"
     sha256 = "3eb371b34400e84f7ec4fcf9938b4e191f74c226fc11e49a8f18f868cecdcf73"

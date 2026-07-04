@@ -8,9 +8,9 @@
     "reference": "Nash et al. (1995); UCI ID 1",
     "task": "regression",
     "n_samples": 4177,
-    "n_features": 10,
+    "n_features": 7,
     "n_groups": 3,
-    "sha256": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1",
+    "sha256": "a2daaed9c48ef860360f6438a224a2fde2576f1ebcf4f821ffe23645c229b23e",
     "grouping": "Sex (M/F/I, 3 groups)",
     "notes": "",
     "brf_result": {
@@ -41,7 +41,7 @@
     "n_samples": 1503,
     "n_features": 4,
     "n_groups": 3,
-    "sha256": "",
+    "sha256": "fdd4a50b90f2b56d4d69297770a375c1cfa6ee781a3dfb7741af59764baa4191",
     "grouping": "Frequency bins (low<2kHz, mid<8kHz, high)",
     "notes": "",
     "brf_result": {
@@ -74,7 +74,7 @@
     "n_groups": 124,
     "sha256": "1aa296e00b6c88c4d6fad4ca2ae4866484d9fe5484f38f5c8c94dfc49f045e08",
     "grouping": "Teacher (124 categories)",
-    "notes": "Student-level aggregates of 401K transactions.",
+    "notes": "Student-level aggregates of skill-builder transactions.",
     "brf_result": {
       "B": 0.5079,
       "I": 0.0467,
@@ -100,10 +100,10 @@
     "license": "CC BY 4.0",
     "reference": "Quinlan (1993); UCI ID 9",
     "task": "regression",
-    "n_samples": 398,
-    "n_features": 9,
+    "n_samples": 392,
+    "n_features": 6,
     "n_groups": 3,
-    "sha256": "b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b",
+    "sha256": "15f00c8a120c8a86ac9faa16d47115c3e103764549a8c3c2fd6d5de31063636a",
     "grouping": "Origin (1=US, 2=Europe, 3=Japan)",
     "notes": "",
     "brf_result": {
@@ -134,7 +134,7 @@
     "n_samples": 731,
     "n_features": 10,
     "n_groups": 4,
-    "sha256": "",
+    "sha256": "75c2c56f116c9ebbd9bcb06087c2b7fffc7b8f8225dd37d388aa7e1996cf19dc",
     "grouping": "Season (4: spring/summer/fall/winter)",
     "notes": "",
     "brf_result": {
@@ -165,7 +165,7 @@
     "n_samples": 9568,
     "n_features": 3,
     "n_groups": 3,
-    "sha256": "",
+    "sha256": "51848da3c8b8c29f709f159fad95443eaa8ff2e95c721a00bba582048cd207e4",
     "grouping": "Temperature bins (cold<15C, mild<25C, hot)",
     "notes": "",
     "brf_result": {
@@ -181,7 +181,7 @@
       "model": "Ridge(alpha=1.0)",
       "seed": 42,
       "scale": true,
-      "elapsed_seconds": 1.3
+      "elapsed_seconds": 1.4
     },
     "brf_error": null
   },
@@ -274,7 +274,7 @@
       "model": "Ridge(alpha=1.0)",
       "seed": 42,
       "scale": true,
-      "elapsed_seconds": 0.7
+      "elapsed_seconds": 0.8
     },
     "brf_error": null
   },
@@ -289,7 +289,7 @@
     "n_samples": 1030,
     "n_features": 7,
     "n_groups": 3,
-    "sha256": "",
+    "sha256": "29d0352b435bf8d1ac08e93fe33615c60b82f7953e9e8e2f09be073742395afb",
     "grouping": "Age bins (1-28d, 29-90d, 91+d)",
     "notes": "",
     "brf_result": {
@@ -318,9 +318,9 @@
     "reference": "Tsanas & Xifara (2012); UCI ID 242",
     "task": "regression",
     "n_samples": 768,
-    "n_features": 8,
+    "n_features": 7,
     "n_groups": 4,
-    "sha256": "c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c",
+    "sha256": "3eb371b34400e84f7ec4fcf9938b4e191f74c226fc11e49a8f18f868cecdcf73",
     "grouping": "Orientation (X6, 4 categories: 2/3/4/5)",
     "notes": "",
     "brf_result": {
@@ -336,7 +336,7 @@
       "model": "Ridge(alpha=1.0)",
       "seed": 42,
       "scale": true,
-      "elapsed_seconds": 0.3
+      "elapsed_seconds": 0.4
     },
     "brf_error": null
   },
@@ -411,9 +411,9 @@
     "reference": "Kaggle (spscientist); originally from NCES",
     "task": "regression",
     "n_samples": 1000,
-    "n_features": 14,
+    "n_features": 17,
     "n_groups": 5,
-    "sha256": "6a4f8b2c9d1e3f5a7b8c0d2e4f6a8b0c1d3e5f7a9b1c3d5e7f9a1b3c5d7e9f",
+    "sha256": "ade5869dba8b2d3e2b96379359fb2f61cb0308e8394d9b1ba37e174cfe3bee69",
     "grouping": "Race/Ethnicity (5 groups: A-E)",
     "notes": "",
     "brf_result": {
@@ -429,7 +429,7 @@
       "model": "Ridge(alpha=1.0)",
       "seed": 42,
       "scale": true,
-      "elapsed_seconds": 1.1
+      "elapsed_seconds": 1.2
     },
     "brf_error": null
   },
@@ -444,7 +444,7 @@
     "n_samples": 574,
     "n_features": 5,
     "n_groups": 22,
-    "sha256": "",
+    "sha256": "19528668530108555e344e5bfcc68c762f63a458a32038599d189667e4f10407",
     "grouping": "Curriculum Unit (22 categories)",
     "notes": "Student-level aggregation of 809K step logs from Algebra I 2005-2006.",
     "brf_result": {
@@ -460,7 +460,7 @@
       "model": "Ridge(alpha=1.0)",
       "seed": 42,
       "scale": true,
-      "elapsed_seconds": 6.3
+      "elapsed_seconds": 8.1
     },
     "brf_error": null
   },
@@ -491,7 +491,7 @@
       "model": "Ridge(alpha=1.0)",
       "seed": 42,
       "scale": true,
-      "elapsed_seconds": 2.0
+      "elapsed_seconds": 2.1
     },
     "brf_error": null
   },
@@ -553,7 +553,7 @@
       "model": "Ridge(alpha=1.0)",
       "seed": 42,
       "scale": true,
-      "elapsed_seconds": 0.5
+      "elapsed_seconds": 0.6
     },
     "brf_error": null
   },
@@ -568,7 +568,7 @@
     "n_samples": 12960,
     "n_features": 24,
     "n_groups": 3,
-    "sha256": "e47f9ee225e1ee6e69b7564e6dac7123e80b8486677fe111f351964cef5dec80",
+    "sha256": "8e0389c3dd37590248a921c2726d869ee96b817761a35eb8416afa24f31f931d",
     "grouping": "Parents occupation (3: usual, pretentious, great_pret)",
     "notes": "",
     "brf_result": {
@@ -584,7 +584,7 @@
       "model": "Ridge(alpha=1.0)",
       "seed": 42,
       "scale": true,
-      "elapsed_seconds": 2.3
+      "elapsed_seconds": 2.2
     },
     "brf_error": null
   },
@@ -615,7 +615,7 @@
       "model": "Ridge(alpha=1.0)",
       "seed": 42,
       "scale": true,
-      "elapsed_seconds": 8.2
+      "elapsed_seconds": 8.7
     },
     "brf_error": null
   },
@@ -628,7 +628,7 @@
     "reference": "Kuzilek et al. (2017); UCI ID 349",
     "task": "classification",
     "n_samples": 32593,
-    "n_features": 44,
+    "n_features": 52,
     "n_groups": 22,
     "sha256": "9ce92381e4a0ac457f8e251b2eb2c179ed51e023ab30d1d671a0268bd62316ba",
     "grouping": "Course module + presentation (22)",
@@ -677,7 +677,7 @@
       "model": "Ridge(alpha=1.0)",
       "seed": 42,
       "scale": true,
-      "elapsed_seconds": 60.0
+      "elapsed_seconds": 62.8
     },
     "brf_error": null
   },
@@ -690,9 +690,9 @@
     "reference": "Yeh & Hsu (2018); UCI ID 477",
     "task": "regression",
     "n_samples": 414,
-    "n_features": 6,
+    "n_features": 4,
     "n_groups": 3,
-    "sha256": "f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f",
+    "sha256": "e0074220e235164e8fe010e055a94a4aed8bf484e0e33d7f8efc65e1b6a48b5e",
     "grouping": "Convenience stores binned (0-2, 3-5, 6+)",
     "notes": "",
     "brf_result": {
@@ -721,9 +721,9 @@
     "reference": "Sathishkumar et al. (2020); UCI ID 560",
     "task": "regression",
     "n_samples": 8760,
-    "n_features": 11,
+    "n_features": 9,
     "n_groups": 4,
-    "sha256": "e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e",
+    "sha256": "827e5d046b09f52c546646a1a492ddf8c71ff61edd9b032894f846e37b2f9576",
     "grouping": "Season (4: Spring/Summer/Autumn/Winter)",
     "notes": "",
     "brf_result": {
@@ -739,7 +739,7 @@
       "model": "Ridge(alpha=1.0)",
       "seed": 42,
       "scale": true,
-      "elapsed_seconds": 1.6
+      "elapsed_seconds": 1.5
     },
     "brf_error": null
   },
@@ -752,9 +752,9 @@
     "reference": "Cortez & Silva (2008); UCI ID 320 (Kaggle mirror)",
     "task": "regression",
     "n_samples": 395,
-    "n_features": 37,
+    "n_features": 55,
     "n_groups": 2,
-    "sha256": "f9a3b2c1d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0",
+    "sha256": "659f3984643c2def53ba5e49f551c6ce3657039f9c25306cacb8f43b818a5190",
     "grouping": "School (2: GP/MS)",
     "notes": "",
     "brf_result": {
@@ -801,7 +801,7 @@
       "model": "Ridge(alpha=1.0)",
       "seed": 42,
       "scale": true,
-      "elapsed_seconds": 3.2
+      "elapsed_seconds": 3.4
     },
     "brf_error": null
   },
@@ -832,7 +832,7 @@
       "model": "Ridge(alpha=1.0)",
       "seed": 42,
       "scale": true,
-      "elapsed_seconds": 16.0
+      "elapsed_seconds": 12.6
     },
     "brf_error": null
   },
@@ -847,7 +847,7 @@
     "n_samples": 649,
     "n_features": 53,
     "n_groups": 5,
-    "sha256": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2",
+    "sha256": "3fb408fe4b66d4cdb90ad4ec5e3fb6de94ba662d0471a3d46c03da483069f76b",
     "grouping": "Mother's Job (5: teacher, health, services, at_home, other)",
     "notes": "",
     "brf_result": {
@@ -876,7 +876,7 @@
     "reference": "Kaggle: Students Exam Scores",
     "task": "regression",
     "n_samples": 30641,
-    "n_features": 14,
+    "n_features": 17,
     "n_groups": 5,
     "sha256": "e08f2f4d11f9187c685d84eabd3dee72bbf0e514e940bff3bfacf341ee43f71d",
     "grouping": "Ethnic group (5 groups)",
@@ -894,7 +894,7 @@
       "model": "Ridge(alpha=1.0)",
       "seed": 42,
       "scale": true,
-      "elapsed_seconds": 2.9
+      "elapsed_seconds": 3.4
     },
     "brf_error": null
   },
@@ -956,7 +956,7 @@
       "model": "Ridge(alpha=1.0)",
       "seed": 42,
       "scale": true,
-      "elapsed_seconds": 1.4
+      "elapsed_seconds": 1.7
     },
     "brf_error": null
   },
@@ -987,7 +987,7 @@
       "model": "Ridge(alpha=1.0)",
       "seed": 42,
       "scale": true,
-      "elapsed_seconds": 0.5
+      "elapsed_seconds": 0.6
     },
     "brf_error": null
   },
@@ -1033,7 +1033,7 @@
     "n_samples": 6497,
     "n_features": 11,
     "n_groups": 2,
-    "sha256": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1",
+    "sha256": "457aa78e3a76dbf9d47713aa5a2a70ddc597aa2b22bc8ad36631cf9a38f42728",
     "grouping": "Wine type (red/white, 2 groups)",
     "notes": "",
     "brf_result": {
@@ -1049,7 +1049,7 @@
       "model": "Ridge(alpha=1.0)",
       "seed": 42,
       "scale": true,
-      "elapsed_seconds": 1.4
+      "elapsed_seconds": 1.2
     },
     "brf_error": null
   },
@@ -1080,7 +1080,7 @@
       "model": "Ridge(alpha=1.0)",
       "seed": 42,
       "scale": true,
-      "elapsed_seconds": 1.5
+      "elapsed_seconds": 0.9
     },
     "brf_error": null
   }

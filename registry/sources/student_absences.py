@@ -13,7 +13,7 @@ class StudentAbsencesSource(DatasetSource):
     reference = "Cortez & Silva (2008); UCI ID 320 (Kaggle mirror)"
     task = "regression"
     n_samples = 395
-    n_features = 37
+    n_features = 55
     n_groups = 2
     sha256 = "659f3984643c2def53ba5e49f551c6ce3657039f9c25306cacb8f43b818a5190"
     grouping_description = "School (2: GP/MS)"

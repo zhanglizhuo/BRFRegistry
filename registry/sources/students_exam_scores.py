@@ -11,7 +11,7 @@ class StudentsExamScoresSource(DatasetSource):
     reference = "Kaggle: Students Exam Scores"
     task = "regression"
     n_samples = 30641
-    n_features = 14
+    n_features = 17
     n_groups = 5
     sha256 = "e08f2f4d11f9187c685d84eabd3dee72bbf0e514e940bff3bfacf341ee43f71d"
     grouping_description = "Ethnic group (5 groups)"

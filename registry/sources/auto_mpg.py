@@ -13,8 +13,8 @@ class AutoMPGSource(DatasetSource):
     license_info = "CC BY 4.0"
     reference = "Quinlan (1993); UCI ID 9"
     task = "regression"
-    n_samples = 398
-    n_features = 9
+    n_samples = 392
+    n_features = 6
     n_groups = 3
     grouping_description = "Origin (1=US, 2=Europe, 3=Japan)"
     sha256 = "15f00c8a120c8a86ac9faa16d47115c3e103764549a8c3c2fd6d5de31063636a"

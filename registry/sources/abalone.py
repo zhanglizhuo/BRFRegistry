@@ -13,7 +13,7 @@ class AbaloneSource(DatasetSource):
     reference = "Nash et al. (1995); UCI ID 1"
     task = "regression"
     n_samples = 4177
-    n_features = 10
+    n_features = 7
     n_groups = 3
     grouping_description = "Sex (M/F/I, 3 groups)"
     sha256 = "a2daaed9c48ef860360f6438a224a2fde2576f1ebcf4f821ffe23645c229b23e"
