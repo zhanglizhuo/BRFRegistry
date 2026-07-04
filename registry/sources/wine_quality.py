@@ -24,7 +24,7 @@ class WineQualitySource(DatasetSource):
     n_features = 11
     n_groups = 2
     grouping_description = "Wine type (red/white, 2 groups)"
-    sha256 = "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1"
+    sha256 = "457aa78e3a76dbf9d47713aa5a2a70ddc597aa2b22bc8ad36631cf9a38f42728"
 
     def download(self):
         import urllib.request, zipfile, io

@@ -23,7 +23,7 @@ class KDDCup2010Source(DatasetSource):
     n_features = 5
     n_groups = 22
     grouping_description = "Curriculum Unit (22 categories)"
-    sha256 = ""
+    sha256 = "19528668530108555e344e5bfcc68c762f63a458a32038599d189667e4f10407"
     notes = "Student-level aggregation of 809K step logs from Algebra I 2005-2006."
 
     def download(self):

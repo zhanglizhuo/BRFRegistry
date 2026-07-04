@@ -22,7 +22,7 @@ class NurserySource(DatasetSource):
     n_samples = 12960
     n_features = 24
     n_groups = 3
-    sha256 = "e47f9ee225e1ee6e69b7564e6dac7123e80b8486677fe111f351964cef5dec80"
+    sha256 = "8e0389c3dd37590248a921c2726d869ee96b817761a35eb8416afa24f31f931d"
     grouping_description = "Parents occupation (3: usual, pretentious, great_pret)"
 
     def download(self):

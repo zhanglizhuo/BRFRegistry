@@ -64,7 +64,7 @@ version_policy:
   # ---- Known Issues (v2.0) ----
   known_issues:
     - "kdd_cup_2010 has incomplete BRF results (E=?), possibly due to feature count < 2 or n_permutations limit."
-    - "SHA-256 coverage: 13/35 source modules (37%). Many multi-domain datasets lack verification hashes."
+    - "SHA-256 coverage: 35/35 (100%). All datasets have verified checksums."
     - "DatasetSource modules in cross_domain_batch.py (concrete, bike_sharing, airfoil, ccpp) use compact single-file format; consider splitting for discoverability."
     - "higher_ed n_features corrected from 31 to 30 (actual UCI data has 30 feature columns). BRF results changed: S=-1.03→-5.25, I=2.00→6.18. Old v1.6 values likely from different UCI data version."
     - "mm_tba figshare download requires proxy in China mainland. Direct access returns HTTP 403."

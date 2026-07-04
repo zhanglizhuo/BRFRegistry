@@ -25,7 +25,7 @@ class AutoMPGSource(DatasetSource):
     n_features = 9
     n_groups = 3
     grouping_description = "Origin (1=US, 2=Europe, 3=Japan)"
-    sha256 = "b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b"
+    sha256 = "15f00c8a120c8a86ac9faa16d47115c3e103764549a8c3c2fd6d5de31063636a"
 
     def download(self):
         import urllib.request

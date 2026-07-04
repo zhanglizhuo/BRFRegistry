@@ -24,7 +24,7 @@ class AbaloneSource(DatasetSource):
     n_features = 10
     n_groups = 3
     grouping_description = "Sex (M/F/I, 3 groups)"
-    sha256 = "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1"
+    sha256 = "a2daaed9c48ef860360f6438a224a2fde2576f1ebcf4f821ffe23645c229b23e"
 
     def download(self):
         import urllib.request

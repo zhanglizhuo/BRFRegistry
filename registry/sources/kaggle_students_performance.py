@@ -23,7 +23,7 @@ class KaggleStudentsPerformanceSource(DatasetSource):
     n_samples = 1000
     n_features = 14
     n_groups = 5
-    sha256 = "6a4f8b2c9d1e3f5a7b8c0d2e4f6a8b0c1d3e5f7a9b1c3d5e7f9a1b3c5d7e9f"
+    sha256 = "ade5869dba8b2d3e2b96379359fb2f61cb0308e8394d9b1ba37e174cfe3bee69"
     grouping_description = "Race/Ethnicity (5 groups: A-E)"
 
     def download(self):

@@ -25,7 +25,7 @@ class RealEstateSource(DatasetSource):
     n_features = 6
     n_groups = 3
     grouping_description = "Convenience stores binned (0-2, 3-5, 6+)"
-    sha256 = "f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f"
+    sha256 = "e0074220e235164e8fe010e055a94a4aed8bf484e0e33d7f8efc65e1b6a48b5e"
 
     def download(self):
         import urllib.request

@@ -26,7 +26,7 @@ class StudentHealthSource(DatasetSource):
     n_features = 53
     n_groups = 5
     grouping_description = "Mother's Job (5: teacher, health, services, at_home, other)"
-    sha256 = "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2"
+    sha256 = "3fb408fe4b66d4cdb90ad4ec5e3fb6de94ba662d0471a3d46c03da483069f76b"
 
     def download(self):
         import kagglehub

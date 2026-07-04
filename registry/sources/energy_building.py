@@ -24,7 +24,7 @@ class EnergyBuildingSource(DatasetSource):
     n_features = 8
     n_groups = 4
     grouping_description = "Orientation (X6, 4 categories: 2/3/4/5)"
-    sha256 = "c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c"
+    sha256 = "3eb371b34400e84f7ec4fcf9938b4e191f74c226fc11e49a8f18f868cecdcf73"
 
     def download(self):
         import urllib.request

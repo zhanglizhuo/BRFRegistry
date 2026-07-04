@@ -9,6 +9,7 @@ class ConcreteSource(DatasetSource):
     name="concrete"; display_name="Concrete Strength (Age)"
     version="1.0"; task="regression"; n_samples=1030; n_features=7; n_groups=3
     license_info="CC BY 4.0"; reference="Yeh (1998); UCI ID 165"
+    sha256="29d0352b435bf8d1ac08e93fe33615c60b82f7953e9e8e2f09be073742395afb"
     grouping_description="Age bins (1-28d, 29-90d, 91+d)"
     def download(self):
         dest=self._ensure_cache_dir(); p=dest/"concrete.csv"
@@ -30,6 +31,7 @@ class BikeSharingSource(DatasetSource):
     name="bike_sharing"; display_name="Bike Sharing (Season)"
     version="1.0"; task="regression"; n_samples=731; n_features=10; n_groups=4
     license_info="CC BY 4.0"; reference="Fanaee-T & Gama (2013); UCI ID 275"
+    sha256="75c2c56f116c9ebbd9bcb06087c2b7fffc7b8f8225dd37d388aa7e1996cf19dc"
     grouping_description="Season (4: spring/summer/fall/winter)"
     def download(self):
         dest=self._ensure_cache_dir(); p=dest/"bike_sharing.csv"
@@ -50,6 +52,7 @@ class AirfoilSource(DatasetSource):
     name="airfoil"; display_name="Airfoil Noise (Freq)"
     version="1.0"; task="regression"; n_samples=1503; n_features=4; n_groups=3
     license_info="CC BY 4.0"; reference="Brooks et al. (1989); UCI ID 291"
+    sha256="fdd4a50b90f2b56d4d69297770a375c1cfa6ee781a3dfb7741af59764baa4191"
     grouping_description="Frequency bins (low<2kHz, mid<8kHz, high)"
     def download(self):
         dest=self._ensure_cache_dir(); p=dest/"airfoil.csv"
@@ -72,6 +75,7 @@ class CCPPSource(DatasetSource):
     name="ccpp"; display_name="Combined Cycle Power (Temp)"
     version="1.0"; task="regression"; n_samples=9568; n_features=3; n_groups=3
     license_info="CC BY 4.0"; reference="Tufekci (2014); UCI ID 294"
+    sha256="51848da3c8b8c29f709f159fad95443eaa8ff2e95c721a00bba582048cd207e4"
     grouping_description="Temperature bins (cold<15C, mild<25C, hot)"
     def download(self):
         dest=self._ensure_cache_dir(); p=dest/"ccpp.csv"
