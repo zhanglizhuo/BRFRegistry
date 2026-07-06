@@ -4,8 +4,23 @@ The **BRF Benchmark Registry** is a versioned, DOI-tracked collection of
 group-aware prediction benchmarks audited under the
 **Benchmark Reliability Framework (BRF)**.
 
-> Registry v2.0 : 35 unique datasets | 26 Reliable | 8 Void | 0 Fragile
+> Registry v2.0 : 35 unique datasets | 27 Reliable | 8 Void | 0 Fragile
 > DOI pending
+
+## What's New in v2.0
+
+- 35 source modules (up from 20 in v1.6) — all self-contained, 0 external dependencies
+- 7 alt-grouping views for large/granular datasets
+- Multi-domain: education (17), engineering (6), energy (3), transportation (2), food (1), other (6)
+- Mixed task types: 27 regression, 8 classification
+- SHA-256: 35/35 (100%) — all source modules verified
+- Per-dataset data quality metrics: N/p ratio, group quality (entropy, balance), signal strength (B, S)
+- Every source implements: download() + prepare() + metadata() + verify()
+- Sample sizes: N=145 (higher_ed) to N=519,334 (pisa2015)
+- Feature dimensions: F=2 (oli, pisa2015) to F=72 (xapi_edu)
+- CLI: `brf diagnose`, `brf rank`, `brf recommend`
+- All sources cached locally with versioned cache keys
+- Registry results published as machine-readable JSON (registry_v2.0.json)
 
 ## Quick Start
 
