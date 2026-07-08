@@ -43,11 +43,14 @@ class HigherEdSource(DatasetSource):
 
         path = self.download()
         df = pd.read_csv(str(path))
-        target_cols = [c for c in df.columns if 'grade' in str(c).lower()]
-        y_col = target_cols[0] if target_cols else df.columns[-1]
+        # Expected columns from UCI ID 856: GRADE (target), COURSE ID (group)
+        y_col = "GRADE"
+        g_col = "COURSE ID"
+        if y_col not in df.columns:
+            y_col = [c for c in df.columns if 'grade' in str(c).lower()][0]
+        if g_col not in df.columns:
+            g_col = [c for c in df.columns if 'course' in str(c).lower()][0]
         y = df[y_col].values.astype(float)
-        group_cols = [c for c in df.columns if 'course' in str(c).lower()]
-        g_col = group_cols[0] if group_cols else df.columns[1]
         groups = df[g_col].astype(str).values
         
         drop_cols = [c for c in [y_col, g_col, 'STUDENT ID'] if c in df.columns]

@@ -36,7 +36,7 @@ BRFRegistry (development + results)
 ├── results/registry_v2.0.json ← BRF results archive
 └── version_policy.yaml
 
-Paper3-MetaAnalysis
+MetaAnalysis
 ├── scripts/sync_scatter_data.py  ← auto-generates scatter_data.csv
 ├── data/scatter_data.csv         ← single source for all figures/tables
 ├── data/dataset_meta.csv         ← paper-specific metadata (domain, level, country)
@@ -59,8 +59,8 @@ Paper3 reads registry JSON via sync script; no hard dependency on either repo at
 | 3 | **Benchmark Reliability Meta-analysis** | Discovery: Fragile is a measurement convention, not a data property. 35 datasets, bounded formulation, Bayesian MR, LOO-CV 100%, MM-TBA case study | *Computers & Education* / *TMLR* | Manuscript complete (30 pp) |
 | 4 | **LLM Scoring Reliability** | Controlled re-scoring experiment: same data, human vs LLM target. Measures ΔBRF (scorer reliability footprint). Bias taxonomy, multi-scorer comparison, mitigation strategies. | *C&E* / *NeurIPS D&B* | Designed; depends on Paper 3 |
 | 5 | **benchmark-reliability (JOSS)** | Software paper: BRF audit engine, Registry, CLI | *JOSS* | Waiting: 6+ months public history (~Dec 2026) |
-| 6 | **Fairness + Explanation Stability** | Subgroup BRF: benchmark reliability across demographic partitions. Fairness Gap metric. Which benchmarks are reliable overall but unfair across subgroups? | *TNNLS* / *C&E* | Designed; needs demographic metadata |
-| 7 | **LLM Scoring Mechanism** | Causal evidence linking scorer bias to BRF shift. Why does LLM scoring reduce reliability? Mechanism analysis beyond Paper 4's observational findings. | High-impact ML journal | Evidence-driven; after Paper 4 |
+| 6 | **Subgroup BRF** | Benchmark reliability across demographic subgroups. Reliability Gap metric. 10 splits, 5 US benchmarks. | *TNNLS* / *C&E* | Full precision complete; Major Revision from peer review simulation |
+| 7 | **DomainAudit: Cross-Domain Subgroup BRF** | Cross-domain replication of Paper 6: does structural > identity RG hold across medical imaging, NLP, robotics, and non-US education? Requires Registry v3.0 (embedding support). | High-impact ML/EDM journal | Designing; after Paper 6 |
 | 8 | **Benchmark Design Guidelines** | Capstone synthesis: minimum reliability standards distilled from Papers 1-7 into actionable design guidelines for benchmark creators | *Review of Educational Research* | After Papers 3-7 |
 
 ### Paper Roles
@@ -70,8 +70,8 @@ Paper3 reads registry JSON via sync script; no hard dependency on either repo at
 - **Paper 3** (complete): Scientific discovery. "Fragile is a measurement convention. Bounded formulation reveals 3 Fragile entries. LOO-CV 100% agreement at E=0.5."
 - **Paper 4** (designed): Scorer reliability. "When the scorer is the variable: LLM-generated targets systematically shift BRF metrics."
 - **Paper 5** (waiting): Tool identity. "This software has been used in Papers 2-4."
-- **Paper 6** (designed): Benchmark fairness. "Is the benchmark itself fair across demographic subgroups?"
-- **Paper 7** (designed): LLM scoring mechanism. "Why does LLM scoring reduce reliability? Causal evidence."
+- **Paper 6** (designed → manuscript complete → major revision): Benchmark fairness. "Is the benchmark itself fair across demographic subgroups?" Full precision complete; review identified N confounding reframe needed.
+- **Paper 7** (designed): Cross-domain replication. "Does Paper 6's structural > identity RG pattern hold across medical, NLP, robotics?"
 - **Paper 8** (capstone): Design guidelines. "How to build a reliable benchmark: standards distilled from 7 papers."
 
 ### Paper 3 Key Findings
@@ -96,9 +96,6 @@ The experiment collapsed under its own logic.
 Key lesson for future papers: BRF is a property of (X, y, groups, scorer),
 not of y alone. Controlled experiments must hold scoring constant,
 varying only the factor of interest.
-
-Experimental code and results preserved at:
-  Paper4-ScoringReliability/ (for reference, no manuscript planned)
 
 ### Core Question (Original, Now Retracted)
 
@@ -175,7 +172,7 @@ Paper 3 的 MM-TBA 是唯一 E<0 的数据集——Paper 4 问：这是孤例还
 
 ---
 
-## Paper 6 Design: Fairness + Explanation Stability
+## Paper 6 Design: Subgroup BRF
 
 ### Core Question
 
@@ -189,109 +186,68 @@ Paper 6：        benchmark 对不同人群公平吗？ (is the benchmark fair?)
 一个 benchmark 整体可能 Reliable (S>0)，但在子群体上产生完全不同的模型排名——
 用这个 benchmark 选出的"最优模型"可能只对优势群体最优。
 
-### Study Design
+### Status: Full Precision Complete, Major Revision Needed
 
-**Study 1: Subgroup BRF**
+- Full precision (n_splits=30, n_perm=200) done for all 10 splits
+- Peer review simulation (2026-07-08): DA CRITICAL on N confounding (ρ=0.90, r²=0.81)
+- Ownership inconsistency resolved: 19/20 seeds (was 16/20 quick mode), passes Bonferroni
+- Bug fixes: bootstrap CI X-y pairing, fairness_gap now uses S'
 
-对同一数据集按人口统计变量分区，分别跑 BRF：
-- S_male vs S_female, S_group_A vs S_group_E
-- 定义 **Fairness Gap** = max(S_subgroup) − min(S_subgroup)
-- 定义 **Fairness Violation** = 1 if any subgroup S ≤ 0 while overall S > 0
+### Remaining Before Submission
 
-**Study 2: Registry Datasets with Demographics**
-
-| Dataset | Demographic Variable | Subgroups |
-|---|---|---|
-| kaggle_students_performance | Race/ethnicity | 5 (A-E) |
-| students_exam_scores | Race/ethnicity | 5 |
-| law_school | Race | LSAC classic fairness dataset |
-| student_depression | City / Profession | 30 / 3 (socioeconomic proxy) |
-| college_scorecard | Region / Ownership | 9 / 3 |
-
-对每个数据集：BRF(X_sub, y_sub, groups_sub) per subgroup，测量 Fairness Gap。
-
-**Study 3: Explanation Stability**
-
-模型解释（feature importance / SHAP）在不同子群体上是否稳定？
-- 如果 top-5 features 在子群体间完全不同 → benchmark 的解释也不公平
-- 定义 Explanation Gap = 1 − |top-5∩top-5| / 5
-
-**Study 4: Fairness-Aware BRF Extension**
-
-提出 fairness-augmented BRF metrics:
-- S_fair = S − λ · Fairness_Gap (penalize unreliable subgroups)
-- E_fair = min(E_subgroup) (worst-case grouping evidence)
-
-### Expected Findings
-
-1. 部分 benchmark 整体 Reliable 但子群体 Fairness Gap 大
-2. 小子群体（如 race=E）的 S 可能跌至 0 以下（small-N 效应叠加）
-3. Explanation instability 与 subgroup S instability 相关
-4. Fairness-aware BRF 可识别传统 BRF 漏掉的不公平 benchmark
-
-### Prerequisites
-
-- 需要人口统计元数据（不是所有数据集都有）
-- 子群体样本量可能不足（需要功率分析）
-- 伦理审查（涉及人口统计数据）
+1. Reframe contribution: N dominance is primary finding, dissociation is tentative
+2. Bootstrap CI figure needs re-running with bounded S'
+3. Paper 6 is not submission-ready in current form
 
 ### Target Venue
 
-- *TNNLS* (if methodology-focused: fairness-aware BRF metrics)
+- *TNNLS* (if methodology-focused: subgroup BRF metrics)
 - *Computers & Education* (if application-focused: fair educational benchmarks)
 
 ---
 
-## Paper 7 Design: LLM Scoring Mechanism
+## Paper 7 Design: DomainAudit — Cross-Domain Subgroup BRF
 
 ### Core Question
 
-Paper 4 证明了 LLM 评分会降低 B（what），Paper 7 问**为什么**（why）。
+Paper 6 发现"structural splits > identity splits"（observational, 5 US benchmarks）。Paper 7 问：**这个模式跨领域成立吗？**
 
-具体：LLM 评分的哪些内在特性（噪声结构、偏差模式、语义压缩）导致了 BRF 指标的系统性偏移？
+### Research Questions
 
-### Study Design
+| RQ | Method | What it tests |
+|---|---|---|
+| RQ1: Do structural splits (task, region) consistently produce larger RG than identity splits (gender, race)? | Subgroup BRF per benchmark | Generalizability of Paper 6's core finding |
+| RQ2: Is the N−S' confound universal (ρ ≈ 0.90) or domain-dependent? | Spearman ρ per domain | Whether sample size correction is universally needed |
+| RQ3: Does feature divergence predict RG across all domains? | SHAP-based feature correlation vs. RG | Mechanism generality |
 
-**Study 1: Bias Decomposition**
+### Target Datasets
 
-将 LLM 评分误差分解为可识别的成分：
-- **随机噪声** (ε_random)：评分不可复现（同输入不同输出）
-- **系统性偏差** (ε_bias)：与特征相关的评分偏移（如长度偏好）
-- **语义压缩** (ε_compress)：LLM 将连续质量映射到离散分值区间
+| Domain | Benchmarks | Feature strategy | Splits |
+|---|---|---|---|
+| Medical imaging | CheXpert, MIMIC, HAM10000, ODIR | Foundation model embeddings | Sex, age, race, insurance |
+| NLP | WinoBias, BBQ, GLUE subsets, Toxicity | Sentence embeddings (BERT/LLM) | Gender, race, dialect |
+| Robotics | Meta-World, D4RL, Robomimic | Environment state (tabular) | Task type, difficulty |
+| Non-US education | PISA, TIMSS | Raw features (tabular) | Country, SES, language |
 
-对每种成分，测量其对 ΔB、ΔI、ΔN 的独立贡献。
+### Methodology
 
-**Study 2: Causal Mediation**
-
-用中介分析（mediation analysis）建立因果链：
-```
-LLM scorer → 评分偏差类型 → BRF 指标偏移
-```
-- 处理：scorer 类型（human vs GPT-4 vs Claude）
-- 中介：评分偏差特征（variance, range, feature correlation）
-- 结果：ΔS, ΔB, ΔI
-
-**Study 3: Feature Space Distortion**
-
-LLM 评分可能改变特征-目标关系的结构：
-- 对比 human-y 和 LLM-y 下的 feature importance（SHAP）
-- 测量 feature-target correlation 的变化
-- 识别 LLM 评分引入的 spurious correlations
+- Extend BRFRegistry to **v3.0**: add `extract_features()` to DatasetSource protocol, add demographic split metadata
+- Build cross-domain benchmark modules (each implements the extended DatasetSource interface)
+- Run Subgroup BRF per benchmark → RG, S' distributions
+- Feature divergence analysis for splits with RG > 0.10
+- Cross-domain meta-analysis: does RG distribution differ by domain or split type?
 
 ### Expected Findings
 
-1. 系统性偏差（而非随机噪声）是 B 下降的主因
-2. 语义压缩削弱 null separation（N↓），因为 LLM 倾向于将质量映射到狭窄的分值区间
-3. Feature importance 在 human-y 和 LLM-y 间可能完全不同
-4. 因果中介分析量化每种偏差机制的贡献比例
-
-### Target Venue
-
-High-impact ML journal (*NeurIPS* / *ICML* / *JMLR*) — 因果机制分析是方法论贡献
+- Structural > identity RG holds across domains → universal pattern → strong claim for high-impact venue
+- N−S' correlation weaker in medical (more homogeneous features) or stronger in NLP → domain-specific correction
+- Feature divergence predicts RG only when subgroups differ in **which features predict y**, not just in residual variance
 
 ### Prerequisites
 
-- Paper 4 的实验数据（重评分结果）
+- Paper 6 submitted (observational finding to replicate)
+- Registry v3.0 protocol designed and implemented (embedding + splits)
+- Cross-domain benchmark modules built (~12 new DatasetSource modules)
 - 因果推断方法（mediation analysis, counterfactual reasoning）
 - Timeline: Paper 4 发表后 3-4 个月
 
@@ -316,7 +272,7 @@ High-impact ML journal (*NeurIPS* / *ICML* / *JMLR*) — 因果机制分析是�
 | Grouping metadata | Paper 2 Registry | ≥ 5 meaningful groups | enables cross-group evaluation |
 | Group balance | Paper 3 | N/G ≥ 100 | sparse groups (ASSISTments G=124) reduce E |
 | Scorer validation | Paper 4 | scorer audit for LLM-scored y | LLM scoring systematically lowers B |
-| Scorer mechanism | Paper 7 | understand why LLM scoring fails | causal evidence for guideline |
+| Cross-domain replication | Paper 7 | structural > identity RG is universal? | cross-domain validation for guideline |
 | Fairness check | Paper 6 | Fairness Gap < threshold | benchmark must be fair across subgroups |
 | Pre-publication screening | Paper 3 MM-TBA | run BRF before publication | 30-second automated check |
 | Acceptance thresholds | Paper 3 calibration | E > 0.5 and S > 0 for "Reliable" | LOO-CV 100% agreement at E=0.5 |
@@ -344,7 +300,7 @@ Papers 3-7 基本完成。Paper 8 是整个系列的**收尾**。
   Paper 3 (Discovery)   → 我们发现了什么（Fragile 是测量约定）
   Paper 4 (LLM Scoring) → LLM 评分会破坏可靠性吗？
   Paper 6 (Fairness)    → benchmark 对子群体公平吗？
-  Paper 7 (Mechanism)   → 为什么 LLM 评分降低可靠性（因果机制）
+  Paper 7 (DomainAudit) → 跨领域复制验证：structural > identity 是否普遍成立？
 
 综合
   Paper 5 (JOSS)        → 这个工具已经被用了

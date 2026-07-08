@@ -47,7 +47,7 @@ BRFRegistry/
 |   |-- version_policy.yaml # Lifecycle + deprecation rules
 |   |-- cli.py            # CLI: list, download, verify, sync, info
 |   |-- verify.py         # SHA-256 verification
-|   `-- known_datasets.py # Metadata registry (35 entries)
+|   `-- sources/           # 35 DatasetSource modules
 |-- results/
 |   `-- registry_v2.0.json # 35 entries with BRF results + metadata
 `-- run_registry.py        # Run BRF on all registered datasets

@@ -34,7 +34,7 @@ class ASSISTmentsSource(DatasetSource):
                 with zipfile.ZipFile(io.BytesIO(resp.read())) as z:
                     z.extractall(str(dest_dir))
                 for f in dest_dir.iterdir():
-                    if f.suffix == ".csv" and "skill" in f.name.lower():
+                    if f.suffix == ".csv" and "skill_builder_data_corrected" in f.name.lower():
                         return f
                 break
             except Exception:

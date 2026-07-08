@@ -32,16 +32,20 @@ class MMTBASource(DatasetSource):
     notes = "LLM-scored benchmark. Features extracted from lecture transcripts and GPT-4 rubric reports."
 
     def download(self):
-        import urllib.request, zipfile, io, shutil
+        import json, urllib.request, zipfile, io
         dest_dir = self._ensure_cache_dir()
         meta_path = dest_dir / "MM-TBA" / "MM-TBA" / "metadata.xlsx"
         if meta_path.exists():
             return dest_dir
-        # Download from figshare
-        zip_url = "https://ndownloader.figshare.com/files/54255530"
-        resp = urllib.request.urlopen(zip_url, timeout=300)
-        with zipfile.ZipFile(io.BytesIO(resp.read())) as z:
-            z.extractall(str(dest_dir))
+        # Resolve download URL via figshare API
+        article_id = self.source_url.rstrip("/").split(".")[-1]
+        api_url = f"https://api.figshare.com/v2/articles/{article_id}"
+        with urllib.request.urlopen(api_url, timeout=30) as resp:
+            data = json.loads(resp.read().decode())
+        zip_url = data["files"][0]["download_url"]
+        with urllib.request.urlopen(zip_url, timeout=300) as resp:
+            with zipfile.ZipFile(io.BytesIO(resp.read())) as z:
+                z.extractall(str(dest_dir))
         return dest_dir
 
     def prepare(self):

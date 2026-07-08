@@ -1,19 +1,23 @@
 # BRF Registry Benchmark Taxonomy
-# Hierarchical classification of all 18 unique datasets.
-# Generated from registry_v1.6.json.
+# Hierarchical classification of all 35 unique datasets (v2.0).
 
 taxonomy:
-  version: "1.0"
-  date: "2026-07-01"
+  version: "2.0"
+  date: "2026-07-08"
 
   # ---- Level 1: Education Tier ----
   education_level:
     - K12:
         - ASSISTments 2009-2010
         - xAPI-Edu-Data
+        - Kaggle Students Performance
+        - Students Exam Scores
     - Secondary:
         - UCI Student Performance
+        - UCI Student Performance (Math)
         - PISA 2015 Science
+        - Student Absences
+        - Student Health
     - Higher Education:
         - OULAD
         - Student Dropout
@@ -26,15 +30,29 @@ taxonomy:
         - OLI Engineering Statics 2011
         - Student Depression
         - Law School Admission
+        - KDD Cup 2010
+        - Nursery
     - Mixed:
         - Colleges AAUP
         - Colleges US News
         - College Scorecard
+    - N/A (Non-Edu):
+        - Abalone
+        - Airfoil
+        - Auto MPG
+        - Bike Sharing
+        - CCPP
+        - Concrete
+        - Energy Building
+        - Real Estate
+        - Seoul Bike
+        - Wine Quality
 
   # ---- Level 2: Task Type ----
   task_type:
     - regression:
         - UCI Student Performance
+        - UCI Student Performance (Math)
         - Higher Ed
         - MM-TBA
         - Turkiye
@@ -45,6 +63,22 @@ taxonomy:
         - Colleges US News
         - College Scorecard
         - Law School
+        - Abalone
+        - Airfoil
+        - Auto MPG
+        - Bike Sharing
+        - CCPP
+        - Concrete
+        - Energy Building
+        - Kaggle Students Performance
+        - KDD Cup 2010
+        - Nursery
+        - Real Estate
+        - Seoul Bike
+        - Student Absences
+        - Student Health
+        - Students Exam Scores
+        - Wine Quality
     - classification:
         - OULAD
         - Student Dropout
@@ -59,27 +93,40 @@ taxonomy:
     - institutional:
         - State: Colleges AAUP, Colleges US News, College Scorecard
         - Country: PISA 2015
-        - School: UCI Student, ASSISTments
-    - organizational:
+        - School: UCI Student, UCI Student (Math), Student Absences
         - Course: OULAD, Student Dropout, Higher Ed, Turkiye
         - Qualification: Entrance Exam
-        - Module: MathE, OLI
+        - Module: MathE, OLI, KDD Cup 2010
+        - Club: Nursery
     - interpersonal:
         - Instructor: TAE
         - Teacher: ASSISTments
+        - Topic: MathE, xAPI-Edu
     - demographic:
         - City: Student Depression
-        - Profession: Student Depression
+        - Race/Ethnicity: Kaggle Students Performance, Students Exam Scores
         - Cluster: Law School
+        - Profession: Student Health
+        - Sex: Abalone
+        - Origin: Auto MPG
+    - engineering:
+        - Orientation: Energy Building
+        - Frequency: Airfoil
+        - Season: Bike Sharing, Seoul Bike
+        - Temperature: CCPP
+        - Age: Concrete
+        - Stores: Real Estate
+    - other:
+        - Wine Type: Wine Quality
     - none:
         - MM-TBA
 
   # ---- Level 4: Domain ----
   domain:
     - Learning Analytics: OULAD, xAPI-Edu
-    - Academic Performance: Student Dropout, Entrance Exam, UCI Student, Higher Ed
+    - Academic Performance: Student Dropout, Entrance Exam, UCI Student, UCI Student (Math), Higher Ed, Students Exam Scores
     - Teaching Evaluation: TAE, Turkiye
-    - Intelligent Tutoring: ASSISTments
+    - Intelligent Tutoring: ASSISTments, KDD Cup 2010
     - Math Assessment: MathE
     - LLM Evaluation: MM-TBA
     - Engineering Education: OLI
@@ -87,10 +134,20 @@ taxonomy:
     - Mental Health: Student Depression
     - Legal Education: Law School
     - Large-scale Assessment: PISA 2015
+    - Marine Biology: Abalone
+    - Aerospace Engineering: Airfoil
+    - Automotive: Auto MPG
+    - Transportation: Bike Sharing, Seoul Bike
+    - Energy: CCPP, Energy Building
+    - Civil Engineering: Concrete
+    - Real Estate: Real Estate
+    - Food Science: Wine Quality
+    - Early Childhood: Nursery
+    - Student Welfare: Student Absences, Student Health
 
   # ---- Level 5: Geographic Origin ----
   geography:
-    - US: ASSISTments, Colleges AAUP, Colleges US News, College Scorecard, TAE, OLI, Law School
-    - Europe: OULAD (UK), Student Dropout (Portugal), UCI Student (Portugal), MathE (EU), Turkiye (Turkey), Higher Ed (Turkey)
-    - Asia: Entrance Exam (India), Student Depression (India)
-    - International: xAPI-Edu, MM-TBA, PISA 2015
+    - US: ASSISTments, Colleges AAUP, Colleges US News, College Scorecard, TAE, OLI, Law School, KDD Cup 2010, Auto MPG, Airfoil
+    - Europe: OULAD (UK), Student Dropout (Portugal), UCI Student (Portugal), MathE (EU), Turkiye (Turkey), Higher Ed (Turkey), Concrete, Wine Quality
+    - Asia: Entrance Exam (India), Student Depression (India), Seoul Bike (S. Korea), Abalone (Tasmania/AU), Nursery
+    - International: xAPI-Edu, MM-TBA, PISA 2015, Bike Sharing, CCPP, Energy Building, Real Estate, Kaggle Students Performance, Students Exam Scores, Student Absences, Student Health, UCI Student (Math)

@@ -15,9 +15,9 @@ class StudentDepressionSource(DatasetSource):
     n_samples = 27875
     n_features = 21
     n_groups = 30
-    grouping_description = "City (30 groups, Indian cities)"
+    grouping_description = "City (Indian cities)"
     sha256 = "d18d7476eec0f3f1352dd3cdf1ade52dbe9084cc8c523d3c8aa22f9d7248957a"
-    notes = "27.9K students. Target: depression (binary). Run as regression."
+    notes = "27.9K students. Target: depression (binary). Run as regression. n_groups is post-filter (cities with >=5 students)."
 
     def download(self):
         dest_dir = self._ensure_cache_dir()
@@ -51,6 +51,7 @@ class StudentDepressionSource(DatasetSource):
         city_counts = df["City"].value_counts()
         valid = city_counts[city_counts >= 5].index
         df = df[df["City"].isin(valid)].copy()
+        n_groups_actual = df["City"].nunique()
         y = df["Depression"].astype(float).values
         num_cols = ["Age", "Academic Pressure", "CGPA", "Study Satisfaction",
                     "Work/Study Hours", "Financial Stress"]
@@ -68,7 +69,7 @@ class StudentDepressionSource(DatasetSource):
         card = {
             "n_samples": len(y),
             "n_features": X.shape[1],
-            "n_groups": df["City"].nunique(),
+            "n_groups": n_groups_actual,
             "source": "OpenML ID 46753",
             "features": num_cols + [f"cat_{i}" for i in range(X.shape[1] - len(num_cols))],
         }

@@ -34,7 +34,7 @@ class OLISource(DatasetSource):
         except Exception:
             pass
         import os
-        alt = "/tmp/oli/AllData_student_step_2011F.csv"
+        alt = os.path.expanduser("~/.cache/oli/AllData_student_step_2011F.csv")
         if os.path.exists(alt):
             import shutil
             shutil.copy(alt, str(csv_path))

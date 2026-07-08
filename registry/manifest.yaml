@@ -10,11 +10,8 @@ description: >
   engineering, transportation, energy, and other domains with standardized
   metadata, reproducibility scripts, and BRF (Benchmark Reliability Framework)
   audit results.
-  35 unique datasets. v2.0 expands from education-only to multi-domain
-  (15 new datasets: abalone, airfoil, auto_mpg, bike_sharing, ccpp, concrete,
-  energy_building, kaggle_students_performance, kdd_cup_2010, nursery,
-  real_estate, seoul_bike, student_absences, student_health, wine_quality).
-  All 35 source modules are self-contained (0 external dependencies).
+  35 unique datasets. v2.0 expands from education-only to multi-domain.
+  All 35 source modules are self-contained.
 
 datasets:
   - abalone
@@ -57,5 +54,3 @@ brf_results:
   reliable: 26
   void: 8
   fragile: 0
-
-schema_version: "2.0.0"
