@@ -2,12 +2,12 @@ name: airfoil
 key: airfoil
 version: '1.0'
 source:
-  url: 
+  url: null
   repository: Public
   license: CC BY 4.0
 collection:
   year: ''
-  country: 
+  country: null
 task:
   type: regression
   target: continuous
@@ -23,13 +23,13 @@ education:
   level: N/A (Non-Edu)
   domain: Aerospace
 reference: Brooks et al. (1989); UCI ID 291
-notes: 
+notes: null
 brf_compatibility:
   S: 0.7601
   E: 0.7802
   class: Reliable
   audited_version: v2.0
-  note: BRF class is communication shorthand only. Use continuous S and E values for
-    analysis.
+  note: BRF protocol is under review; scores are provisional. BRF class is communication shorthand only. Use continuous S
+    and E values for analysis.
 integrity:
   sha256: fdd4a50b90f2b56d4d69297770a375c1cfa6ee781a3dfb7741af59764baa4191

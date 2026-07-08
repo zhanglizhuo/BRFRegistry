@@ -7,7 +7,7 @@ source:
   license: CC BY 4.0
 collection:
   year: ''
-  country: 
+  country: null
 task:
   type: regression
   target: continuous
@@ -23,13 +23,13 @@ education:
   level: N/A (Non-Edu)
   domain: Automotive
 reference: Quinlan (1993); UCI ID 9
-notes: 
+notes: null
 brf_compatibility:
   S: 0.9586
   E: 1.4366
   class: Reliable
   audited_version: v2.0
-  note: BRF class is communication shorthand only. Use continuous S and E values for
-    analysis.
+  note: BRF protocol is under review; scores are provisional. BRF class is communication shorthand only. Use continuous S
+    and E values for analysis.
 integrity:
   sha256: 15f00c8a120c8a86ac9faa16d47115c3e103764549a8c3c2fd6d5de31063636a

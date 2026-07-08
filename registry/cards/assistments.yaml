@@ -23,14 +23,13 @@ education:
   level: K12
   domain: Intelligent Tutoring
 reference: Feng, Heffernan & Koedinger (2009)
-notes: Skill builder corrected. Student-level aggregates of 328K transactions. Teacher
-  as group.
+notes: Skill builder corrected. Student-level aggregates of 328K transactions. Teacher as group.
 brf_compatibility:
   S: 0.953
   E: 0.946
   class: Reliable
   audited_version: v1.5
-  note: BRF class is communication shorthand only. Use continuous S and E values for
-    analysis.
+  note: BRF protocol is under review; scores are provisional. BRF class is communication shorthand only. Use continuous S
+    and E values for analysis.
 integrity:
   sha256: 1aa296e00b6c88c4d6fad4ca2ae4866484d9fe5484f38f5c8c94dfc49f045e08

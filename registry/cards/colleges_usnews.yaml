@@ -29,7 +29,7 @@ brf_compatibility:
   E: 1.038
   class: Reliable
   audited_version: v1.5
-  note: BRF class is communication shorthand only. Use continuous S and E values for
+  note: BRF protocol is under review; scores are provisional. Communication shorthand only. Use continuous S and E values for
     analysis.
 integrity:
   sha256: c96a8f3e34764ce52442bf10c50a4170260993de35ada0c7d82a8c6fec75104a
