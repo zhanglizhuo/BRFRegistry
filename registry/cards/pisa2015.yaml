@@ -20,7 +20,7 @@ grouping:
   rationale: Country determines education system and resources
   count: 73
 education:
-  level: Secondary (Assessment)
+  level: Secondary
   domain: Large-scale Assessment
 reference: OECD PISA 2015 Science Assessment
 notes: '519K students, 73 countries. Cognitve item scores aggregated to student level.

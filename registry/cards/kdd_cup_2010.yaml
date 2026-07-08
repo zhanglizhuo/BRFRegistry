@@ -20,7 +20,7 @@ grouping:
   rationale: ''
   count: 22
 education:
-  level: K12
+  level: Secondary
   domain: Intelligent Tutoring
 reference: Stamper, Niculescu-Mizil, Ritter, Gordon & Koedinger (2010)
 notes: Student-level aggregation of 809K step logs from Algebra I 2005-2006.

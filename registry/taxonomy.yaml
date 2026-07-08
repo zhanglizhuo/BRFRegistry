@@ -7,12 +7,12 @@ taxonomy:
 
   # ---- Level 1: Education Tier ----
   education_level:
-    - K12:
+    - Secondary:
         - ASSISTments 2009-2010
         - xAPI-Edu-Data
+        - KDD Cup 2010
         - Kaggle Students Performance
         - Students Exam Scores
-    - Secondary:
         - UCI Student Performance
         - UCI Student Performance (Math)
         - PISA 2015 Science
@@ -30,7 +30,7 @@ taxonomy:
         - OLI Engineering Statics 2011
         - Student Depression
         - Law School Admission
-        - KDD Cup 2010
+    - Pre-Primary:
         - Nursery
     - Mixed:
         - Colleges AAUP

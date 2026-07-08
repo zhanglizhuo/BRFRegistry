@@ -20,7 +20,7 @@ grouping:
   rationale: Student cohort within LMS session
   count: 12
 education:
-  level: K12
+  level: Secondary
   domain: Learning Management
 reference: Amrieh et al. (2016)
 notes: Kalboard 360. Features one-hot encoded.

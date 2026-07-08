@@ -20,7 +20,7 @@ grouping:
   rationale: State determines funding, policy, and regulatory environment
   count: 55
 education:
-  level: Higher Education
+  level: Mixed
   domain: Institutional Outcomes
 reference: US Dept of Education; OpenML ID 42121
 notes: 7804 colleges, filtered to 2220 with admission data.

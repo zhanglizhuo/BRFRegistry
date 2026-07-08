@@ -20,7 +20,7 @@ grouping:
   rationale: Teacher determines curriculum and instruction quality
   count: 124
 education:
-  level: K12
+  level: Secondary
   domain: Intelligent Tutoring
 reference: Feng, Heffernan & Koedinger (2009)
 notes: Skill builder corrected. Student-level aggregates of 328K transactions. Teacher as group.

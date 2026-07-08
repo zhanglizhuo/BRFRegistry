@@ -20,7 +20,7 @@ grouping:
   rationale: State determines policy, funding, and demographics
   count: 51
 education:
-  level: Higher Education
+  level: Mixed
   domain: Institutional Rankings
 reference: US News College Rankings (OpenML ID 538)
 notes: '1204 US colleges, 51 state groups. Target: graduation rate.'

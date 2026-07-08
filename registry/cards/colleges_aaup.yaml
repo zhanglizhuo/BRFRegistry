@@ -20,7 +20,7 @@ grouping:
   rationale: State determines cost of living and funding levels
   count: 52
 education:
-  level: Higher Education
+  level: Mixed
   domain: Institutional Economics
 reference: AAUP Faculty Salary Survey (OpenML ID 488)
 notes: '1161 US colleges, 52 state groups. Institutional-level. Target: average salary

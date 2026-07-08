@@ -20,7 +20,7 @@ grouping:
   rationale: ''
   count: 2
 education:
-  level: N/A (Non-Education)
+  level: N/A (Non-Edu)
   domain: Food Science
 reference: Cortez et al. (2009); UCI ID 186
 notes: 
