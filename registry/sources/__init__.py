@@ -31,6 +31,7 @@ class DatasetSource(ABC):
     n_features = 0
     n_groups = 0
     sha256 = ""
+    prepare_sha256 = ""
     grouping_description = ""
     notes = ""
 
@@ -71,12 +72,44 @@ class DatasetSource(ABC):
         if path is None:
             path = self.download()
         if isinstance(path, Path) and path.is_dir():
-            return True
+            return self._check_directory_sha256(path)
         return self._check_sha256(path)
+
+    def _compute_directory_sha256(self, path):
+        sha = hashlib.sha256()
+        for fpath in sorted(path.rglob("*")):
+            if fpath.is_file():
+                rel = fpath.relative_to(path)
+                sha.update(str(rel).encode())
+                file_sha = self._compute_sha256(fpath)
+                sha.update(file_sha.encode())
+        return sha.hexdigest()
+
+    def _check_directory_sha256(self, path):
+        if not self.sha256:
+            return True
+        actual = self._compute_directory_sha256(path)
+        return actual == self.sha256
 
     @abstractmethod
     def prepare(self):
         """Return (X, y, groups, metadata_card)."""
+
+    def _compute_prepare_sha256(self, X, y, groups):
+        import io
+        sha = hashlib.sha256()
+        for arr in (X, y, groups):
+            buf = io.BytesIO()
+            np.save(buf, np.asarray(arr))
+            sha.update(buf.getvalue())
+        return sha.hexdigest()
+
+    def verify_prepare(self):
+        if not self.prepare_sha256:
+            return True
+        X, y, groups, _ = self.prepare()
+        actual = self._compute_prepare_sha256(X, y, groups)
+        return actual == self.prepare_sha256
 
     def metadata(self):
         return {
@@ -91,6 +124,7 @@ class DatasetSource(ABC):
             "n_features": self.n_features,
             "n_groups": self.n_groups,
             "sha256": self.sha256,
+            "prepare_sha256": self.prepare_sha256,
             "grouping": self.grouping_description,
             "notes": self.notes,
         }

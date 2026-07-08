@@ -16,23 +16,26 @@ class CollegesUSNewsSource(DatasetSource):
     n_features = 31
     n_groups = 51
     grouping_description = "US State (51 groups)"
-    sha256 = "c96a8f3e34764ce52442bf10c50a4170260993de35ada0c7d82a8c6fec75104a"
+    sha256 = "699af40770b5948bb2baa426d4840922cb4730863ac1a4b06d29b16695ac7a82"
     notes = "1204 US colleges. Target: graduation rate."
 
     def download(self):
         from pathlib import Path
         dest_dir = self._ensure_cache_dir()
+        csv_path = dest_dir / "colleges_usnews.csv"
+        if csv_path.exists():
+            return csv_path
         arff_path = dest_dir / "colleges_usnews.arff"
         if arff_path.exists():
             return arff_path
         try:
             import openml
             ds = openml.datasets.get_dataset(538)
-            X, y, _, _ = ds.get_data(dataset_format='dataframe')
+            X_df, y, _, _ = ds.get_data(dataset_format='dataframe')
             import pandas as pd
-            df = pd.concat([X, y], axis=1) if y is not None else X.copy()
-            df.to_csv(dest_dir / "colleges_usnews.csv", index=False)
-            return dest_dir / "colleges_usnews.csv"
+            df = pd.concat([X_df, y], axis=1) if y is not None else X_df.copy()
+            df.to_csv(str(csv_path), index=False)
+            return csv_path
         except Exception:
             pass
         import urllib.request
