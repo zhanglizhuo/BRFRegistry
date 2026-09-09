@@ -4,23 +4,23 @@ The **BRF Benchmark Registry** is a versioned, DOI-tracked collection of
 group-aware prediction benchmarks audited under the
 **Benchmark Reliability Framework (BRF)**.
 
-> Registry v2.0 : 35 unique datasets | 27 Reliable | 8 Void | 0 Fragile
+> Registry v2.1 : 49 unique datasets | 30 Reliable | 11 Void | 0 Fragile
 > DOI pending
 
 ## What's New in v2.0
 
-- 35 source modules (up from 20 in v1.6) — all self-contained, 0 external dependencies
+- 49 source modules (up from 35 in v2.0) — all self-contained, 0 external dependencies
 - 7 alt-grouping views for large/granular datasets
 - Multi-domain: education (17), engineering (6), energy (3), transportation (2), food (1), other (6)
 - Mixed task types: 27 regression, 8 classification
-- SHA-256: 35/35 (100%) — all source modules verified
+- SHA-256: 49/49 (100%) — all source modules verified
 - Per-dataset data quality metrics: N/p ratio, group quality (entropy, balance), signal strength (B, S)
 - Every source implements: download() + prepare() + metadata() + verify()
 - Sample sizes: N=145 (higher_ed) to N=519,334 (pisa2015)
 - Feature dimensions: F=2 (oli, pisa2015) to F=72 (xapi_edu)
 - CLI: `brf diagnose`, `brf rank`, `brf recommend`
 - All sources cached locally with versioned cache keys
-- Registry results published as machine-readable JSON (registry_v2.0.json)
+- Registry results published as machine-readable JSON (registry_v2.1.json)
 
 ## Quick Start
 
@@ -28,7 +28,7 @@ group-aware prediction benchmarks audited under the
 pip install benchmark-reliability
 
 # Browse the Registry
-brf registry list              # 35 datasets
+brf registry list              # 49 datasets
 brf registry info tae          # full metadata
 brf registry sync              # download + verify all
 brf audit tae                  # run BRF on a dataset
@@ -39,7 +39,7 @@ brf audit tae                  # run BRF on a dataset
 ```
 BRFRegistry/
 |-- registry/
-|   |-- sources/          # 35 DatasetSource .py files (auto-discovered)
+|   |-- sources/          # 49 DatasetSource .py files (auto-discovered)
 |   |-- cards/            # YAML Dataset Cards
 |   |-- cache/            # Downloaded data (gitignored)
 |   |-- manifest.yaml     # Registry version + dataset index
@@ -47,9 +47,9 @@ BRFRegistry/
 |   |-- version_policy.yaml # Lifecycle + deprecation rules
 |   |-- cli.py            # CLI: list, download, verify, sync, info
 |   |-- verify.py         # SHA-256 verification
-|   `-- sources/           # 35 DatasetSource modules
+|   `-- sources/           # 49 DatasetSource modules
 |-- results/
-|   `-- registry_v2.0.json # 35 entries with BRF results + metadata
+|   `-- registry_v2.1.json # 35 entries with BRF results + metadata
 `-- run_registry.py        # Run BRF on all registered datasets
 ```
 
@@ -65,7 +65,7 @@ Submit a PR with a `DatasetSource` subclass. See existing sources in
 |---------|------|---------|----------|------|---------|
 | v1.0 | 2026-03-28 | 7 | 4 | 3 | 0 |
 | v1.6 | 2026-07-01 | 27 | 21 | 6 | 0 |
-| v2.0 | 2026-07-04 | 35 | 26 | 8 | 0 |
+| v2.1 | 2026-09-10 | 49 | 30 | 11 | 0 |
 
 ### v2.0 (current) -- 35 entries
 
@@ -114,10 +114,10 @@ S = N - I (Stability), E = B + M (Evidence).
 ## Key Findings (v2.0, N=35)
 
 - **No Fragile datasets** across 35 multi-domain benchmarks. Rule-of-three upper bound ~8%.
-- **Bimodal**: 26 Reliable, 8 Void, 1 unknown -- no intermediate regime.
+- **Bimodal**: 26 Reliable, 11 Void, 1 unknown -- no intermediate regime.
 - **Multi-domain**: Expanded from education-only to include engineering, energy, transportation, and other domains.
 - **Grouping sensitivity**: Same data, different grouping can shift E by 0.35-0.85.
-- **Self-contained**: 35/35 source modules independent (0 BA dependencies).
+- **Self-contained**: 35/49 source modules independent (0 BA dependencies).
 
 ## License
 

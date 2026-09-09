@@ -1,9 +1,9 @@
 # BRF Benchmark Registry Manifest
 # https://github.com/zhanglizhuo/BRFRegistry
 
-version: "2.0"
-release_date: "2026-07-04"
-total_datasets: 35
+version: "2.1"
+release_date: "2026-09-10"
+total_datasets: 49
 
 description: >
   Curated collection of group-aware benchmark datasets across education,
