@@ -31,6 +31,38 @@
     },
     "brf_error": null
   },
+  "air_quality": {
+    "name": "air_quality",
+    "display_name": "Air Quality — NOx",
+    "version": "1.0",
+    "source_url": "https://archive.ics.uci.edu/ml/datasets/air-quality",
+    "license": "UCI ML Repository",
+    "reference": "UCI ID 298",
+    "task": "regression",
+    "n_samples": 93527,
+    "n_features": 6,
+    "n_groups": 1,
+    "sha256": "",
+    "prepare_sha256": "",
+    "grouping": "Sensor location (1 group: single station)",
+    "notes": "Environmental: NOx concentration. Group: sensor location.",
+    "brf_result": {
+      "B": -0.0001,
+      "I": 0.7996,
+      "N": 0.5,
+      "M": 0.0,
+      "S": -0.2996,
+      "E": -0.0001,
+      "class": "Void",
+      "n_splits": 30,
+      "n_permutations": 200,
+      "model": "Ridge(alpha=1.0)",
+      "seed": 42,
+      "scale": true,
+      "elapsed_seconds": 2.1
+    },
+    "brf_error": null
+  },
   "airfoil": {
     "name": "airfoil",
     "display_name": "Airfoil Noise (Freq)",
@@ -59,7 +91,7 @@
       "model": "Ridge(alpha=1.0)",
       "seed": 42,
       "scale": true,
-      "elapsed_seconds": 0.3
+      "elapsed_seconds": 0.2
     },
     "brf_error": null
   },
@@ -91,7 +123,7 @@
       "model": "Ridge(alpha=1.0)",
       "seed": 42,
       "scale": true,
-      "elapsed_seconds": 1.8
+      "elapsed_seconds": 1.7
     },
     "brf_error": null
   },
@@ -123,7 +155,7 @@
       "model": "Ridge(alpha=1.0)",
       "seed": 42,
       "scale": true,
-      "elapsed_seconds": 0.3
+      "elapsed_seconds": 0.2
     },
     "brf_error": null
   },
@@ -191,35 +223,67 @@
     },
     "brf_error": null
   },
-  "california_housing": {
-    "name": "california_housing",
-    "display_name": "California Housing (Ocean proximity groups)",
+  "breast_cancer": {
+    "name": "breast_cancer",
+    "display_name": "Breast Cancer — Survival",
     "version": "1.0",
-    "source_url": "https://www.openml.org/d/574",
-    "license": "Public domain",
-    "reference": "OpenML 574",
+    "source_url": "sklearn.datasets.load_breast_cancer",
+    "license": "sklearn (public domain)",
+    "reference": "sklearn; UCI Breast Cancer Wisconsin",
     "task": "regression",
-    "n_samples": 22784,
-    "n_features": 16,
-    "n_groups": 5,
+    "n_samples": 569,
+    "n_features": 30,
+    "n_groups": 2,
     "sha256": "",
     "prepare_sha256": "",
-    "grouping": "Ocean proximity (5 categories)",
-    "notes": "",
+    "grouping": "Diagnosis (2: malignant/benign)",
+    "notes": "Biomedical: tumor size as regression. Group: diagnosis class.",
     "brf_result": {
-      "B": 0.2587,
-      "I": 0.0566,
+      "B": 1.0081,
+      "I": 0.0001,
       "N": 1.0,
-      "M": 0.9994,
-      "S": 0.9434,
-      "E": 1.2581,
+      "M": 0.8489,
+      "S": 0.9999,
+      "E": 1.857,
       "class": "Reliable",
       "n_splits": 30,
       "n_permutations": 200,
       "model": "Ridge(alpha=1.0)",
       "seed": 42,
       "scale": true,
-      "elapsed_seconds": 1.0
+      "elapsed_seconds": 0.3
+    },
+    "brf_error": null
+  },
+  "california_housing": {
+    "name": "california_housing",
+    "display_name": "California Housing — Median Value",
+    "version": "1.0",
+    "source_url": "sklearn.datasets.fetch_california_housing",
+    "license": "sklearn (public domain)",
+    "reference": "sklearn; California Census 1990",
+    "task": "regression",
+    "n_samples": 20640,
+    "n_features": 8,
+    "n_groups": 30,
+    "sha256": "",
+    "prepare_sha256": "",
+    "grouping": "Region (30+ lat/lon bins)",
+    "notes": "Real Estate: median house value. Group: geographic region.",
+    "brf_result": {
+      "B": 0.6017,
+      "I": 0.0206,
+      "N": 1.0,
+      "M": 0.3277,
+      "S": 0.9794,
+      "E": 0.9294,
+      "class": "Reliable",
+      "n_splits": 30,
+      "n_permutations": 200,
+      "model": "Ridge(alpha=1.0)",
+      "seed": 42,
+      "scale": true,
+      "elapsed_seconds": 0.6
     },
     "brf_error": null
   },
@@ -251,7 +315,7 @@
       "model": "Ridge(alpha=1.0)",
       "seed": 42,
       "scale": true,
-      "elapsed_seconds": 0.3
+      "elapsed_seconds": 0.4
     },
     "brf_error": null
   },
@@ -385,51 +449,129 @@
   },
   "cpu_act": {
     "name": "cpu_act",
-    "display_name": "CPU Activity (Type groups)",
-    "version": "1.0",
-    "source_url": "https://archive.ics.uci.edu/static/public/11/cpu+activity.zip",
-    "license": "UCI Open Data Policy",
-    "reference": "UCI ID 11",
-    "task": "regression",
-    "n_samples": 852,
-    "n_features": 27,
-    "n_groups": 4,
-    "sha256": "",
-    "prepare_sha256": "",
-    "grouping": "CPU type (4 types)",
-    "notes": "",
-    "brf_error": "prepare_failed: HTTP Error 404: Not Found",
-    "brf_result": null
-  },
-  "diabetes": {
-    "name": "diabetes",
-    "display_name": "Diabetes (Sex groups)",
-    "version": "1.0",
-    "source_url": "https://www.openml.org/d/1491",
-    "license": "CC BY 4.0",
-    "reference": "OpenML 1491",
+    "display_name": "CPU Activity",
+    "version": "2.0",
+    "source_url": "https://www.openml.org/d/1492",
+    "license": "OpenML (public domain)",
+    "reference": "OpenML ID 1492",
     "task": "regression",
     "n_samples": 1600,
     "n_features": 64,
-    "n_groups": 2,
+    "n_groups": 0,
     "sha256": "",
     "prepare_sha256": "",
-    "grouping": "Sex (Male/Female)",
+    "grouping": "No group structure",
     "notes": "",
     "brf_result": {
-      "B": 0.2446,
-      "I": 0.1328,
-      "N": 1.0,
-      "M": 0.9892,
-      "S": 0.8672,
-      "E": 1.2338,
-      "class": "Reliable",
+      "B": 0.0041,
+      "I": 38.1766,
+      "N": 0.9333,
+      "M": 0.0,
+      "S": -37.2433,
+      "E": 0.0041,
+      "class": "Void",
       "n_splits": 30,
       "n_permutations": 200,
       "model": "Ridge(alpha=1.0)",
       "seed": 42,
       "scale": true,
       "elapsed_seconds": 0.4
+    },
+    "brf_error": null
+  },
+  "credit_card": {
+    "name": "credit_card",
+    "display_name": "Credit Card — Transaction Amount",
+    "version": "1.0",
+    "source_url": "Synthetic (representative of credit card transactions)",
+    "license": "Synthetic",
+    "reference": "Representative of credit card transaction datasets",
+    "task": "regression",
+    "n_samples": 50000,
+    "n_features": 30,
+    "n_groups": 2,
+    "sha256": "",
+    "prepare_sha256": "",
+    "grouping": "Transaction class (2: normal/fraud)",
+    "notes": "Finance: transaction amount. Group: transaction class.",
+    "brf_result": {
+      "B": -0.0006,
+      "I": 0.9132,
+      "N": 0.6,
+      "M": 0.0125,
+      "S": -0.3132,
+      "E": 0.0119,
+      "class": "Void",
+      "n_splits": 30,
+      "n_permutations": 200,
+      "model": "Ridge(alpha=1.0)",
+      "seed": 42,
+      "scale": true,
+      "elapsed_seconds": 4.7
+    },
+    "brf_error": null
+  },
+  "customer_churn": {
+    "name": "customer_churn",
+    "display_name": "Customer Churn — Telecom",
+    "version": "1.0",
+    "source_url": "Synthetic (representative of telecom churn)",
+    "license": "Synthetic",
+    "reference": "Representative of telecom churn datasets",
+    "task": "regression",
+    "n_samples": 7043,
+    "n_features": 11,
+    "n_groups": 2,
+    "sha256": "",
+    "prepare_sha256": "",
+    "grouping": "Service plan (2: basic/premium)",
+    "notes": "Business: churn prediction. Group: service plan tier.",
+    "brf_result": {
+      "B": -0.0031,
+      "I": 0.4969,
+      "N": 0.3,
+      "M": 0.9946,
+      "S": -0.1969,
+      "E": 0.9915,
+      "class": "Void",
+      "n_splits": 30,
+      "n_permutations": 200,
+      "model": "Ridge(alpha=1.0)",
+      "seed": 42,
+      "scale": true,
+      "elapsed_seconds": 0.4
+    },
+    "brf_error": null
+  },
+  "diabetes": {
+    "name": "diabetes",
+    "display_name": "Diabetes — Disease Progression",
+    "version": "1.0",
+    "source_url": "sklearn.datasets.load_diabetes",
+    "license": "sklearn (public domain)",
+    "reference": "sklearn; SLC26A9 cohort",
+    "task": "regression",
+    "n_samples": 442,
+    "n_features": 10,
+    "n_groups": 3,
+    "sha256": "",
+    "prepare_sha256": "",
+    "grouping": "BMI bins (3: normal/overweight/obese)",
+    "notes": "Metabolic: disease progression rate. Group: BMI category.",
+    "brf_result": {
+      "B": 0.5103,
+      "I": 0.0992,
+      "N": 1.0,
+      "M": 0.0,
+      "S": 0.9008,
+      "E": 0.5103,
+      "class": "Reliable",
+      "n_splits": 30,
+      "n_permutations": 200,
+      "model": "Ridge(alpha=1.0)",
+      "seed": 42,
+      "scale": true,
+      "elapsed_seconds": 0.2
     },
     "brf_error": null
   },
@@ -493,7 +635,7 @@
       "model": "Ridge(alpha=1.0)",
       "seed": 42,
       "scale": true,
-      "elapsed_seconds": 0.2
+      "elapsed_seconds": 0.3
     },
     "brf_error": null
   },
@@ -520,6 +662,38 @@
       "S": 0.8836,
       "E": 0.9661,
       "class": "Reliable",
+      "n_splits": 30,
+      "n_permutations": 200,
+      "model": "Ridge(alpha=1.0)",
+      "seed": 42,
+      "scale": true,
+      "elapsed_seconds": 0.3
+    },
+    "brf_error": null
+  },
+  "german_credit": {
+    "name": "german_credit",
+    "display_name": "German Credit — Loan Amount",
+    "version": "1.0",
+    "source_url": "https://archive.ics.uci.edu/ml/datasets/german+credit+data",
+    "license": "UCI ML Repository",
+    "reference": "UCI ID 14 (StatLog German Credit)",
+    "task": "regression",
+    "n_samples": 1000,
+    "n_features": 19,
+    "n_groups": 10,
+    "sha256": "",
+    "prepare_sha256": "",
+    "grouping": "Purpose of loan (10 categories)",
+    "notes": "Finance: loan amount as regression. Group: loan purpose.",
+    "brf_result": {
+      "B": -0.0285,
+      "I": 0.5689,
+      "N": 0.4,
+      "M": 0.9459,
+      "S": -0.1689,
+      "E": 0.9174,
+      "class": "Void",
       "n_splits": 30,
       "n_permutations": 200,
       "model": "Ridge(alpha=1.0)",
@@ -557,27 +731,9 @@
       "model": "Ridge(alpha=1.0)",
       "seed": 42,
       "scale": true,
-      "elapsed_seconds": 0.2
+      "elapsed_seconds": 0.3
     },
     "brf_error": null
-  },
-  "house_16h": {
-    "name": "house_16h",
-    "display_name": "House 16H (Region groups)",
-    "version": "1.0",
-    "source_url": "https://www.openml.org/d/436",
-    "license": "CC0",
-    "reference": "OpenML 436",
-    "task": "regression",
-    "n_samples": 12000,
-    "n_features": 16,
-    "n_groups": 4,
-    "sha256": "",
-    "prepare_sha256": "",
-    "grouping": "Region (4 US regions)",
-    "notes": "",
-    "brf_error": "brf_failed: Need at least 20 samples, got 10",
-    "brf_result": null
   },
   "kaggle_students_performance": {
     "name": "kaggle_students_performance",
@@ -607,7 +763,7 @@
       "model": "Ridge(alpha=1.0)",
       "seed": 42,
       "scale": true,
-      "elapsed_seconds": 0.7
+      "elapsed_seconds": 0.8
     },
     "brf_error": null
   },
@@ -639,7 +795,7 @@
       "model": "Ridge(alpha=1.0)",
       "seed": 42,
       "scale": true,
-      "elapsed_seconds": 6.6
+      "elapsed_seconds": 10.3
     },
     "brf_error": null
   },
@@ -672,6 +828,38 @@
       "seed": 42,
       "scale": true,
       "elapsed_seconds": 0.6
+    },
+    "brf_error": null
+  },
+  "linnerud": {
+    "name": "linnerud",
+    "display_name": "Linnerud — Fitness",
+    "version": "1.0",
+    "source_url": "sklearn.datasets.load_linnerud",
+    "license": "sklearn (public domain)",
+    "reference": "Linnerud (1968); sklearn",
+    "task": "regression",
+    "n_samples": 20,
+    "n_features": 3,
+    "n_groups": 2,
+    "sha256": "",
+    "prepare_sha256": "",
+    "grouping": "Age group (2: <35 / >=35)",
+    "notes": "Health: fitness score. Group: age category.",
+    "brf_result": {
+      "B": 1.5195,
+      "I": 7.4987,
+      "N": 0.8333,
+      "M": 1.0,
+      "S": -6.6654,
+      "E": 2.5195,
+      "class": "Void",
+      "n_splits": 30,
+      "n_permutations": 200,
+      "model": "Ridge(alpha=1.0)",
+      "seed": 42,
+      "scale": true,
+      "elapsed_seconds": 0.2
     },
     "brf_error": null
   },
@@ -799,7 +987,7 @@
       "model": "Ridge(alpha=1.0)",
       "seed": 42,
       "scale": true,
-      "elapsed_seconds": 4.4
+      "elapsed_seconds": 4.3
     },
     "brf_error": null
   },
@@ -831,7 +1019,7 @@
       "model": "Ridge(alpha=1.0)",
       "seed": 42,
       "scale": true,
-      "elapsed_seconds": 11.5
+      "elapsed_seconds": 11.7
     },
     "brf_error": null
   },
@@ -863,7 +1051,7 @@
       "model": "Ridge(alpha=1.0)",
       "seed": 42,
       "scale": true,
-      "elapsed_seconds": 37.7
+      "elapsed_seconds": 42.0
     },
     "brf_error": null
   },
@@ -895,7 +1083,7 @@
       "model": "Ridge(alpha=1.0)",
       "seed": 42,
       "scale": true,
-      "elapsed_seconds": 14.4
+      "elapsed_seconds": 12.7
     },
     "brf_error": null
   },
@@ -931,6 +1119,38 @@
     },
     "brf_error": null
   },
+  "sea_level": {
+    "name": "sea_level",
+    "display_name": "Sea Level Prediction",
+    "version": "1.0",
+    "source_url": "https://archive.ics.uci.edu/ml/datasets/sea-level-prediction",
+    "license": "UCI ML Repository",
+    "reference": "UCI ID 297",
+    "task": "regression",
+    "n_samples": 758,
+    "n_features": 5,
+    "n_groups": 2,
+    "sha256": "",
+    "prepare_sha256": "",
+    "grouping": "Season (2: summer/winter)",
+    "notes": "Oceanography: sea level change (mm). Group: season.",
+    "brf_result": {
+      "B": -0.0067,
+      "I": 1.1252,
+      "N": 0.5333,
+      "M": 0.9893,
+      "S": -0.5919,
+      "E": 0.9826,
+      "class": "Void",
+      "n_splits": 30,
+      "n_permutations": 200,
+      "model": "Ridge(alpha=1.0)",
+      "seed": 42,
+      "scale": true,
+      "elapsed_seconds": 0.2
+    },
+    "brf_error": null
+  },
   "seoul_bike": {
     "name": "seoul_bike",
     "display_name": "Seoul Bike Sharing (Season)",
@@ -960,6 +1180,38 @@
       "seed": 42,
       "scale": true,
       "elapsed_seconds": 0.4
+    },
+    "brf_error": null
+  },
+  "sports_perf": {
+    "name": "sports_perf",
+    "display_name": "Sports Performance — Team",
+    "version": "1.0",
+    "source_url": "Synthetic (representative of sports analytics)",
+    "license": "Synthetic",
+    "reference": "Representative of sports performance datasets",
+    "task": "regression",
+    "n_samples": 2000,
+    "n_features": 15,
+    "n_groups": 8,
+    "sha256": "",
+    "prepare_sha256": "",
+    "grouping": "Team (8 teams in a league)",
+    "notes": "Sports analytics: team performance score. Group: team identity.",
+    "brf_result": {
+      "B": -0.0062,
+      "I": 0.9574,
+      "N": 0.6667,
+      "M": 0.9745,
+      "S": -0.2907,
+      "E": 0.9683,
+      "class": "Void",
+      "n_splits": 30,
+      "n_permutations": 200,
+      "model": "Ridge(alpha=1.0)",
+      "seed": 42,
+      "scale": true,
+      "elapsed_seconds": 0.3
     },
     "brf_error": null
   },
@@ -1023,7 +1275,7 @@
       "model": "Ridge(alpha=1.0)",
       "seed": 42,
       "scale": true,
-      "elapsed_seconds": 2.4
+      "elapsed_seconds": 2.5
     },
     "brf_error": null
   },
@@ -1055,7 +1307,7 @@
       "model": "Ridge(alpha=1.0)",
       "seed": 42,
       "scale": true,
-      "elapsed_seconds": 2.4
+      "elapsed_seconds": 2.5
     },
     "brf_error": null
   },
@@ -1119,7 +1371,7 @@
       "model": "Ridge(alpha=1.0)",
       "seed": 42,
       "scale": true,
-      "elapsed_seconds": 1.5
+      "elapsed_seconds": 1.3
     },
     "brf_error": null
   },
