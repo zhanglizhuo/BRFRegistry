@@ -1,56 +1,66 @@
-# BRF Benchmark Registry Manifest
-# https://github.com/zhanglizhuo/BRFRegistry
-
-version: "2.1"
-release_date: "2026-09-10"
-total_datasets: 49
-
-description: >
-  Curated collection of group-aware benchmark datasets across education,
-  engineering, transportation, energy, and other domains with standardized
-  metadata, reproducibility scripts, and BRF (Benchmark Reliability Framework)
-  audit results.
-  35 unique datasets. v2.0 expands from education-only to multi-domain.
-  All 35 source modules are self-contained.
-
-datasets:
-  - abalone
-  - airfoil
-  - assistments
-  - auto_mpg
-  - bike_sharing
-  - ccpp
-  - college_scorecard
-  - colleges_aaup
-  - colleges_usnews
-  - concrete
-  - energy_building
-  - entrance_exam
-  - higher_ed
-  - kaggle_students_performance
-  - kdd_cup_2010
-  - law_school
-  - mathe
-  - mm_tba
-  - nursery
-  - oli
-  - oulad
-  - pisa2015
-  - real_estate
-  - seoul_bike
-  - student_absences
-  - student_depression
-  - student_dropout
-  - student_health
-  - students_exam_scores
-  - tae
-  - turkiye
-  - uci_student
-  - uci_student_math
-  - wine_quality
-  - xapi_edu
-
 brf_results:
-  reliable: 26
-  void: 8
   fragile: 0
+  note: Run run_registry.py to populate
+  reliable: 0
+  void: 0
+datasets:
+- abalone
+- air_quality
+- airfoil
+- assistments
+- auto_mpg
+- bike_sharing
+- boston_housing
+- breast_cancer
+- california_housing
+- ccpp
+- college_scorecard
+- colleges_aaup
+- colleges_usnews
+- concrete
+- credit_card
+- customer_churn
+- diabetes
+- energy_building
+- energy_efficiency
+- entrance_exam
+- german_credit
+- higher_ed
+- kaggle_students_performance
+- kdd_cup_2010
+- law_school
+- linnerud
+- mathe
+- mm_tba
+- nursery
+- oli
+- oulad
+- pisa2015
+- pollution
+- real_estate
+- sea_level
+- seoul_bike
+- sports_perf
+- student_absences
+- student_depression
+- student_dropout
+- student_health
+- students_exam_scores
+- sulfate_ion
+- tae
+- turkiye
+- uci_student
+- uci_student_math
+- wine_quality
+- xapi_edu
+- yacht
+description: 'Curated collection of group-aware benchmark datasets across education,
+  engineering, transportation, energy, healthcare, finance, environmental, business,
+  sports, and fitness domains with standardized metadata, reproducibility scripts,
+  and BRF (Benchmark Reliability Framework) audit results. v2.1 expands from 35 to
+  52 datasets. All source modules are self-contained.
+
+  '
+release_date: '2026-09-10'
+total_datasets: 50
+version: '2.1'

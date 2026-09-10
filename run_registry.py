@@ -91,7 +91,7 @@ def main(subset=None):
         cls = r["brf_result"]["class"] if r["brf_result"] else "ERROR"
         print(f"  {key:<20} -> {cls}")
 
-    out_path = RESULTS_DIR / "registry_v2.0.json"
+    out_path = RESULTS_DIR / "registry_v2.1.json"
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
     print(f"\n  Saved to {out_path}")
