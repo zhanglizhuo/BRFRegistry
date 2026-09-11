@@ -10,10 +10,10 @@
 ## Current Status
 
 - **BehaviorAudit** (SR, R2 submitted -- awaiting decision)
-- **BRF Package v0.2.1**: `pip install benchmark-reliability` — includes `brf.registry` subpackage (35 sources), diagnose/rank/recommend, CLI
-- **BRF Benchmark Registry v2.0**: 42 entries (35 unique + 7 alt groupings); 27 Reliable, 8 Void, 0 Fragile
-  - Dataset-as-Code architecture; CLI; SHA-256 35/35 (100%)
-  - 35 self-contained source modules (0 external dependencies)
+- **BRF Package v0.3.0**: `pip install benchmark-reliability` — includes `brf.registry` subpackage (51 datasets), diagnose/rank/recommend, CLI
+- **BRF Benchmark Registry v2.1**: 58 entries (51 unique + 7 alt groupings); 35 Reliable, 16 Void, 0 Fragile
+  - Dataset-as-Code architecture; CLI; SHA-256 35/51 (69%)
+  - 39 self-contained source modules (0 external dependencies)
   - Multi-domain: education, engineering, energy, transportation, food science, etc.
   - Data pipeline automated: sync_scatter_data.py joins registry JSON + alt results + paper metadata
   - Paper 2 & Paper 3 reference v2.0 (35 datasets); Registry continues independently
@@ -27,13 +27,13 @@
 BenchmarkReliability (PyPI: benchmark-reliability)
 ├── src/brf/analyzer.py        ← BRF core algorithm (S/E/B/I/N/M)
 ├── src/brf/registry/          ← bundled dataset registry (copy for pip users)
-│   └── sources/               ← 35 DatasetSource modules
+│   └── sources/               ← 39 DatasetSource modules
 └── tests/                     ← 50 tests
 
 BRFRegistry (development + results)
 ├── registry/sources/          ← source of truth for datasets
-├── run_registry.py            ← from brf import BRFAnalyzer → runs all 35
-├── results/registry_v2.0.json ← BRF results archive
+├── run_registry.py            ← from brf import BRFAnalyzer → runs all 51
+├── results/registry_v2.1.json ← BRF results archive
 └── version_policy.yaml
 
 MetaAnalysis
@@ -372,6 +372,15 @@ Papers 2 and 3 freeze at v1.6 for reproducibility; Registry continues to v2.0+.
 ---
 
 ## Changelog
+
+### September 2026 (v2.1 session)
+
+1. **Registry v2.1**: expanded 35→51 unique datasets (added 16 cross-domain benchmarks: health, finance, environment, energy, transportation, systems)
+2. **35 Reliable / 16 Void / 0 Fragile** (bimodal; no intermediate regime)
+3. **39 self-contained source modules** (0 external dependencies); 58 total entries incl. 7 alt-grouping views
+4. **SHA-256 35/51 (69%)**: all file-backed datasets verified; cross-domain additions are scikit-learn-bundled / synthetic / API-sourced
+5. **cpu_act → OpenML**; removed house_16h (insufficient samples)
+6. **Package v0.3.0 released**: version chain unified, bundled registry synced to v2.1
 
 ### July 2026 (v2.0 session)
 
