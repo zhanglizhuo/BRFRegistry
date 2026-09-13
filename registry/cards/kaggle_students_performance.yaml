@@ -4,7 +4,7 @@ version: '1.0'
 source:
   url: https://www.kaggle.com/datasets/spscientist/students-performance-in-exams
   repository: Kaggle
-  license: CC0: Public Domain (Kaggle)
+  license: "CC0: Public Domain (Kaggle)"
 collection:
   year: ''
   country: US
@@ -16,7 +16,7 @@ features:
 samples:
   count: 1000
 grouping:
-  variable: Race/Ethnicity (5 groups: A-E)
+  variable: "Race/Ethnicity (5 groups: A-E)"
   rationale: ''
   count: 5
 education:

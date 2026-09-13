@@ -1,0 +1,33 @@
+name: yacht
+key: yacht
+version: '1.0'
+source:
+  url: https://www.openml.org/d/1496
+  repository: OpenML
+  license: CC0
+collection:
+  year: ''
+  country: International
+task:
+  type: regression
+  target: continuous
+features:
+  count: 20
+samples:
+  count: 7400
+grouping:
+  variable: Hull length bins (4 groups)
+  rationale: ''
+  count: 4
+education:
+  level: N/A (Non-Edu)
+  domain: Engineering
+reference: OpenML 1496
+notes: null
+brf_compatibility:
+  S: 0.9343
+  E: 1.2862
+  class: Reliable
+  audited_version: v2.1
+  note: BRF protocol is under review; scores are provisional. BRF class is communication shorthand only. Use continuous S
+    and E values for analysis.

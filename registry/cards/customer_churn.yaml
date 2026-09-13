@@ -1,0 +1,35 @@
+name: customer_churn
+key: customer_churn
+version: '2.0'
+source:
+  url: https://www.openml.org/d/40701
+  repository: OpenML
+  license: OpenML (public domain)
+collection:
+  year: ''
+  country: US
+task:
+  type: ''
+  target: binary (churn)
+features:
+  count: 18
+samples:
+  count: 5000
+grouping:
+  variable: State (51 states)
+  rationale: ''
+  count: 51
+education:
+  level: N/A (Non-Edu)
+  domain: Telecommunications
+reference: OpenML ID 40701 (churn)
+notes: "Business: churn prediction. Group: state."
+brf_compatibility:
+  S: 0.8319
+  E: 1.0893
+  class: Reliable
+  audited_version: v2.1
+  note: BRF protocol is under review; scores are provisional. BRF class is communication shorthand only. Use continuous S
+    and E values for analysis.
+integrity:
+  sha256: e07c3d31f8a0ccfde180158a04d83ef5ce46177e9738d8df8df028650a217be0

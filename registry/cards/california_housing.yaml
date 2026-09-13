@@ -1,0 +1,33 @@
+name: california_housing
+key: california_housing
+version: '1.0'
+source:
+  url: sklearn.datasets.fetch_california_housing
+  repository: scikit-learn
+  license: sklearn (public domain)
+collection:
+  year: ''
+  country: US
+task:
+  type: regression
+  target: continuous
+features:
+  count: 8
+samples:
+  count: 20640
+grouping:
+  variable: Region (71 lat/lon bins)
+  rationale: ''
+  count: 71
+education:
+  level: N/A (Non-Edu)
+  domain: Real Estate
+reference: sklearn; California Census 1990
+notes: "Real Estate: median house value. Group: geographic region."
+brf_compatibility:
+  S: 0.9794
+  E: 0.9294
+  class: Reliable
+  audited_version: v2.1
+  note: BRF protocol is under review; scores are provisional. BRF class is communication shorthand only. Use continuous S
+    and E values for analysis.

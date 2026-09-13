@@ -232,7 +232,7 @@
     "reference": "sklearn; UCI Breast Cancer Wisconsin",
     "task": "regression",
     "n_samples": 569,
-    "n_features": 30,
+    "n_features": 29,
     "n_groups": 2,
     "sha256": "",
     "prepare_sha256": "",
@@ -251,7 +251,7 @@
       "model": "Ridge(alpha=1.0)",
       "seed": 42,
       "scale": true,
-      "elapsed_seconds": 0.3
+      "elapsed_seconds": 0.5
     },
     "brf_error": null
   },
@@ -265,10 +265,10 @@
     "task": "regression",
     "n_samples": 20640,
     "n_features": 8,
-    "n_groups": 30,
+    "n_groups": 71,
     "sha256": "",
     "prepare_sha256": "",
-    "grouping": "Region (30+ lat/lon bins)",
+    "grouping": "Region (71 lat/lon bins)",
     "notes": "Real Estate: median house value. Group: geographic region.",
     "brf_result": {
       "B": 0.6017,
@@ -283,7 +283,7 @@
       "model": "Ridge(alpha=1.0)",
       "seed": 42,
       "scale": true,
-      "elapsed_seconds": 0.6
+      "elapsed_seconds": 1.2
     },
     "brf_error": null
   },
@@ -562,16 +562,16 @@
       "B": 0.5103,
       "I": 0.0992,
       "N": 1.0,
-      "M": 0.0,
+      "M": 0.8514,
       "S": 0.9008,
-      "E": 0.5103,
+      "E": 1.3617,
       "class": "Reliable",
       "n_splits": 30,
       "n_permutations": 200,
       "model": "Ridge(alpha=1.0)",
       "seed": 42,
       "scale": true,
-      "elapsed_seconds": 0.2
+      "elapsed_seconds": 0.4
     },
     "brf_error": null
   },
@@ -840,12 +840,12 @@
     "reference": "Linnerud (1968); sklearn",
     "task": "regression",
     "n_samples": 20,
-    "n_features": 3,
+    "n_features": 5,
     "n_groups": 2,
     "sha256": "",
     "prepare_sha256": "",
-    "grouping": "Age group (2: <35 / >=35)",
-    "notes": "Health: fitness score. Group: age category.",
+    "grouping": "Pulse (2: above/below median)",
+    "notes": "Health: body-weight prediction from fitness tests. Group: pulse category.",
     "brf_result": {
       "B": 1.5195,
       "I": 7.4987,
@@ -859,7 +859,7 @@
       "model": "Ridge(alpha=1.0)",
       "seed": 42,
       "scale": true,
-      "elapsed_seconds": 0.2
+      "elapsed_seconds": 0.4
     },
     "brf_error": null
   },
@@ -1026,32 +1026,32 @@
   "pisa2015": {
     "name": "pisa2015",
     "display_name": "PISA 2015 Science",
-    "version": "1.0",
-    "source_url": "http://base.ustc.edu.cn/data/pisa2015_science.zip",
-    "license": "OECD Public Use",
-    "reference": "OECD PISA 2015",
+    "version": "2.0",
+    "source_url": "https://webfs.oecd.org/pisa/PUF_SPSS_COMBINED_CMB_STU_QQQ.zip",
+    "license": "OECD Public Use File",
+    "reference": "OECD PISA 2015 (Results Volume III / Technical Report)",
     "task": "regression",
     "n_samples": 519334,
-    "n_features": 2,
+    "n_features": 3,
     "n_groups": 73,
-    "sha256": "2a7d85728ee2cde20c1c88f615e7deaaa6c3e3f92f7b7503a086b982601df7bb",
+    "sha256": "4c89fbf6cb6c3f5b008422999256b7adffbb5cf45271e0fb9261b698fd7c374d",
     "prepare_sha256": "",
     "grouping": "Country (73 groups)",
-    "notes": "519K students from 73 countries. Target: overall science accuracy.",
+    "notes": "519K students, 73 countries (official OECD PISA 2015 PUF, STU_QQQ). Features: ESCS, WEALTH, HOMEPOS (median-imputed). Target: mean of science plausible values PV1SCIE-PV5SCIE. v1.0 (USTC mirror, near-constant features + string-match target) superseded 2026-09-14 after verification against the official PUF.",
     "brf_result": {
-      "B": 0.0,
-      "I": 0.1329,
-      "N": 0.0333,
+      "B": 0.1819,
+      "I": 0.0108,
+      "N": 1.0,
       "M": 0.6569,
-      "S": -0.0995,
-      "E": 0.6569,
-      "class": "Void",
+      "S": 0.9892,
+      "E": 0.8389,
+      "class": "Reliable",
       "n_splits": 30,
       "n_permutations": 200,
       "model": "Ridge(alpha=1.0)",
       "seed": 42,
       "scale": true,
-      "elapsed_seconds": 42.0
+      "elapsed_seconds": 18.3
     },
     "brf_error": null
   },

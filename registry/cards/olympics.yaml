@@ -1,0 +1,35 @@
+name: olympics
+key: olympics
+version: '2.0'
+source:
+  url: https://github.com/nderitugichuki/Olympics-Medal-Prediction-Machine-Learning-Model/blob/main/teams.csv
+  repository: GitHub
+  license: Public statistics (GitHub mirror)
+collection:
+  year: ''
+  country: International
+task:
+  type: regression
+  target: continuous
+features:
+  count: 7
+samples:
+  count: 2014
+grouping:
+  variable: Country (230 countries)
+  rationale: ''
+  count: 230
+education:
+  level: N/A (Non-Edu)
+  domain: Sports
+reference: Olympic participation & medal records; github.com/nderitugichuki/Olympics-Medal-Prediction-Machine-Learning-Model
+notes: "Sports: medals won. Group: country of the Olympic team."
+brf_compatibility:
+  S: 0.9663
+  E: 1.65
+  class: Reliable
+  audited_version: v2.1
+  note: BRF protocol is under review; scores are provisional. BRF class is communication shorthand only. Use continuous S
+    and E values for analysis.
+integrity:
+  sha256: b27b7dd6621567b550ab9b036b6d07b87a917c2b00292fa70eb8be358ee7ef53

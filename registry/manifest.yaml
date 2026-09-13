@@ -1,7 +1,7 @@
 brf_results:
   fragile: 0
-  reliable: 41
-  void: 10
+  reliable: 42
+  void: 9
 datasets:
 - abalone
 - air_quality

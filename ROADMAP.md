@@ -11,7 +11,8 @@
 
 - **BehaviorAudit** (SR, R2 submitted -- awaiting decision)
 - **BRF Package v0.3.0**: `pip install benchmark-reliability` — includes `brf.registry` subpackage (51 datasets), diagnose/rank/recommend, CLI
-- **BRF Benchmark Registry v2.1**: 58 entries (51 unique + 7 alt groupings); 35 Reliable, 16 Void, 0 Fragile
+- **BRF Benchmark Registry v2.1**: 58 entries (51 unique + 7 alt groupings); 49 Reliable, 9 Void, 0 Fragile
+  (v2.1 unique: 42 Reliable / 9 Void — incl. PISA 2015 re-encoded v2.0 from official OECD PUF 2026-09-14, Void → Reliable)
   - Dataset-as-Code architecture; CLI; SHA-256 35/51 (69%)
   - 39 self-contained source modules (0 external dependencies)
   - Multi-domain: education, engineering, energy, transportation, food science, etc.

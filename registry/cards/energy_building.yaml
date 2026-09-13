@@ -16,7 +16,7 @@ features:
 samples:
   count: 768
 grouping:
-  variable: Orientation (X6, 4 categories: 2/3/4/5)
+  variable: "Orientation (X6, 4 categories: 2/3/4/5)"
   rationale: ''
   count: 4
 education:

@@ -40,7 +40,7 @@ class BreastCancerSource(DatasetSource):
     reference = "sklearn; UCI Breast Cancer Wisconsin"
     task = "regression"
     n_samples = 569
-    n_features = 30
+    n_features = 29   # 30 measured attributes minus the target (mean radius)
     n_groups = 2
     grouping_description = "Diagnosis (2: malignant/benign)"
     notes = "Biomedical: tumor size as regression. Group: diagnosis class."
@@ -76,25 +76,27 @@ class LinnerudSource(DatasetSource):
     reference = "Linnerud (1968); sklearn"
     task = "regression"
     n_samples = 20
-    n_features = 3
+    n_features = 5
     n_groups = 2
-    grouping_description = "Age group (2: <35 / >=35)"
-    notes = "Health: fitness score. Group: age category."
+    grouping_description = "Pulse (2: above/below median)"
+    notes = "Health: body-weight prediction from fitness tests. Group: pulse category."
 
     def download(self):
+        # sklearn>=1.8 Linnerud: data = [Chins, Situps, Jumps],
+        # target = [Weight, Waist, Pulse]. Pin column names from the loader.
         from sklearn.datasets import load_linnerud
         d = load_linnerud()
-        X = pd.DataFrame(d.data, columns=[f"fit_{i}" for i in range(d.data.shape[1])])
-        y = pd.DataFrame(d.target, columns=["Chol", "Weight", "Waist"])
+        X = pd.DataFrame(d.data, columns=[str(n) for n in d.feature_names])
+        y = pd.DataFrame(d.target, columns=[str(n) for n in d.target_names])
         df = pd.concat([X, y], axis=1)
         return _sklearn_cache(self.name, df)
 
     def prepare(self):
         path = self.download()
         df = pd.read_csv(str(path))
-        y = df["Chol"].astype(float).values
-        groups = (df["Waist"] > df["Waist"].median()).astype(int).astype(str).values
-        feat_cols = [c for c in df.columns if c not in ("Chol",)]
+        y = df["Weight"].astype(float).values
+        groups = (df["Pulse"] > df["Pulse"].median()).astype(int).astype(str).values
+        feat_cols = [c for c in df.columns if c not in ("Weight",)]
         X = df[feat_cols].astype(float).values
         card = {"n_samples": len(y), "n_features": X.shape[1],
                 "n_groups": 2, "source": "sklearn load_linnerud",
@@ -114,8 +116,8 @@ class CaliforniaHousingSource(DatasetSource):
     task = "regression"
     n_samples = 20640
     n_features = 8
-    n_groups = 30
-    grouping_description = "Region (30+ lat/lon bins)"
+    n_groups = 71
+    grouping_description = "Region (71 lat/lon bins)"
     notes = "Real Estate: median house value. Group: geographic region."
 
     def download(self):
@@ -160,7 +162,7 @@ class DiabetesSource(DatasetSource):
 
     def download(self):
         from sklearn.datasets import load_diabetes
-        d = load_diabetes()
+        d = load_diabetes(scaled=False)  # sklearn>=1.8 defaults to scaled=True; raw values needed for BMI bins
         df = pd.DataFrame(d.data, columns=d.feature_names)
         df["target"] = d.target
         return _sklearn_cache(self.name, df)

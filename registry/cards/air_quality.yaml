@@ -1,0 +1,35 @@
+name: air_quality
+key: air_quality
+version: '2.0'
+source:
+  url: https://github.com/Gauhar1107/AirQualityUCI/blob/master/AirQualityUCI.csv
+  repository: GitHub
+  license: UCI ML Repository (CC BY 4.0)
+collection:
+  year: ''
+  country: International
+task:
+  type: regression
+  target: continuous
+features:
+  count: 4
+samples:
+  count: 37424
+grouping:
+  variable: "Pollutant (4: CO, NMHC, NOx, NO2)"
+  rationale: ''
+  count: 4
+education:
+  level: N/A (Non-Edu)
+  domain: Environmental Science
+reference: UCI 'Air Quality' (Smola et al. 2011); github.com/Gauhar1107/AirQualityUCI
+notes: "Environmental: cross-pollutant sensor calibration (GT from PT08 + meteorology)."
+brf_compatibility:
+  S: 0.863
+  E: 1.0211
+  class: Reliable
+  audited_version: v2.1
+  note: BRF protocol is under review; scores are provisional. BRF class is communication shorthand only. Use continuous S
+    and E values for analysis.
+integrity:
+  sha256: b0aad84a1f735f2e98359a0ac6f7e6730d0d7dccd27db1fa6ae3e07388159a97

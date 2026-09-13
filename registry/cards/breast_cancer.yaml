@@ -1,0 +1,33 @@
+name: breast_cancer
+key: breast_cancer
+version: '1.0'
+source:
+  url: sklearn.datasets.load_breast_cancer
+  repository: scikit-learn
+  license: sklearn (public domain)
+collection:
+  year: ''
+  country: US
+task:
+  type: regression
+  target: continuous
+features:
+  count: 29
+samples:
+  count: 569
+grouping:
+  variable: "Diagnosis (2: malignant/benign)"
+  rationale: ''
+  count: 2
+education:
+  level: N/A (Non-Edu)
+  domain: Healthcare
+reference: sklearn; UCI Breast Cancer Wisconsin
+notes: "Biomedical: tumor size as regression. Group: diagnosis class."
+brf_compatibility:
+  S: 0.9999
+  E: 1.857
+  class: Reliable
+  audited_version: v2.1
+  note: BRF protocol is under review; scores are provisional. BRF class is communication shorthand only. Use continuous S
+    and E values for analysis.

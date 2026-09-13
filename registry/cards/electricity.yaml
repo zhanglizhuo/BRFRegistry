@@ -1,0 +1,35 @@
+name: electricity
+key: electricity
+version: '2.0'
+source:
+  url: https://www.openml.org/d/151
+  repository: OpenML
+  license: OpenML (public domain)
+collection:
+  year: ''
+  country: Australia
+task:
+  type: ''
+  target: binary (peak/off-peak)
+features:
+  count: 6
+samples:
+  count: 45312
+grouping:
+  variable: Day of week (7)
+  rationale: ''
+  count: 7
+education:
+  level: N/A (Non-Edu)
+  domain: Energy
+reference: OpenML ID 151 (AIFB Electricity); AIFB (2014)
+notes: "Energy: peak/off-peak price band. Group: day of week."
+brf_compatibility:
+  S: 0.9533
+  E: 1.1954
+  class: Reliable
+  audited_version: v2.1
+  note: BRF protocol is under review; scores are provisional. BRF class is communication shorthand only. Use continuous S
+    and E values for analysis.
+integrity:
+  sha256: 01db54b7c46202b5bd2458d8c31efabbe9661233af8e3d7077b06e903053808c

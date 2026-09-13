@@ -1,0 +1,35 @@
+name: credit_card
+key: credit_card
+version: '2.0'
+source:
+  url: https://www.openml.org/d/1597
+  repository: OpenML
+  license: OpenML (public domain)
+collection:
+  year: ''
+  country: US
+task:
+  type: regression
+  target: continuous
+features:
+  count: 28
+samples:
+  count: 284807
+grouping:
+  variable: "Transaction class (2: normal/fraud)"
+  rationale: ''
+  count: 2
+education:
+  level: N/A (Non-Edu)
+  domain: Finance
+reference: OpenML ID 1597 (Kaggle creditcard; PCA-obfuscated transactions)
+notes: "Finance: transaction amount. Group: transaction class."
+brf_compatibility:
+  S: 0.9852
+  E: 0.927
+  class: Reliable
+  audited_version: v2.1
+  note: BRF protocol is under review; scores are provisional. BRF class is communication shorthand only. Use continuous S
+    and E values for analysis.
+integrity:
+  sha256: 7c29a13351d14ec5b70eafd28aa2281e66a7a8e1d5cfc753b774f0c835141111

@@ -16,7 +16,7 @@ features:
 samples:
   count: 649
 grouping:
-  variable: Mother's Job (5: teacher, health, services, at_home, other)
+  variable: "Mother's Job (5: teacher, health, services, at_home, other)"
   rationale: ''
   count: 5
 education:

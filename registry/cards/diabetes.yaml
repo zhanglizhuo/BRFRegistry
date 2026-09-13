@@ -1,0 +1,33 @@
+name: diabetes
+key: diabetes
+version: '1.0'
+source:
+  url: sklearn.datasets.load_diabetes
+  repository: scikit-learn
+  license: sklearn (public domain)
+collection:
+  year: ''
+  country: US
+task:
+  type: regression
+  target: continuous
+features:
+  count: 10
+samples:
+  count: 442
+grouping:
+  variable: "BMI bins (3: normal/overweight/obese)"
+  rationale: ''
+  count: 3
+education:
+  level: N/A (Non-Edu)
+  domain: Healthcare
+reference: sklearn; SLC26A9 cohort
+notes: "Metabolic: disease progression rate. Group: BMI category."
+brf_compatibility:
+  S: 0.9008
+  E: 0.5103
+  class: Reliable
+  audited_version: v2.1
+  note: BRF protocol is under review; scores are provisional. BRF class is communication shorthand only. Use continuous S
+    and E values for analysis.

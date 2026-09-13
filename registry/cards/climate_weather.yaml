@@ -1,0 +1,35 @@
+name: climate_weather
+key: climate_weather
+version: '2.0'
+source:
+  url: https://www.openml.org/d/40918
+  repository: OpenML
+  license: OpenML (public domain)
+collection:
+  year: ''
+  country: International
+task:
+  type: regression
+  target: continuous
+features:
+  count: 3
+samples:
+  count: 544811
+grouping:
+  variable: Country (242 countries)
+  rationale: ''
+  count: 242
+education:
+  level: N/A (Non-Edu)
+  domain: Climate Science
+reference: OpenML ID 40918 (Climate); NOAA Global Historical Weather Summary
+notes: "Climate: average temperature. Group: country of origin."
+brf_compatibility:
+  S: 0.9871
+  E: 0.9712
+  class: Reliable
+  audited_version: v2.1
+  note: BRF protocol is under review; scores are provisional. BRF class is communication shorthand only. Use continuous S
+    and E values for analysis.
+integrity:
+  sha256: c83f266cf7b96dc90d8c10e271220078008d9a92b4d2fc73d7bcf77722d5b2e1

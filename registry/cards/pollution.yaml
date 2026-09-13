@@ -1,0 +1,33 @@
+name: pollution
+key: pollution
+version: '1.0'
+source:
+  url: https://www.openml.org/d/1503
+  repository: OpenML
+  license: CC0
+collection:
+  year: ''
+  country: US
+task:
+  type: regression
+  target: continuous
+features:
+  count: 14
+samples:
+  count: 263256
+grouping:
+  variable: Monitoring station (10 stations)
+  rationale: ''
+  count: 10
+education:
+  level: N/A (Non-Edu)
+  domain: Environmental Science
+reference: OpenML 1503
+notes: null
+brf_compatibility:
+  S: 0.559
+  E: 1.0005
+  class: Reliable
+  audited_version: v2.1
+  note: BRF protocol is under review; scores are provisional. BRF class is communication shorthand only. Use continuous S
+    and E values for analysis.

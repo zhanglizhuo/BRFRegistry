@@ -1,0 +1,33 @@
+name: energy_efficiency
+key: energy_efficiency
+version: '1.0'
+source:
+  url: https://www.openml.org/d/1498
+  repository: OpenML
+  license: CC0
+collection:
+  year: ''
+  country: International
+task:
+  type: regression
+  target: continuous
+features:
+  count: 8
+samples:
+  count: 462
+grouping:
+  variable: Overall rating bins (4 groups)
+  rationale: ''
+  count: 4
+education:
+  level: N/A (Non-Edu)
+  domain: Energy
+reference: OpenML 1498
+notes: null
+brf_compatibility:
+  S: 0.4812
+  E: 1.1545
+  class: Reliable
+  audited_version: v2.1
+  note: BRF protocol is under review; scores are provisional. BRF class is communication shorthand only. Use continuous S
+    and E values for analysis.

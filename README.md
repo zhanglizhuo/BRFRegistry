@@ -4,7 +4,7 @@ The **BRF Benchmark Registry** is a versioned, DOI-tracked collection of
 group-aware prediction benchmarks audited under the
 **Benchmark Reliability Framework (BRF)**.
 
-> Registry v2.1 : 51 unique datasets | 41 Reliable | 10 Void | 0 Fragile
+> Registry v2.1 : 51 unique datasets | 42 Reliable | 9 Void | 0 Fragile
 > 58 total entries (51 unique + 7 alternative grouping views)
 > DOI pending
 
@@ -19,7 +19,7 @@ group-aware prediction benchmarks audited under the
 - Per-dataset data quality metrics: N/p ratio, group quality (entropy, balance), signal strength (B, S)
 - Every source implements: download() + prepare() + metadata() + verify()
 - Sample sizes: N=20 (Linnerud) to N=544,811 (Global Weather, NOAA)
-- Feature dimensions: F=2 (OLI, PISA 2015) to F=72 (xAPI-Edu-Data)
+- Feature dimensions: F=2 (OLI) to F=72 (xAPI-Edu-Data)
 - CLI: `brf diagnose`, `brf rank`, `brf recommend`
 - All sources cached locally with versioned cache keys
 - Registry results published as machine-readable JSON (registry_v2.1.json)
@@ -67,7 +67,7 @@ Submit a PR with a `DatasetSource` subclass. See existing sources in
 | v1.0 | 2026-03-28 | 7 | 4 | 3 | 0 |
 | v1.6 | 2026-07-01 | 27 | 21 | 6 | 0 |
 | v2.0 | 2026-07-04 | 35 | 27 | 8 | 0 |
-| v2.1 | 2026-09-10 | 51 | 41 | 10 | 0 |
+| v2.1 | 2026-09-10 | 51 | 42 | 9 | 0 |
 
 ### v2.1 (current) -- 51 entries
 
@@ -106,7 +106,7 @@ Submit a PR with a `DatasetSource` subclass. See existing sources in
 | OLI Engineering Statics 2011 | 194,947 | 2 | 19 | 0.96 | 0.71 | Reliable |
 | Olympics — Country Medals | 2,014 | 7 | 230 | 0.97 | 1.65 | Reliable |
 | Open University Learning Analytics Dataset | 32,593 | 52 | 22 | 0.98 | 1.17 | Reliable |
-| PISA 2015 Science | 519,334 | 2 | 73 | -0.10 | 0.66 | Void |
+| PISA 2015 Science | 519,334 | 3 | 73 | 0.99 | 0.84 | Reliable |
 | Pollution (Station groups) | 263,256 | 14 | 10 | 0.56 | 1.00 | Reliable |
 | Real Estate Valuation (Stores) | 414 | 4 | 3 | 0.84 | 1.52 | Reliable |
 | Seoul Bike Sharing (Season) | 8,760 | 9 | 4 | 0.97 | 1.46 | Reliable |

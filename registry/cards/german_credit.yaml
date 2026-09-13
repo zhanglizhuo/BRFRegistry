@@ -1,0 +1,35 @@
+name: german_credit
+key: german_credit
+version: '2.0'
+source:
+  url: https://www.openml.org/d/31
+  repository: OpenML
+  license: OpenML (public domain)
+collection:
+  year: ''
+  country: Germany
+task:
+  type: ''
+  target: binary (good/bad credit)
+features:
+  count: 19
+samples:
+  count: 1000
+grouping:
+  variable: Purpose of loan (10 categories)
+  rationale: ''
+  count: 10
+education:
+  level: N/A (Non-Edu)
+  domain: Finance
+reference: OpenML ID 31 (StatLog German Credit); Michie & Spiegelhalter (1993)
+notes: "Finance: credit risk (good/bad). Group: loan purpose."
+brf_compatibility:
+  S: 0.6624
+  E: 0.5827
+  class: Reliable
+  audited_version: v2.1
+  note: BRF protocol is under review; scores are provisional. BRF class is communication shorthand only. Use continuous S
+    and E values for analysis.
+integrity:
+  sha256: d8bbc0b04fc9666ba137eed597e3fea84130071ff95c5f1b8037ea58553041f1

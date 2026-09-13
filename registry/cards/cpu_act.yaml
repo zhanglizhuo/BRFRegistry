@@ -1,0 +1,33 @@
+name: cpu_act
+key: cpu_act
+version: '2.0'
+source:
+  url: https://www.openml.org/d/1492
+  repository: OpenML
+  license: OpenML (public domain)
+collection:
+  year: ''
+  country: International
+task:
+  type: regression
+  target: continuous
+features:
+  count: 64
+samples:
+  count: 1600
+grouping:
+  variable: None
+  rationale: ''
+  count: 0
+education:
+  level: N/A (Non-Edu)
+  domain: Computer Systems
+reference: OpenML ID 1492
+notes: null
+brf_compatibility:
+  S: -37.2433
+  E: 0.0041
+  class: Void
+  audited_version: v2.1
+  note: BRF protocol is under review; scores are provisional. BRF class is communication shorthand only. Use continuous S
+    and E values for analysis.

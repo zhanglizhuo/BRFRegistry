@@ -1,0 +1,33 @@
+name: linnerud
+key: linnerud
+version: '1.0'
+source:
+  url: sklearn.datasets.load_linnerud
+  repository: scikit-learn
+  license: sklearn (public domain)
+collection:
+  year: ''
+  country: US
+task:
+  type: regression
+  target: continuous
+features:
+  count: 5
+samples:
+  count: 20
+grouping:
+  variable: "Pulse (2: above/below median)"
+  rationale: ''
+  count: 2
+education:
+  level: N/A (Non-Edu)
+  domain: Sports & Fitness
+reference: Linnerud (1968); sklearn
+notes: "Health: body-weight prediction from fitness tests. Group: pulse category."
+brf_compatibility:
+  S: -6.6654
+  E: 2.5195
+  class: Void
+  audited_version: v2.1
+  note: BRF protocol is under review; scores are provisional. BRF class is communication shorthand only. Use continuous S
+    and E values for analysis.

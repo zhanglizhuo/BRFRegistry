@@ -1,9 +1,9 @@
 name: pisa2015
 key: pisa2015
-version: '1.0'
+version: '2.0'
 source:
-  url: http://base.ustc.edu.cn/data/pisa2015_science.zip
-  repository: Unknown
+  url: https://webfs.oecd.org/pisa/PUF_SPSS_COMBINED_CMB_STU_QQQ.zip
+  repository: OECD
   license: OECD Public Use
 collection:
   year: '2015'
@@ -12,7 +12,11 @@ task:
   type: ''
   target: continuous (score)
 features:
-  count: 2
+  count: 3
+  names:
+  - ESCS
+  - WEALTH
+  - HOMEPOS
 samples:
   count: 519334
 grouping:
@@ -22,13 +26,18 @@ grouping:
 education:
   level: Secondary
   domain: Large-scale Assessment
-reference: OECD PISA 2015 Science Assessment
-notes: '519K students, 73 countries. Cognitve item scores aggregated to student level.
-  B=0: no predictive features.'
+reference: OECD PISA 2015 (Results Volume III / Technical Report)
+notes: '519K students, 73 countries. v2.0 (2026-09-14): official OECD PISA 2015 PUF
+  (STU_QQQ). Features ESCS/WEALTH/HOMEPOS (median-imputed); target = mean of science
+  plausible values PV1SCIE-PV5SCIE. v1.0 (USTC mirror, near-constant features +
+  string-match target) superseded after 95M-cell verification against the official
+  PUF.'
 brf_compatibility:
-  S: -0.1
-  E: 0.657
-  class: Void
-  audited_version: v1.5
+  S: 0.9892
+  E: 0.8389
+  class: Reliable
+  audited_version: v2.1
   note: BRF protocol is under review; scores are provisional. Communication shorthand only. Use continuous S and E values for
     analysis.
+integrity:
+  sha256: 4c89fbf6cb6c3f5b008422999256b7adffbb5cf45271e0fb9261b698fd7c374d

@@ -16,7 +16,7 @@ features:
 samples:
   count: 12960
 grouping:
-  variable: Parents occupation (3: usual, pretentious, great_pret)
+  variable: "Parents occupation (3: usual, pretentious, great_pret)"
   rationale: ''
   count: 3
 education:

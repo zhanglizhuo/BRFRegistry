@@ -16,7 +16,7 @@ features:
 samples:
   count: 395
 grouping:
-  variable: School (2: GP/MS)
+  variable: "School (2: GP/MS)"
   rationale: ''
   count: 2
 education:

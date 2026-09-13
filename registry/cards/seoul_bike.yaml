@@ -16,7 +16,7 @@ features:
 samples:
   count: 8760
 grouping:
-  variable: Season (4: Spring/Summer/Autumn/Winter)
+  variable: "Season (4: Spring/Summer/Autumn/Winter)"
   rationale: ''
   count: 4
 education:
