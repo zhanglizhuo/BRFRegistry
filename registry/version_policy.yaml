@@ -60,6 +60,10 @@ version_policy:
   #   Paper 2 & Paper 3 use Registry v1.6 → cites DOI 10.5281/zenodo.21098157
   #   Registry continues to v1.7, v2.0 independently
   #   Papers' results remain forever reproducible via the frozen v1.6 DOI
+  #
+  # Freeze record:
+  #   v2.1 (2026-09-27) → Zenodo DOI 10.5281/zenodo.22996138 (Paper 2 cites this DOI)
+  #   v2.0.2 (2026-07)  → Zenodo DOI 10.5281/zenodo.21217158 (frozen 35-dataset cohort)
 
   # ---- Known Issues (v2.1) ----
   known_issues:

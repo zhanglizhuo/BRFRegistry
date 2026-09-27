@@ -377,11 +377,12 @@ Papers 2 and 3 freeze at v1.6 for reproducibility; Registry continues to v2.0+.
 ### September 2026 (v2.1 session)
 
 1. **Registry v2.1**: expanded 35→51 unique datasets (added 16 cross-domain benchmarks: health, finance, environment, energy, transportation, systems)
-2. **35 Reliable / 16 Void / 0 Fragile** (bimodal; no intermediate regime)
-3. **39 self-contained source modules** (0 external dependencies); 58 total entries incl. 7 alt-grouping views
+2. **42 Reliable / 9 Void / 0 Fragile** (bimodal; no intermediate regime — after PISA 2015 re-encoding from the official OECD PUF, Void→Reliable; pre-upgrade count was 35R/16V)
+3. **45 self-contained source modules** (43 single-dataset + 2 batch modules × 4 = 51 datasets; 0 external dependencies); 58 total entries incl. 7 alt-grouping views
 4. **SHA-256 35/51 (69%)**: all file-backed datasets verified; cross-domain additions are scikit-learn-bundled / synthetic / API-sourced
 5. **cpu_act → OpenML**; removed house_16h (insufficient samples)
-6. **Package v0.3.0 released**: version chain unified, bundled registry synced to v2.1
+6. **Package v0.3.0 released**: version chain unified, bundled registry synced to v2.1 (PyPI, uploaded 2026-09-18)
+7. **Zenodo v2.1 DOI minted**: 10.5281/zenodo.22996138 (2026-09-27; snapshot of tag v2.1, 51 datasets / 58 entries, MIT)
 
 ### July 2026 (v2.0 session)
 

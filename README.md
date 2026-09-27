@@ -6,7 +6,7 @@ group-aware prediction benchmarks audited under the
 
 > Registry v2.1 : 51 unique datasets | 42 Reliable | 9 Void | 0 Fragile
 > 58 total entries (51 unique + 7 alternative grouping views)
-> DOI pending
+> DOI: [10.5281/zenodo.22996138](https://doi.org/10.5281/zenodo.22996138) (Zenodo, minted 2026-09-27)
 
 ## What's New in v2.1
 
