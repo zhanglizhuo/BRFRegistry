@@ -67,7 +67,7 @@ version_policy:
 
   # ---- Known Issues (v2.1) ----
   known_issues:
-    - "SHA-256 coverage: 35/51 (69%). The 35 file-backed datasets carry verified checksums; the 16 v2.1 cross-domain additions are scikit-learn-bundled, synthetic, or API-sourced (no single raw file to checksum)."
+    - "SHA-256 coverage: 42/51 (82%). The 42 file-backed datasets declare verified checksums; the remaining 9 are scikit-learn-bundled or OpenML-API-sourced (no single raw file to checksum). They are instead pinned at the prepare level in registry/prepare_hashes.json, which covers all 51. (Corrected 2026-09-30: this entry previously said 35/51, a pre-PISA-upgrade figure that no longer matched results/registry_v2.1.json.)"
     - "DatasetSource modules in cross_domain_batch.py and the individual v2.1 cross-domain modules use compact single-file format; consider splitting for discoverability."
     - "higher_ed n_features corrected from 31 to 30 (actual UCI data has 30 feature columns). BRF results changed: S=-1.03→-5.25, I=2.00→6.18. Old v1.6 values likely from different UCI data version."
     - "mm_tba figshare download requires proxy in China mainland. Direct access returns HTTP 403."
