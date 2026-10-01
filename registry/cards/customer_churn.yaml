@@ -9,7 +9,7 @@ collection:
   year: ''
   country: US
 task:
-  type: ''
+  type: 'classification'
   target: binary (churn)
 features:
   count: 18

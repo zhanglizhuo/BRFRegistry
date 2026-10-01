@@ -9,7 +9,7 @@ collection:
   year: '2013'
   country: Turkey
 task:
-  type: ''
+  type: 'regression'
   target: ordinal 5-class (difficulty 1-5)
 features:
   count: 28

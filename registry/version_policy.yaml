@@ -70,5 +70,5 @@ version_policy:
     - "SHA-256 coverage: 42/51 (82%). The 42 file-backed datasets declare verified checksums; the remaining 9 are scikit-learn-bundled or OpenML-API-sourced (no single raw file to checksum). They are instead pinned at the prepare level in registry/prepare_hashes.json, which covers all 51. (Corrected 2026-09-30: this entry previously said 35/51, a pre-PISA-upgrade figure that no longer matched results/registry_v2.1.json.)"
     - "DatasetSource modules in cross_domain_batch.py and the individual v2.1 cross-domain modules use compact single-file format; consider splitting for discoverability."
     - "higher_ed n_features corrected from 31 to 30 (actual UCI data has 30 feature columns). BRF results changed: S=-1.03→-5.25, I=2.00→6.18. Old v1.6 values likely from different UCI data version."
-    - "mm_tba figshare download requires proxy in China mainland. Direct access returns HTTP 403."
+    - "mm_tba is hosted on figshare. Its metadata endpoint returned HTTP 403 when last checked (2026-10-01), so download() needs a reachable network path; a cached extraction is present in the working tree from a 2026-09-12 successful fetch."
     - "Linnerud (n=20) and TAE (n=151) have very small samples; their split-level R^2 estimates are high-variance, so their BRF metrics (extreme I, E) should be read with that in mind."

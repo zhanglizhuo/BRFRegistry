@@ -9,7 +9,7 @@ collection:
   year: '2015'
   country: International (73)
 task:
-  type: ''
+  type: 'regression'
   target: continuous (score)
 features:
   count: 3

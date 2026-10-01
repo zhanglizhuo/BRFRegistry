@@ -9,7 +9,7 @@ collection:
   year: '2011'
   country: US
 task:
-  type: ''
+  type: 'classification'
   target: binary (first attempt correctness)
 features:
   count: 2

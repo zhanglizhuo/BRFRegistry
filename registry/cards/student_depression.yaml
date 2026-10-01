@@ -9,7 +9,7 @@ collection:
   year: '2023'
   country: India
 task:
-  type: ''
+  type: 'classification'
   target: binary (depression yes/no)
 features:
   count: 21

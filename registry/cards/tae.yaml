@@ -9,7 +9,7 @@ collection:
   year: '1997'
   country: US
 task:
-  type: ''
+  type: 'classification'
   target: ordinal 3-class (Low/Medium/High)
 features:
   count: 4

@@ -9,7 +9,7 @@ collection:
   year: '2008'
   country: Portugal
 task:
-  type: ''
+  type: 'regression'
   target: continuous (0-20)
 features:
   count: 56

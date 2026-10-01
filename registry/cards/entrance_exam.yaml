@@ -9,7 +9,7 @@ collection:
   year: '2021'
   country: India
 task:
-  type: ''
+  type: 'classification'
   target: ordinal 4-class (0-3)
 features:
   count: 49

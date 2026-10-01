@@ -9,7 +9,7 @@ collection:
   year: '2016'
   country: International
 task:
-  type: ''
+  type: 'classification'
   target: ordinal 3-class (L/M/H)
 features:
   count: 72

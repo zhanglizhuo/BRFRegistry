@@ -9,7 +9,7 @@ collection:
   year: 2015-2016
   country: US
 task:
-  type: ''
+  type: 'regression'
   target: continuous (admission rate)
 features:
   count: 30

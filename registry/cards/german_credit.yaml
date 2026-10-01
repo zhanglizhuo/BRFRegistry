@@ -9,7 +9,7 @@ collection:
   year: ''
   country: Germany
 task:
-  type: ''
+  type: 'classification'
   target: binary (good/bad credit)
 features:
   count: 19

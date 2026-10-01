@@ -9,7 +9,7 @@ collection:
   year: 2013-2014
   country: UK
 task:
-  type: ''
+  type: 'classification'
   target: binary (pass/fail)
 features:
   count: 44

@@ -9,7 +9,7 @@ collection:
   year: '1991'
   country: US
 task:
-  type: ''
+  type: 'classification'
   target: binary (bar exam pass)
 features:
   count: 10

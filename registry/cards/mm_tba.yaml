@@ -9,7 +9,7 @@ collection:
   year: '2025'
   country: International
 task:
-  type: ''
+  type: 'regression'
   target: continuous (GPT-4 rubric mean)
 features:
   count: 13

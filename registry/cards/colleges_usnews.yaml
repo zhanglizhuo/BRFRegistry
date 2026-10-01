@@ -9,7 +9,7 @@ collection:
   year: '1995'
   country: US
 task:
-  type: ''
+  type: 'regression'
   target: continuous (graduation rate)
 features:
   count: 31

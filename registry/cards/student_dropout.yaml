@@ -9,7 +9,7 @@ collection:
   year: '2022'
   country: Portugal
 task:
-  type: ''
+  type: 'classification'
   target: binary (Graduate/Dropout)
 features:
   count: 36

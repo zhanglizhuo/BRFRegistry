@@ -9,7 +9,7 @@ collection:
   year: 2009-2010
   country: US
 task:
-  type: ''
+  type: 'regression'
   target: continuous (overall accuracy)
 features:
   count: 5

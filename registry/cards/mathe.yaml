@@ -9,7 +9,7 @@ collection:
   year: 2019-2023
   country: International (EU)
 task:
-  type: ''
+  type: 'regression'
   target: continuous (question difficulty)
 features:
   count: 26

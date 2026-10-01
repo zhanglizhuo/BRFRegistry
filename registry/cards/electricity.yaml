@@ -9,7 +9,7 @@ collection:
   year: ''
   country: Australia
 task:
-  type: ''
+  type: 'classification'
   target: binary (peak/off-peak)
 features:
   count: 6
