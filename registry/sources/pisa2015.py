@@ -38,7 +38,14 @@ class PISA2015Source(DatasetSource):
         return sav_path
 
     def prepare(self):
-        import pyreadstat
+        try:
+            import pyreadstat
+        except ImportError as exc:
+            raise ImportError(
+                "pyreadstat is required for this dataset but is not installed. "
+                "Install the optional extra with: "
+                "pip install 'benchmark-reliability[full]'"
+            ) from exc
         pvt_cols = [f"PV{i}SCIE" for i in range(1, 6)]
         usecols = ["CNT", "ESCS", "WEALTH", "HOMEPOS"] + pvt_cols
         df, _ = pyreadstat.read_sav(str(self.download()), usecols=usecols)

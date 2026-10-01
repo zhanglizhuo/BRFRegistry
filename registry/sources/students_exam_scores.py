@@ -25,7 +25,14 @@ class StudentsExamScoresSource(DatasetSource):
             return csv_path
         
         
-        import kagglehub
+        try:
+            import kagglehub
+        except ImportError as exc:
+            raise ImportError(
+                "kagglehub is required for this dataset but is not installed. "
+                "Install the optional extra with: "
+                "pip install 'benchmark-reliability[full]'"
+            ) from exc
         path = Path(kagglehub.dataset_download("desalegngeb/students-exam-scores"))
         for f in path.glob("*.csv"):
             if "Original" in f.name:

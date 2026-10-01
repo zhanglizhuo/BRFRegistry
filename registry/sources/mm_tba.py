@@ -49,7 +49,14 @@ class MMTBASource(DatasetSource):
         return dest_dir
 
     def prepare(self):
-        import openpyxl
+        try:
+            import openpyxl
+        except ImportError as exc:
+            raise ImportError(
+                "openpyxl is required for this dataset but is not installed. "
+                "Install the optional extra with: "
+                "pip install 'benchmark-reliability[full]'"
+            ) from exc
 
         root = self.download()
         # Handle figshare zip structure: MM-TBA/MM-TBA/...

@@ -19,7 +19,14 @@ class StudentHealthSource(DatasetSource):
     sha256 = "3fb408fe4b66d4cdb90ad4ec5e3fb6de94ba662d0471a3d46c03da483069f76b"
 
     def download(self):
-        import kagglehub
+        try:
+            import kagglehub
+        except ImportError as exc:
+            raise ImportError(
+                "kagglehub is required for this dataset but is not installed. "
+                "Install the optional extra with: "
+                "pip install 'benchmark-reliability[full]'"
+            ) from exc
         dest_dir = self._ensure_cache_dir()
         csv_path = dest_dir / "student-por.csv"
         if csv_path.exists():

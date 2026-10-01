@@ -19,7 +19,14 @@ class KaggleStudentsPerformanceSource(DatasetSource):
     grouping_description = "Race/Ethnicity (5 groups: A-E)"
 
     def download(self):
-        import kagglehub
+        try:
+            import kagglehub
+        except ImportError as exc:
+            raise ImportError(
+                "kagglehub is required for this dataset but is not installed. "
+                "Install the optional extra with: "
+                "pip install 'benchmark-reliability[full]'"
+            ) from exc
         import shutil
         dest_dir = self._ensure_cache_dir()
         csv_path = dest_dir / "StudentsPerformance.csv"

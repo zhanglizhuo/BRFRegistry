@@ -26,7 +26,14 @@ class XAPIEduSource(DatasetSource):
         
         # Try Kaggle via kagglehub first
         try:
-            import kagglehub
+            try:
+                import kagglehub
+            except ImportError as exc:
+                raise ImportError(
+                    "kagglehub is required for this dataset but is not installed. "
+                    "Install the optional extra with: "
+                    "pip install 'benchmark-reliability[full]'"
+                ) from exc
             path = kagglehub.dataset_download("aljarah/xAPI-Edu-Data")
             import os
             for f in os.listdir(path):
