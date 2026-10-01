@@ -906,7 +906,7 @@
     "n_samples": 186,
     "n_features": 13,
     "n_groups": 0,
-    "sha256": "4f46947784994f715f560b79886377e683e055764e7516b222d93a4368acfa47",
+    "sha256": "d764bf6bfe00ca3c3669970185e80b7569b9deccbb9cb6fed329dd6c9dcbf09a",
     "prepare_sha256": "",
     "grouping": "None (no grouping metadata)",
     "notes": "LLM-scored benchmark. Features extracted from lecture transcripts and GPT-4 rubric reports.",
