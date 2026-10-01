@@ -27,9 +27,35 @@ class MMTBASource(DatasetSource):
     n_samples = 186
     n_features = 13
     n_groups = 0
-    sha256 = "4f46947784994f715f560b79886377e683e055764e7516b222d93a4368acfa47"
+    sha256 = "d764bf6bfe00ca3c3669970185e80b7569b9deccbb9cb6fed329dd6c9dcbf09a"
     grouping_description = "None (no grouping metadata)"
     notes = "LLM-scored benchmark. Features extracted from lecture transcripts and GPT-4 rubric reports."
+
+    def hash_scope(self, root):
+        """Cover only the files prepare() reads.
+
+        The figshare archive unpacks a full research code release alongside the
+        data: Teacher_Action_Detection/my_mmaction (1919 files), yolo
+        dense_proposals pickles, and 51 __pycache__ .pyc files. prepare() reads
+        none of that, and the .pyc bytes depend on when and under which
+        interpreter they were written, so hashing the whole extraction pins
+        2666 files of which 419 matter and cannot be reproduced by a reader.
+
+        Paths are relative to ``root``, which is the cache directory rather
+        than the MM-TBA/MM-TBA subdirectory prepare() navigates into.
+        """
+        base = root / "MM-TBA" / "MM-TBA"
+        if not base.is_dir():
+            base = root
+        prefix = base.relative_to(root)
+        scope = [prefix / "metadata.xlsx"]
+        lec = base / "Teacher_Lecture_Evaluation"
+        scope += [prefix / "Teacher_Lecture_Evaluation/teacher_lecture_texts" / p.name
+                  for p in sorted((lec / "teacher_lecture_texts").glob("*.txt"))]
+        for split in ("train", "eval"):
+            scope += [prefix / "Teacher_Lecture_Evaluation/gpt_report" / split / p.name
+                      for p in sorted((lec / "gpt_report" / split).glob("*.txt"))]
+        return [str(s) for s in scope]
 
     def download(self):
         import json, urllib.request, zipfile, io

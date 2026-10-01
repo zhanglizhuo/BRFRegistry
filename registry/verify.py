@@ -65,7 +65,7 @@ def verify_dataset(key):
         return None
     path = source.download()
     if isinstance(path, Path) and path.is_dir():
-        actual = compute_directory_sha256(path)
+        actual = compute_directory_sha256(path, source.hash_scope(path))
         if actual == source.sha256:
             print(f"  OK: {key} directory sha256={actual[:16]}...")
             return True
@@ -85,14 +85,31 @@ def verify_dataset(key):
         return False
 
 
-def compute_directory_sha256(path):
+def compute_directory_sha256(path, scope=None):
+    """Composite SHA-256 over the files at ``path``.
+
+    With ``scope`` None every file under ``path`` is covered. A source can pass
+    the relative paths it actually reads, which is what a loader needs when its
+    host archive unpacks unrelated material.
+    """
+    path = Path(path)
     sha = hashlib.sha256()
-    for fpath in sorted(path.rglob("*")):
-        if fpath.is_file():
-            rel = fpath.relative_to(path)
-            sha.update(str(rel).encode())
-            file_sha = compute_sha256(fpath)
-            sha.update(file_sha.encode())
+    if scope is None:
+        files = [f for f in sorted(path.rglob("*")) if f.is_file()]
+    else:
+        files = []
+        for rel in sorted(scope):
+            fp = path / rel
+            if not fp.is_file():
+                raise FileNotFoundError(f"hash_scope lists {rel!r}, not a file under {path}")
+            files.append(fp)
+        if not files:
+            raise FileNotFoundError(f"hash_scope selected no files under {path}")
+    for fpath in files:
+        rel = fpath.relative_to(path)
+        sha.update(str(rel).encode())
+        file_sha = compute_sha256(fpath)
+        sha.update(file_sha.encode())
     return sha.hexdigest()
 
 

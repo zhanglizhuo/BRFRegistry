@@ -75,14 +75,40 @@ class DatasetSource(ABC):
             return self._check_directory_sha256(path)
         return self._check_sha256(path)
 
+    def hash_scope(self, root):
+        """Return the files a directory-level sha256 should cover.
+
+        None (the default) means every file under ``root``. A source whose
+        host archive unpacks material the loader never reads should override
+        this and return the relative paths it actually consumes. Hashing the
+        whole extraction is then wrong twice over: it pins files that are
+        irrelevant to the dataset, and it pins caches such as __pycache__
+        whose bytes depend on when and under which interpreter they were
+        written, so the recorded digest cannot be reproduced by a reader.
+        """
+        return None
+
     def _compute_directory_sha256(self, path):
         sha = hashlib.sha256()
-        for fpath in sorted(path.rglob("*")):
-            if fpath.is_file():
-                rel = fpath.relative_to(path)
-                sha.update(str(rel).encode())
-                file_sha = self._compute_sha256(fpath)
-                sha.update(file_sha.encode())
+        scope = self.hash_scope(path)
+        if scope is None:
+            files = [f for f in sorted(path.rglob("*")) if f.is_file()]
+        else:
+            files = []
+            for rel in sorted(scope):
+                fp = path / rel
+                if not fp.is_file():
+                    raise FileNotFoundError(
+                        f"{self.name}: hash_scope lists {rel!r}, which is not a file under {path}"
+                    )
+                files.append(fp)
+            if not files:
+                raise FileNotFoundError(f"{self.name}: hash_scope selected no files under {path}")
+        for fpath in files:
+            rel = fpath.relative_to(path)
+            sha.update(str(rel).encode())
+            file_sha = self._compute_sha256(fpath)
+            sha.update(file_sha.encode())
         return sha.hexdigest()
 
     def _check_directory_sha256(self, path):
