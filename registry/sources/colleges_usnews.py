@@ -8,7 +8,7 @@ class CollegesUSNewsSource(DatasetSource):
     name = "colleges_usnews"
     display_name = "Colleges US News Rankings"
     version = "1.0"
-    source_url = "https://www.openml.org/data/download/22101655/colleges_usnews.arff"
+    source_url = "https://www.openml.org/d/538"
     license_info = "Public Domain (OpenML)"
     reference = "US News College Rankings (OpenML ID 538)"
     task = "regression"
@@ -16,31 +16,21 @@ class CollegesUSNewsSource(DatasetSource):
     n_features = 31
     n_groups = 51
     grouping_description = "US State (51 groups)"
-    sha256 = "699af40770b5948bb2baa426d4840922cb4730863ac1a4b06d29b16695ac7a82"
+    sha256 = "c96a8f3e34764ce52442bf10c50a4170260993de35ada0c7d82a8c6fec75104a"
     notes = "1204 US colleges. Target: graduation rate."
 
     def download(self):
-        from pathlib import Path
         dest_dir = self._ensure_cache_dir()
         csv_path = dest_dir / "colleges_usnews.csv"
         if csv_path.exists():
             return csv_path
-        arff_path = dest_dir / "colleges_usnews.arff"
-        if arff_path.exists():
-            return arff_path
-        try:
-            import openml
-            ds = openml.datasets.get_dataset(538)
-            X_df, y, _, _ = ds.get_data(dataset_format='dataframe')
-            import pandas as pd
-            df = pd.concat([X_df, y], axis=1) if y is not None else X_df.copy()
-            df.to_csv(str(csv_path), index=False)
-            return csv_path
-        except Exception:
-            pass
-        import urllib.request
-        urllib.request.urlretrieve(self.source_url, str(arff_path))
-        return arff_path
+        import openml
+        ds = openml.datasets.get_dataset(538)
+        X_df, y, _, _ = ds.get_data(dataset_format='dataframe')
+        import pandas as pd
+        df = pd.concat([X_df, y], axis=1) if y is not None else X_df.copy()
+        df.to_csv(str(csv_path), index=False)
+        return csv_path
 
     def prepare(self):
         from scipy.io import arff

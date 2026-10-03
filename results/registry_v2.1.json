@@ -394,7 +394,7 @@
     "n_samples": 1204,
     "n_features": 31,
     "n_groups": 51,
-    "sha256": "699af40770b5948bb2baa426d4840922cb4730863ac1a4b06d29b16695ac7a82",
+    "sha256": "c96a8f3e34764ce52442bf10c50a4170260993de35ada0c7d82a8c6fec75104a",
     "prepare_sha256": "",
     "grouping": "US State (51 groups)",
     "notes": "1204 US colleges. Target: graduation rate.",
