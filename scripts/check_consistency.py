@@ -322,6 +322,173 @@ def check_prepare_hashes(reg_dir: Path, report: Report) -> None:
                  f"missing {missing[:5]}, unknown {extra[:5]}")
 
 
+def find_paper_tree(start: Path) -> Path | None:
+    """Locate the Paper2-BenchmarkRegistry manuscript tree, if present."""
+    for parent in (start, start.parent, start.parent.parent):
+        try:
+            entries = sorted(p for p in parent.iterdir() if p.is_dir())
+        except (NotADirectoryError, PermissionError):
+            continue
+        for e in entries:
+            if (e / "tables" / "metadata_schema_expanded.tex").exists():
+                return e
+    return None
+
+
+def _flatten(card: dict, prefix: str = "") -> set[str]:
+    """Flatten a nested card into dotted paths, as the manuscript names them."""
+    out: set[str] = set()
+    for k, v in card.items():
+        if isinstance(v, dict):
+            out |= _flatten(v, f"{prefix}{k}.")
+        else:
+            out.add(f"{prefix}{k}")
+    return out
+
+
+def check_paper_schema(reg_root: Path, start: Path, report: Report) -> None:
+    """Verify the manuscript's schema table against the artefacts.
+
+    The Data Descriptor tabulated 20 flat field names as one schema. They are
+    spread across three artefacts and three of the names existed nowhere in a
+    release: target_type and grouping_rationale were dropped from the results
+    file in the v1.5 to v1.6 migration and survive only in the Dataset Card,
+    while download_method was specified but never implemented. The table is now
+    grouped by artefact with a measured coverage column, and this check keeps it
+    honest: every field it names must resolve in the artefact it is attributed
+    to, and every coverage figure must match what that artefact actually holds.
+
+    Documented retirements are allowed. Anything else that fails to resolve is
+    a claim the reader cannot act on.
+    """
+    paper = find_paper_tree(start)
+    table = (paper / "tables" / "metadata_schema_expanded.tex") if paper else None
+    if table is None or not table.exists():
+        report.check("manuscript schema table resolves against the artefacts", True,
+                     "Paper2 table not present; skipped")
+        return
+
+    results = reg_root / "results" / "registry_v2.1.json"
+    cards_dir = reg_root / "registry" / "cards"
+    meta_csv = reg_root.parent / "TrackA-AI" / "data" / "registry" / "dataset_meta.csv"
+    if not (results.exists() and cards_dir.is_dir()):
+        report.check("manuscript schema table resolves against the artefacts", False,
+                     "results/registry_v2.1.json or registry/cards/ missing")
+        return
+
+    reg = json.loads(results.read_text(encoding="utf-8"))
+    cards = {}
+    for f in sorted(cards_dir.glob("*.yaml")):
+        if yaml is not None:
+            try:
+                cards[f.stem] = yaml.safe_load(f.read_text(encoding="utf-8")) or {}
+            except Exception:
+                pass
+    meta_fields: dict[str, int] = {}
+    n_meta_rows = 0
+    if meta_csv.exists():
+        import csv as _csv
+        with meta_csv.open(encoding="utf-8") as fh:
+            rows = list(_csv.DictReader(fh))
+        n_meta_rows = len(rows)
+        for r in rows:
+            for k, v in r.items():
+                if k and v not in (None, ""):
+                    meta_fields[k] = meta_fields.get(k, 0) + 1
+
+    def card_count(path: str) -> int:
+        n = 0
+        for c in cards.values():
+            cur: object = c
+            for part in path.split("."):
+                if isinstance(cur, dict) and part in cur:
+                    cur = cur[part]
+                else:
+                    cur = None
+                    break
+            if cur not in (None, ""):
+                n += 1
+        return n
+
+    def present(name: str) -> tuple[bool, int | None, str]:
+        """Resolve a field: does it exist, how many entries hold it, where."""
+        if name == "prepare_hashes.json":
+            ph = pkg_root_prepare_hashes(reg_root)
+            if ph is None:
+                return (False, None, "")
+            return (True, len(json.loads(ph.read_text(encoding="utf-8"))),
+                    "prepare_hashes.json")
+        probe = reg.get(next(iter(reg)), {})
+        if name in probe:
+            if name == "n_groups":
+                # Present for all entries, holding 0 where there is no grouping.
+                n = sum(1 for v in reg.values() if name in v)
+            else:
+                n = sum(1 for v in reg.values() if v.get(name) not in (None, ""))
+            return (True, n, "registry_v2.1.json")
+        for _stem, c in cards.items():
+            if name in _flatten(c):
+                return (True, card_count(name), "Dataset Card")
+        if name in meta_fields:
+            return (True, meta_fields[name], "dataset_meta.csv")
+        return (False, None, "")
+
+    # Fields the manuscript discusses as retired. They are named only in the
+    # closing note, never as a schema row; the list is kept as a guard against a
+    # future edit reintroducing one as if it were still resolvable.
+    retired = {"target_type", "grouping_rationale", "download_method",
+               "prepare_sha256"}
+
+    text = table.read_text(encoding="utf-8")
+    rows = []
+    for line in text.splitlines():
+        art = re.match(r"\s*(?:\\texttt\{)?([\w.\-]+(?:\.json|\.csv|\.yaml)?)\}?(?:\s*&|\s*$)",
+                       line)
+        m = re.search(r"& \\texttt\{([^}]+)\} &.*?&\s*(\d+)(?:/51)?\s*\\\\?\s*$", line)
+        if m:
+            rows.append((m.group(1).replace("\\_", "_").replace(" ", ""),
+                         int(m.group(2)), line.strip()[:60]))
+            continue
+        if "multicolumn" in line.lower() or re.match(r"\s*\\multirow", line):
+            continue
+
+    reintroduced = sorted({f for f, _, _ in rows if f in retired})
+
+    unresolvable = []
+    coverage_bad = []
+    for field, claim, snippet in rows:
+        if field in retired:
+            continue
+        ok, actual, where = present(field)
+        if not ok:
+            unresolvable.append(f"{field} (in: {snippet})")
+            continue
+        # The table's own denominator varies: /51 for artefact-wide fields, and
+        # a bare count where the artefact has more rows than the registry, as
+        # dataset_meta.csv does with its 7 alternative grouping views.
+        if actual is not None and actual != claim:
+            coverage_bad.append(
+                f"{field}: table says {claim}, {where} holds {actual}")
+
+    report.check("every field named in the manuscript schema resolves in an artefact",
+                 not unresolvable,
+                 f"{len(unresolvable)} unresolvable: " + "; ".join(unresolvable[:4]))
+    report.check("manuscript coverage figures match the artefacts",
+                 not coverage_bad,
+                 f"{len(coverage_bad)} wrong: " + "; ".join(coverage_bad[:4]))
+    report.check("no retired field is presented as a live schema row",
+                 not reintroduced,
+                 f"listed as a row despite being retired: {', '.join(reintroduced)}")
+
+
+def pkg_root_prepare_hashes(reg_root: Path) -> Path | None:
+    cand = reg_root.parent / "BRFPackage" / "src" / "brf" / "registry" / "prepare_hashes.json"
+    if cand.exists():
+        return cand
+    cand2 = reg_root / "registry" / "prepare_hashes.json"
+    return cand2 if cand2.exists() else None
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -410,6 +577,9 @@ def main() -> int:
     check_card_source_agreement(reg_dir, report)
     check_declared_hash_coverage(reg_dir, report)
     check_prepare_hashes(reg_dir, report)
+
+    report.section("Manuscript claims")
+    check_paper_schema(reg_root, start, report)
 
     report.section("Python syntax")
     bad = []
