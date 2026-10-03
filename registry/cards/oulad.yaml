@@ -12,7 +12,7 @@ task:
   type: 'classification'
   target: binary (pass/fail)
 features:
-  count: 44
+  count: 52
 samples:
   count: 32593
 grouping:

@@ -12,7 +12,7 @@ task:
   type: 'classification'
   target: binary (bar exam pass)
 features:
-  count: 10
+  count: 7
 samples:
   count: 20800
 grouping:

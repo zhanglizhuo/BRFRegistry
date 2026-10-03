@@ -12,7 +12,7 @@ task:
   type: 'regression'
   target: continuous (0-7)
 features:
-  count: 31
+  count: 30
 samples:
   count: 145
 grouping:

@@ -235,14 +235,34 @@ def check_card_source_agreement(reg_dir: Path, report: Report) -> None:
             mismatches.append(f"{key}: card has no source module")
             continue
         card = yaml.safe_load(f.read_text(encoding="utf-8"))
-        for card_key, attr in (("n_samples", "n_samples"), ("n_groups", "n_groups"),
-                               ("n_features", "n_features")):
-            val = card.get(card_key)
-            if val is not None and int(val) != int(getattr(src, attr)):
+        # The cards nest these under samples.count, grouping.count and
+        # features.count rather than holding flat n_samples / n_groups /
+        # n_features keys. Reading only the flat name silently yielded None for
+        # every card, so the comparison never ran; both spellings are accepted
+        # and a missing value is reported rather than skipped.
+        for card_path, attr in (("samples.count", "n_samples"),
+                                ("grouping.count", "n_groups"),
+                                ("features.count", "n_features")):
+            val: object = card
+            for part in card_path.split("."):
+                if isinstance(val, dict) and part in val:
+                    val = val[part]
+                else:
+                    val = None
+                    break
+            declared = getattr(src, attr)
+            if val is None:
+                if declared:
+                    mismatches.append(
+                        f"{key}.{card_path} absent but source declares {declared}")
+                continue
+            if int(val) != int(declared):
                 mismatches.append(
-                    f"{key}.{card_key}={val} but source declares {getattr(src, attr)}")
+                    f"{key}.{card_path}={val} but source declares {declared}")
         task_type = str((card.get("task") or {}).get("type") or "").strip()
-        if task_type and task_type != src.task:
+        if not task_type:
+            mismatches.append(f"{key}.task.type absent but source declares {src.task!r}")
+        elif task_type != src.task:
             mismatches.append(f"{key}.task.type={task_type!r} but source.task={src.task!r}")
     report.check("card fields agree with source modules", not mismatches,
                  f"{len(mismatches)} mismatches: " + "; ".join(mismatches[:4]))
