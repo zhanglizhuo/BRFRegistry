@@ -25,9 +25,9 @@ education:
 reference: Yilmaz & Sekeroglu (2020); UCI ID 856
 notes: UCI ID 856. higher_ed_856.csv. Small N.
 brf_compatibility:
-  S: -1.034
-  E: 0.561
+  S: -5.2512
+  E: 0.4116
   class: Void
-  audited_version: v1.5
+  audited_version: v2.1
   note: BRF protocol is under review; scores are provisional. Communication shorthand only. Use continuous S and E values for
     analysis.

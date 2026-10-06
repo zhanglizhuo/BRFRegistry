@@ -23,7 +23,7 @@ education:
   level: Higher Education
   domain: Mental Health
 reference: Student Depression Dataset; OpenML ID 46753
-notes: Student mental health survey. City as group (30 Indian cities). Run as regression.
+notes: Student mental health survey. City as group (30 Indian cities).
 brf_compatibility:
   S: 0.983
   E: 1.372

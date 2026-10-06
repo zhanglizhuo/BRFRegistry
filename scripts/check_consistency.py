@@ -15,6 +15,8 @@ each of the following, all of which reached a release before it existed:
   * mm_tba's file-level digest covered all 2666 extracted files including 51
     __pycache__ .pyc instead of the 419 that prepare() reads.
   * prepare_hashes.json shipped the frozen 35-entry v2.0 file inside 0.3.0.
+  * 0.3.2-0.3.4 recorded one sha256 for mm_tba in the source module and a
+    different one in registry_v2.1.json, so the two trees of truth disagreed.
 
 Exit status is 0 when every check passes and 1 otherwise, so it can be used as
 a pre-commit hook or a CI step. Each check prints one line per finding.
@@ -266,6 +268,134 @@ def check_card_source_agreement(reg_dir: Path, report: Report) -> None:
             mismatches.append(f"{key}.task.type={task_type!r} but source.task={src.task!r}")
     report.check("card fields agree with source modules", not mismatches,
                  f"{len(mismatches)} mismatches: " + "; ".join(mismatches[:4]))
+
+
+def check_registry_json_values(reg_dir: Path, report: Report) -> None:
+    """registry_v2.1.json values must agree with the source modules and cards.
+
+    The checks above verify presence, entry counts and key sets; none of them
+    compares the recorded *values*. Releases 0.3.2-0.3.4 shipped with the
+    module and the JSON entry holding different sha256 for mm_tba while every
+    check stayed green, and 0.3.3-0.3.4 paired a card count of 31 with a JSON
+    n_features of 30. This is the check for that class of error: it reads both
+    sides of each pairing and reports the first disagreement.
+    """
+    name = "registry_v2.1.json values agree with source modules and cards"
+    json_path = reg_dir / "registry_v2.1.json"
+    if not json_path.exists():
+        report.check(name, False, "registry_v2.1.json missing")
+        return
+    registry = json.loads(json_path.read_text(encoding="utf-8"))
+    try:
+        sys.path.insert(0, str(reg_dir.parent))
+        from registry.sources import REGISTRY_SOURCES  # type: ignore
+    except Exception as exc:  # pragma: no cover
+        report.check(name, False, f"cannot import registry.sources: {exc}")
+        return
+
+    bad: list[str] = []
+    for key, src in sorted(REGISTRY_SOURCES.items()):
+        entry = registry.get(key)
+        if entry is None:
+            bad.append(f"{key}: no entry in registry_v2.1.json")
+            continue
+        for attr, jk in (("sha256", "sha256"), ("source_url", "source_url"),
+                        ("n_features", "n_features"), ("n_samples", "n_samples"),
+                        ("n_groups", "n_groups"), ("task", "task")):
+            declared = getattr(src, attr, None)
+            recorded = entry.get(jk)
+            if declared in (None, "") or recorded in (None, ""):
+                continue
+            if str(declared) != str(recorded):
+                bad.append(f"{key}.{jk}: module={declared!r} json={recorded!r}")
+
+    cards_dir = reg_dir / "cards"
+    if yaml is not None and cards_dir.is_dir():
+        for f in sorted(cards_dir.glob("*.yaml")):
+            key = f.stem
+            entry = registry.get(key)
+            if entry is None:
+                bad.append(f"{key}: card has no entry in registry_v2.1.json")
+                continue
+            card = yaml.safe_load(f.read_text(encoding="utf-8"))
+            for card_path, jk in (("samples.count", "n_samples"),
+                                 ("grouping.count", "n_groups"),
+                                 ("features.count", "n_features")):
+                val: object = card
+                for part in card_path.split("."):
+                    if isinstance(val, dict) and part in val:
+                        val = val[part]
+                    else:
+                        val = None
+                        break
+                recorded = entry.get(jk)
+                if val is None and recorded in (None, ""):
+                    continue
+                if val is None:
+                    bad.append(f"{key}.{card_path} absent but json records {recorded}")
+                    continue
+                try:
+                    if int(val) != int(recorded):
+                        bad.append(f"{key}.{card_path}={val} but json records {recorded}")
+                except (TypeError, ValueError):
+                    bad.append(f"{key}.{card_path}={val!r} but json records {recorded!r}")
+            card_task = str((card.get("task") or {}).get("type") or "").strip()
+            json_task = str(entry.get("task") or "").strip()
+            if card_task and json_task and card_task != json_task:
+                bad.append(f"{key}.task: card={card_task!r} json={json_task!r}")
+            card_sha = (card.get("integrity") or {}).get("sha256")
+            json_sha = entry.get("sha256")
+            if card_sha and json_sha and str(card_sha) != str(json_sha):
+                bad.append(f"{key}.integrity.sha256={str(card_sha)[:12]}... "
+                           f"but json records {str(json_sha)[:12]}...")
+
+    report.check(name, not bad, f"{len(bad)} mismatches: " + "; ".join(bad[:4]))
+
+
+def check_brf_compatibility(reg_dir: Path, report: Report) -> None:
+    """Card brf_compatibility S/E/class must agree with registry_v2.1.json brf_result.
+
+    Releases through 0.3.4 shipped with diabetes holding its B value in the
+    card's E field and with higher_ed/oulad still carrying v1.5-era S/E values,
+    while every check above stayed green: none of them compared the
+    brf_compatibility block against the recorded results. This is the check
+    for that class of error.
+    """
+    name = "card brf_compatibility S/E/class agree with registry_v2.1.json"
+    json_path = reg_dir / "registry_v2.1.json"
+    if not json_path.exists():
+        report.check(name, False, "registry_v2.1.json missing")
+        return
+    if yaml is None:
+        report.check(name, True, "skipped: pyyaml unavailable")
+        return
+    registry = json.loads(json_path.read_text(encoding="utf-8"))
+    cards_dir = reg_dir / "cards"
+    if not cards_dir.is_dir():
+        report.check(name, False, "cards directory missing")
+        return
+    tol = 0.01
+    bad: list[str] = []
+    for f in sorted(cards_dir.glob("*.yaml")):
+        entry = registry.get(f.stem)
+        br = (entry or {}).get("brf_result") or {}
+        if not br:
+            continue
+        card = yaml.safe_load(f.read_text(encoding="utf-8"))
+        bc = card.get("brf_compatibility") or {}
+        for jk in ("S", "E"):
+            cv, jv = bc.get(jk), br.get(jk)
+            if cv is None or jv is None:
+                continue
+            try:
+                if abs(float(cv) - float(jv)) > tol:
+                    bad.append(f"{f.stem}.{jk} card={cv} json={jv}")
+            except (TypeError, ValueError):
+                bad.append(f"{f.stem}.{jk} card={cv!r} not numeric")
+        if bc.get("class") is not None and br.get("class") is not None \
+                and str(bc["class"]) != str(br["class"]):
+            bad.append(f"{f.stem}.class card={bc['class']!r} json={br['class']!r}")
+    report.check(name, not bad, f"{len(bad)} mismatches: " + "; ".join(bad[:6]))
 
 
 def check_manifest_in(pkg_root: Path, report: Report) -> None:
@@ -595,6 +725,8 @@ def main() -> int:
     report.section("Registry content")
     check_cards(reg_dir, report)
     check_card_source_agreement(reg_dir, report)
+    check_registry_json_values(reg_dir, report)
+    check_brf_compatibility(reg_dir, report)
     check_declared_hash_coverage(reg_dir, report)
     check_prepare_hashes(reg_dir, report)
 

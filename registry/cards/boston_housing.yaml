@@ -16,7 +16,7 @@ features:
 samples:
   count: 506
 grouping:
-  variable: Region (4 regions)
+  variable: Quartile bins of feature f5 (4 groups)
   rationale: ''
   count: 4
 education:

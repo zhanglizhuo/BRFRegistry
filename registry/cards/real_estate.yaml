@@ -2,7 +2,7 @@ name: real_estate
 key: real_estate
 version: '1.0'
 source:
-  url: https://archive.ics.uci.edu/static/public/477/real+estate+valuation.zip
+  url: https://archive.ics.uci.edu/static/public/477/real+estate+valuation+data+set.zip
   repository: UCI
   license: CC BY 4.0
 collection:

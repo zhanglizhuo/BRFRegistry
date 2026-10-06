@@ -17,7 +17,7 @@ class StudentDepressionSource(DatasetSource):
     n_groups = 30
     grouping_description = "City (Indian cities)"
     sha256 = "d18d7476eec0f3f1352dd3cdf1ade52dbe9084cc8c523d3c8aa22f9d7248957a"
-    notes = "27.9K students. Target: depression (binary). Run as regression. n_groups is post-filter (cities with >=5 students)."
+    notes = "27.9K students. Target: depression (binary). n_groups is post-filter (cities with >=5 students)."
 
     def download(self):
         dest_dir = self._ensure_cache_dir()

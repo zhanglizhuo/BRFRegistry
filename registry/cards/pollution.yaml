@@ -16,7 +16,7 @@ features:
 samples:
   count: 263256
 grouping:
-  variable: Monitoring station (10 stations)
+  variable: Decile bins of feature f0 (10 groups)
   rationale: ''
   count: 10
 education:

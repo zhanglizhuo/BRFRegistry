@@ -26,9 +26,9 @@ reference: Kuzilek et al. (2017)
 notes: Open University Learning Analytics Dataset. Binarized pass-or-distinction vs
   fail-or-withdrawn.
 brf_compatibility:
-  S: 0.98
-  E: 1.236
+  S: 0.9807
+  E: 1.1702
   class: Reliable
-  audited_version: v1.5
+  audited_version: v2.1
   note: BRF protocol is under review; scores are provisional. Communication shorthand only. Use continuous S and E values for
     analysis.

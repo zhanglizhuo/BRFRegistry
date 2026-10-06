@@ -5,7 +5,9 @@ group-aware prediction benchmarks audited under the
 **Benchmark Reliability Framework (BRF)**.
 
 > Registry v2.1 : 51 unique datasets | 42 Reliable | 9 Void | 0 Fragile
-> 58 total entries (51 unique + 7 alternative grouping views)
+> + 7 alternative-grouping views (all Reliable) = 58 benchmark entries in total
+> (the registry archive holds the 51 unique datasets; the 7 alt-grouping views
+> are companion views reported alongside, not part of the archived registry)
 > DOI: [10.5281/zenodo.22996138](https://doi.org/10.5281/zenodo.22996138) (Zenodo, minted 2026-09-27)
 
 ## What's New in v2.1
@@ -80,7 +82,7 @@ Submit a PR with a `DatasetSource` subclass. See existing sources in
 | ASSISTments 2009-2010 | 3,729 | 5 | 124 | 0.95 | 0.95 | Reliable |
 | Auto MPG (Origin groups) | 392 | 6 | 3 | 0.96 | 1.44 | Reliable |
 | Bike Sharing (Season) | 731 | 10 | 4 | 0.96 | 1.77 | Reliable |
-| Boston Housing (Region groups) | 506 | 13 | 4 | 0.92 | 1.72 | Reliable |
+| Boston Housing (Quartile groups) | 506 | 13 | 4 | 0.92 | 1.72 | Reliable |
 | Breast Cancer — Survival | 569 | 30 | 2 | 1.00 | 1.86 | Reliable |
 | California Housing — Median Value | 20,640 | 8 | 30 | 0.98 | 0.93 | Reliable |
 | Colleges US News Rankings | 1,204 | 31 | 51 | 0.88 | 1.04 | Reliable |
@@ -107,7 +109,7 @@ Submit a PR with a `DatasetSource` subclass. See existing sources in
 | Olympics — Country Medals | 2,014 | 7 | 230 | 0.97 | 1.65 | Reliable |
 | Open University Learning Analytics Dataset | 32,593 | 52 | 22 | 0.98 | 1.17 | Reliable |
 | PISA 2015 Science | 519,334 | 3 | 73 | 0.99 | 0.84 | Reliable |
-| Pollution (Station groups) | 263,256 | 14 | 10 | 0.56 | 1.00 | Reliable |
+| Pollution (Decile groups) | 263,256 | 14 | 10 | 0.56 | 1.00 | Reliable |
 | Real Estate Valuation (Stores) | 414 | 4 | 3 | 0.84 | 1.52 | Reliable |
 | Seoul Bike Sharing (Season) | 8,760 | 9 | 4 | 0.97 | 1.46 | Reliable |
 | Student Depression Survey | 27,875 | 21 | 30 | 0.98 | 1.37 | Reliable |

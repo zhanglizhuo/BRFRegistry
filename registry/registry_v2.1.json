@@ -193,7 +193,7 @@
   },
   "boston_housing": {
     "name": "boston_housing",
-    "display_name": "Boston Housing (Region groups)",
+    "display_name": "Boston Housing (Quartile groups)",
     "version": "1.0",
     "source_url": "https://www.openml.org/d/531",
     "license": "Public domain",
@@ -204,7 +204,7 @@
     "n_groups": 4,
     "sha256": "",
     "prepare_sha256": "",
-    "grouping": "Region (4 regions)",
+    "grouping": "Quartile bins of feature f5 (4 groups)",
     "notes": "",
     "brf_result": {
       "B": 0.7206,
@@ -332,7 +332,7 @@
     "n_groups": 55,
     "sha256": "d4dca5f3d35fba46a164a1e8a59c35d643a89cbc25a216431a44913dd4cf5e00",
     "prepare_sha256": "",
-    "grouping": "US State (59 groups)",
+    "grouping": "US State (55 groups)",
     "notes": "7804 US colleges. Target: admission rate.",
     "brf_result": {
       "B": 0.2421,
@@ -1057,7 +1057,7 @@
   },
   "pollution": {
     "name": "pollution",
-    "display_name": "Pollution (Station groups)",
+    "display_name": "Pollution (Decile groups)",
     "version": "1.0",
     "source_url": "https://www.openml.org/d/1503",
     "license": "CC0",
@@ -1068,7 +1068,7 @@
     "n_groups": 10,
     "sha256": "",
     "prepare_sha256": "",
-    "grouping": "Monitoring station (10 stations)",
+    "grouping": "Decile bins of feature f0 (10 groups)",
     "notes": "",
     "brf_result": {
       "B": 0.0005,
@@ -1091,7 +1091,7 @@
     "name": "real_estate",
     "display_name": "Real Estate Valuation (Stores)",
     "version": "1.0",
-    "source_url": "https://archive.ics.uci.edu/static/public/477/real+estate+valuation.zip",
+    "source_url": "https://archive.ics.uci.edu/static/public/477/real+estate+valuation+data+set.zip",
     "license": "CC BY 4.0",
     "reference": "Yeh & Hsu (2018); UCI ID 477",
     "task": "regression",
@@ -1197,7 +1197,7 @@
     "sha256": "d18d7476eec0f3f1352dd3cdf1ade52dbe9084cc8c523d3c8aa22f9d7248957a",
     "prepare_sha256": "",
     "grouping": "City (Indian cities)",
-    "notes": "27.9K students. Target: depression (binary). Run as regression. n_groups is post-filter (cities with >=5 students).",
+    "notes": "27.9K students. Target: depression (binary). n_groups is post-filter (cities with >=5 students).",
     "brf_result": {
       "B": 0.5179,
       "I": 0.017,

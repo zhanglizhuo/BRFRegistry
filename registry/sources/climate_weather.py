@@ -1,5 +1,5 @@
 """Global Historical Weather (OpenML d/40918, NOAA 'Climate'). 577,462 raw station-years (544,811 with complete temperature).
-Target: average temperature (regression). Group: country (243)."""
+Target: average temperature (regression). Group: country (242)."""
 import pandas as pd
 
 from . import DatasetSource, register_source

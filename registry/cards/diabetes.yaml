@@ -26,7 +26,7 @@ reference: sklearn; SLC26A9 cohort
 notes: "Metabolic: disease progression rate. Group: BMI category."
 brf_compatibility:
   S: 0.9008
-  E: 0.5103
+  E: 1.3617
   class: Reliable
   audited_version: v2.1
   note: BRF protocol is under review; scores are provisional. BRF class is communication shorthand only. Use continuous S

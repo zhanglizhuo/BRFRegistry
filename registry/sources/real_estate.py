@@ -10,7 +10,7 @@ class RealEstateSource(DatasetSource):
     name = "real_estate"
     display_name = "Real Estate Valuation (Stores)"
     version = "1.0"
-    source_url = "https://archive.ics.uci.edu/static/public/477/real+estate+valuation.zip"
+    source_url = "https://archive.ics.uci.edu/static/public/477/real+estate+valuation+data+set.zip"
     license_info = "CC BY 4.0"
     reference = "Yeh & Hsu (2018); UCI ID 477"
     task = "regression"

@@ -1,5 +1,5 @@
 """Boston Housing (OpenML 531). 506 samples, 13 features, target: median value.
-Group: region (4 regions)."""
+Group: quartile bins of feature f5 (4 groups)."""
 import pandas as pd
 import numpy as np
 
@@ -8,7 +8,7 @@ from . import DatasetSource, register_source
 @register_source
 class BostonHousingSource(DatasetSource):
     name = "boston_housing"
-    display_name = "Boston Housing (Region groups)"
+    display_name = "Boston Housing (Quartile groups)"
     version = "1.0"
     source_url = "https://www.openml.org/d/531"
     license_info = "Public domain"
@@ -17,7 +17,7 @@ class BostonHousingSource(DatasetSource):
     n_samples = 506
     n_features = 13
     n_groups = 4
-    grouping_description = "Region (4 regions)"
+    grouping_description = "Quartile bins of feature f5 (4 groups)"
 
     def download(self):
         dest_dir = self._ensure_cache_dir()

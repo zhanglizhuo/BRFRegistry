@@ -1,5 +1,5 @@
 """Pollution (OpenML 1503). 263256 samples, 14 features, target: pollution level.
-Group: station (10 stations)."""
+Group: decile bins of feature f0 (10 groups)."""
 import pandas as pd
 import numpy as np
 
@@ -8,7 +8,7 @@ from . import DatasetSource, register_source
 @register_source
 class PollutionSource(DatasetSource):
     name = "pollution"
-    display_name = "Pollution (Station groups)"
+    display_name = "Pollution (Decile groups)"
     version = "1.0"
     source_url = "https://www.openml.org/d/1503"
     license_info = "CC0"
@@ -17,7 +17,7 @@ class PollutionSource(DatasetSource):
     n_samples = 263256
     n_features = 14
     n_groups = 10
-    grouping_description = "Monitoring station (10 stations)"
+    grouping_description = "Decile bins of feature f0 (10 groups)"
 
     def download(self):
         dest_dir = self._ensure_cache_dir()

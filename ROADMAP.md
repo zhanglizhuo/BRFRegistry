@@ -10,11 +10,12 @@
 ## Current Status
 
 - **BehaviorAudit** (SR, R2 submitted -- awaiting decision)
-- **BRF Package v0.3.0**: `pip install benchmark-reliability` — includes `brf.registry` subpackage (51 datasets), diagnose/rank/recommend, CLI
-- **BRF Benchmark Registry v2.1**: 58 entries (51 unique + 7 alt groupings); 49 Reliable, 9 Void, 0 Fragile
-  (v2.1 unique: 42 Reliable / 9 Void — incl. PISA 2015 re-encoded v2.0 from official OECD PUF 2026-09-14, Void → Reliable)
-  - Dataset-as-Code architecture; CLI; SHA-256 35/51 (69%)
-  - 39 self-contained source modules (0 external dependencies)
+- **BRF Package v0.3.5**: `pip install benchmark-reliability` — includes `brf.registry` subpackage (51 datasets), diagnose/rank/recommend, CLI
+- **BRF Benchmark Registry v2.1**: 51 unique datasets (42 Reliable / 9 Void / 0 Fragile)
+  + 7 alt-grouping views (all Reliable) = 58 benchmark entries (49 Reliable in total)
+  (incl. PISA 2015 re-encoded v2.0 from official OECD PUF 2026-09-14, Void → Reliable)
+  - Dataset-as-Code architecture; CLI; SHA-256 42/51 (82%)
+  - 45 self-contained source modules (0 external dependencies)
   - Multi-domain: education, engineering, energy, transportation, food science, etc.
   - Data pipeline automated: sync_scatter_data.py joins registry JSON + alt results + paper metadata
   - Paper 2 & Paper 3 reference v2.0 (35 datasets); Registry continues independently
@@ -379,10 +380,10 @@ Papers 2 and 3 freeze at v1.6 for reproducibility; Registry continues to v2.0+.
 1. **Registry v2.1**: expanded 35→51 unique datasets (added 16 cross-domain benchmarks: health, finance, environment, energy, transportation, systems)
 2. **42 Reliable / 9 Void / 0 Fragile** (bimodal; no intermediate regime — after PISA 2015 re-encoding from the official OECD PUF, Void→Reliable; pre-upgrade count was 35R/16V)
 3. **45 self-contained source modules** (43 single-dataset + 2 batch modules × 4 = 51 datasets; 0 external dependencies); 58 total entries incl. 7 alt-grouping views
-4. **SHA-256 35/51 (69%)**: all file-backed datasets verified; cross-domain additions are scikit-learn-bundled / synthetic / API-sourced
+4. **SHA-256 42/51 (82%)**: all file-backed datasets verified; the 9 without a declared checksum are scikit-learn/OpenML-bundled (verified by re-execution, no synthetic or simulated data)
 5. **cpu_act → OpenML**; removed house_16h (insufficient samples)
 6. **Package v0.3.0 released**: version chain unified, bundled registry synced to v2.1 (PyPI, uploaded 2026-09-18)
-7. **Zenodo v2.1 DOI minted**: 10.5281/zenodo.22996138 (2026-09-27; snapshot of tag v2.1, 51 datasets / 58 entries, MIT)
+7. **Zenodo v2.1 DOI minted**: 10.5281/zenodo.22996138 (2026-09-27; snapshot of tag v2.1, 51 unique datasets (42 Reliable / 9 Void / 0 Fragile); the 7 alt-grouping views are reported alongside, not archived, MIT)
 
 ### July 2026 (v2.0 session)
 
